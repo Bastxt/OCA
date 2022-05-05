@@ -71,14 +71,7 @@ ____________
 4. Se crea accion de <Variable>Cargar Linea</Variable>
     *   Esta funcion cargara los datos de la linea a editar en los campos de edicion  para facilitar el cambio.
     *   Creamos funcion personalizada para cargar valores
-        *   
-|             Parametro              |    tipo              |     Descripcion                   |
-|------------------------------------|----------------------|-----------------------------------|
-|   _document_number 	             |  Cadena 	            |   Número de documento             |
-|   referencialCertificacin_pro 	 |  Cadena 	            |   Referencial Certificación       |
-|   procesoOServicioACertificar_pro  |  Cadena 	            |   Proceso o servicio a certificar |
-|   esquemaDeCertificacion_pro 	     |  Cadena 	            |   Esquema de certificacion        |
-|   vigenciaDeLaCertificacin_pro 	 |  Cadena 	            |   Vigencia de la certificación    |
-|   tipoDeAcreditacion_pro 	         |  Cadena 	            |   Tipo de acreditacion            |
-|   numeroDeLinea 	                 |  Entero 	            |   Numero de Linea                 |   
-|   parametrosProducto               |  Juego de matrices 	|   Parametros Producto             |
+    *   La funcion de cargar lineas lee los valores del array y los pobla en los campos de edicion
+
+    *   adicional se crea una regla de actualizacion que consolida los datos en el array
+    *   se modifica visivilidad de boton "Agregar Referencial"

@@ -1,21 +1,20 @@
 result = "";
-newRow = json();
 
-comm = split(_line_item_comment, ",");
-
-//linea sistema de Producto<<<
-jsonput(newRow, "referencialDeCertificacin",referencialCertificacin_pro);
-jsonput(newRow, "procesoOServicioACertificar",procesoOServicioACertificar_pro);
-jsonput(newRow, "esquemaDeCertificacin",esquemaDeCertificacion_pro);
-jsonput(newRow, "tipoDeServicioProducto",tipoServicioPPS);
-jsonput(newRow, "vigenciaDeLaCertificacin",vigenciaDeLaCertificacin_pro);
-jsonput(newRow, "tipoDeAcreditacin",tipoDeAcreditacion_pro);
-jsonput(newRow, "naceP",naceProducto);
-jsonput(newRow, "iCS_pro",iCS);
-jsonput(newRow, "divisinNaceL",divisinNace);
-jsonarrayappend(parametrosProducto, newRow);
-
-
+refProd = parametrosProducto;
+sizepp = jsonarraysize(parametrosProducto);
+indices = range(sizepp);
+for index in indices {
+    refTemp = jsonarrayget(refProd, index, "json");
+    if (jsonget(refTemp, "_row_number", "integer") == numeroDeLinea) {
+        jsonput(refTemp, "referencialDeCertificacin", referencialCertificacin_pro);
+        jsonput(refTemp, "procesoOServicioACertificar", procesoOServicioACertificar_pro);
+        jsonput(refTemp, "esquemaDeCertificacin", esquemaDeCertificacion_pro);
+        jsonput(refTemp, "tipoDeServicioProducto", tipoServicioPPS);
+        jsonput(refTemp, "vigenciaDeLaCertificacin", vigenciaDeLaCertificacin_pro);
+        jsonput(refTemp, "tipoDeAcreditacin", tipoDeAcreditacion_pro);
+        break;
+    }
+}
 
 result = result + "|"+_document_number+"~parametrosProducto~" + jsonarrayrefid(parametrosProducto) + "|";
 
