@@ -1,7 +1,8 @@
 <style>
-Variable { color: #FFFFFF }
-Rule { color: Purple }
-Important { color: #B80D0D }
+Variable { color: #c76224 }
+Rule { color: #5524c7 }
+Important { color: #c7c724 }
+Til { color: #2465c7 }
 </style>
 
 # Correcciones para turismo 

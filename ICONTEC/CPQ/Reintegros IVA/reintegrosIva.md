@@ -1,9 +1,9 @@
 <style>
-Variable { color: Orange }
-Rule { color: Purple }
-Important { color: Green }
+Variable { color: #c76224 }
+Rule { color: #5524c7 }
+Important { color: #c7c724 }
+Til { color: #2465c7 }
 </style>
-
 # Rentegros IVA - Entrega en TEST
 
 ### Resumen solucion
