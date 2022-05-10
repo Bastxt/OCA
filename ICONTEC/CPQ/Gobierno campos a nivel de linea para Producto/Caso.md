@@ -37,6 +37,9 @@ Vemos la opcion de crear una seccion de actualizacion de referenciales exclusiva
 ![Editar](Editar.png)
 * Este check se llamara <Rule>Editar</Rule> [<Important>sera de tipo switch</Important>]
 * Al presionar el Switch aparecera un campo para indicar la linea a editar
+![Editar](Campos.png)
 * Se llenaran los campos del formulario de ingreso con los valores de linea seleccionados al presionar el boton <Variable>Cargar Linea</Variable>
 *   Tras editar el formulario de ingreso se actualizara la linea presionando el boton <Variable>Actualizar Linea</Variable>
 *   Se adiciona una columna llamada N Linea indicando el numero de linea del referencia, esto para identificar la linea a editar
+
+    ![Editar](Linea.png)

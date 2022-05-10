@@ -3,6 +3,7 @@ result = "";
 refProd = parametrosProducto;
 sizepp = jsonarraysize(parametrosProducto);
 indices = range(sizepp);
+
 for index in indices {
     refTemp = jsonarrayget(refProd, index, "json");
     if (jsonget(refTemp, "_row_number", "integer") == numeroDeLinea) {

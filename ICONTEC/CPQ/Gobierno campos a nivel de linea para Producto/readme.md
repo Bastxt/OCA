@@ -60,6 +60,7 @@ ____________
     *   Componentes a ocultar:
         *   Numero de Linea
         *   Cargar Linea
+        *   Actualizar linea
     _________
     
     *   Nombre: OcultarAddReff

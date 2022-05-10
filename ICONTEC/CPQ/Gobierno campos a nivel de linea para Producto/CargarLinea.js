@@ -1,6 +1,7 @@
 res = "";
 
 datosRef = jsonarrayget(parametrosProducto, numeroDeLinea - 1, "json");
+
 print(datosRef);
 
 res = res + _document_number + "~referencialCertificacin_pro~" + jsonget(datosRef, "referencialDeCertificacin", "string") + "|";
