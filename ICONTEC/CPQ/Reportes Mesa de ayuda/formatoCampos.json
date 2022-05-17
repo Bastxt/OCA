@@ -1,0 +1,604 @@
+{
+    "totalOneTimeListAmount_t": {
+        "value": 7022400.0,
+        "currency": "COP"
+    },
+    "oRCL_ERP_CPQSourceSystemCode_t": "ORA_BM_CPQ",
+    "totalFacturable": {
+        "value": 3160081.0,
+        "currency": "COP"
+    },
+    "fechaRecibidoUT": null,
+    "_bill_to_country": null,
+    "totalImpuesto": {
+        "value": 600415.39,
+        "currency": "COP"
+    },
+    "_submitted_by_aprobacion": "",
+    "cuentaPadreSALES": "N/A",
+    "emailContacto": "marco_sanchez@itis.com.co",
+    "_eSignatureAttributeSet_esig_file_attachment": {
+        "fileName": null,
+        "fileType": null,
+        "fileID": null,
+        "isFileSaved": false,
+        "fileLocation": "https://icontec.bigmachines.com/rest/v8/commerceProcesses/oraclecpqo_bmClone_1/documents/37525312/attachmentAttributes/_eSignatureAttributeSet_esig_file_attachment/transactions/44778269/documentNumbers/1"
+    },
+    "_invoiceTo_t_city": null,
+    "adjuntoscial3": {
+        "fileName": null,
+        "fileType": null,
+        "fileID": null,
+        "isFileSaved": false,
+        "fileLocation": "https://icontec.bigmachines.com/rest/v8/commerceProcesses/oraclecpqo_bmClone_1/documents/37525312/attachmentAttributes/adjuntoscial3/transactions/44778269/documentNumbers/1"
+    },
+    "customerContactName": "MARCO AURELIO SANCHEZ",
+    "customerAddress": "CL 102 47A 66",
+    "_customer_t_address": null,
+    "_soldTo_t_state": null,
+    "hasRecurringPricing_t": false,
+    "totalAfiliadoIVA": {
+        "value": 3509796.0,
+        "currency": "COP"
+    },
+    "ordenDeCompra": null,
+    "_pruebaLink_email": null,
+    "_direccionesMultisitio_company_name_2": null,
+    "activo": false,
+    "oRCL_ERP_ERPSystem_t": null,
+    "proposalPreparedByEmail_t": null,
+    "test_l": null,
+    "direccinContacto": "CL 102 47 A 66",
+    "_submitted_by_submit_t": "",
+    "observacionesPropuesta": null,
+    "_partner_price_book_id": "null",
+    "_direccionesMultisitio_state": null,
+    "solicitudMesaDeAyuda": false,
+    "opportunityNumber_t": "59280",
+    "priceWithinPolicy_t": true,
+    "ultimaFechaDeActualizacinT": "2022-03-17T12:50:07Z",
+    "_direccionesMultisitio_address_2": null,
+    "totalImpuestoCombinadas": {
+        "value": 0.0,
+        "currency": "COP"
+    },
+    "ultimaFechaDeActualizacinU": "2022-03-17T12:50:07Z",
+    "statusDate_t": null,
+    "_reject_link": "",
+    "_soldTo_t_country": null,
+    "_shipTo_t_zip": null,
+    "_shipTo_t_fax": null,
+    "priceExpirationDate_t": null,
+    "oRCL_ERP_OrderID_t": null,
+    "soldToCustomerAccountID_t": null,
+    "estadoFacturacionParcial": false,
+    "_ship_to_phone": null,
+    "proposalPreparedByName_t": null,
+    "_bill_to_first_name": null,
+    "_direccionesMultisitio_email": null,
+    "_document_number": "1",
+    "proposalPreparedByTitle_t": null,
+    "ciudadEjecutivo": "MEDELLÍN",
+    "shipToPartySiteID_t": null,
+    "observacionesOrden": null,
+    "contAdjUT": "0",
+    "owner_t": "gposada@icontec.org",
+    "_soldTo_t_email": null,
+    "linea": null,
+    "_invoiceTo_t_first_name": null,
+    "_customer_t_zip": null,
+    "_customer_t_fax": null,
+    "currency_t": {
+        "displayValue": "COP",
+        "value": "COP"
+    },
+    "msmOrden": null,
+    "contAdjUF": "0",
+    "groupPrincipal": "salesUser+_allAccess+cPQ_EJECUTIVO",
+    "flow_pro": null,
+    "celularDirector": "57 3103310381",
+    "_eSignatureAttributeSet_esig_status": {
+        "displayValue": "No enviada",
+        "value": "Not Sent"
+    },
+    "_soldTo_t_company_name": null,
+    "_shipTo_t_first_name": null,
+    "representanteLegal": null,
+    "comentarioCondicionesC": null,
+    "_shipTo_t_company_name": null,
+    "correoContacto": "marco_sanchez@itis.com.co",
+    "_price_book_var_name": "_default_price_book",
+    "totalNoAfiliado": {
+        "value": 3511200.0,
+        "currency": "COP"
+    },
+    "tipoDePersona": "JURIDICA",
+    "fechaEstimadaDeInicio": null,
+    "_currency_pref": {
+        "id": 5190384,
+        "currencyCode": "COP",
+        "links": [
+            {
+                "rel": "domain",
+                "href": "https://icontec.bigmachines.com/rest/v8/currencies"
+            },
+            {
+                "rel": "canonical",
+                "href": "https://icontec.bigmachines.com/rest/v8/currencies/COP"
+            }
+        ]
+    },
+    "_shipTo_t_address": null,
+    "totalLineaSimpleImpuesto": {
+        "value": 3760496.39,
+        "currency": "COP"
+    },
+    "totalOneTimeDiscount_t": {
+        "value": 351120.0,
+        "currency": "COP"
+    },
+    "numeroContacto": "+57 (310)3890418",
+    "lastUpdatedDate_t": "2022-03-17T17:00:00Z",
+    "descuentoGeneral": false,
+    "_price_book_desc": "Catálogo de precios por defecto (1.0 x precio base)",
+    "_document_var_name": "transaction",
+    "margenDeGanancia": null,
+    "salesMethod_t": "Corporativo",
+    "_customer_t_phone": null,
+    "lastPricedDate_t": "2022-02-18T16:24:00Z",
+    "lastUpdatedBy_t": "Super User",
+    "_price_book_name": "Precio base",
+    "_direccionesMultisitio_country": null,
+    "oRCL_ERP_OrderNumber_t": null,
+    "tipoDeOrden": {
+        "displayValue": "Simple",
+        "value": "simple"
+    },
+    "paymentTerms_t": {
+        "displayValue": "30 días",
+        "value": "30 Net"
+    },
+    "adjuntosUT": {
+        "fileName": null,
+        "fileType": null,
+        "fileID": null,
+        "isFileSaved": false,
+        "fileLocation": "https://icontec.bigmachines.com/rest/v8/commerceProcesses/oraclecpqo_bmClone_1/documents/37525312/attachmentAttributes/adjuntosUT/transactions/44778269/documentNumbers/1"
+    },
+    "comentarioPrestacinS": null,
+    "transactionDescription_t": null,
+    "_date_added": "2022-03-16T15:17:16.000Z",
+    "dePatrocinio": "0",
+    "cotizacionOriginal": "CPQ-1469",
+    "alcancePropuesta2": null,
+    "contAdjDos": "0",
+    "_invoiceTo_t_phone": null,
+    "_pruebaLink_fax": null,
+    "adjuntosUF": {
+        "fileName": null,
+        "fileType": null,
+        "fileID": null,
+        "isFileSaved": false,
+        "fileLocation": "https://icontec.bigmachines.com/rest/v8/commerceProcesses/oraclecpqo_bmClone_1/documents/37525312/attachmentAttributes/adjuntosUF/transactions/44778269/documentNumbers/1"
+    },
+    "partyNumber": "8300809282",
+    "_pruebaLink_zip": null,
+    "uRLDOCUMENTOSCPQ": null,
+    "proposalPreparedByCell_t": null,
+    "city": "Bogota",
+    "invoiceToPartyID_t": null,
+    "DireccionRepLegal": "null",
+    "_direccionesMultisitio_address": null,
+    "_invoiceTo_t_zip": null,
+    "a1234": null,
+    "conceptoBloqueo": "N/A",
+    "rejectReason_t": null,
+    "_pruebaLink_city": null,
+    "tabla": null,
+    "uRLDocumentosUF": null,
+    "_pruebaLink_phone": null,
+    "contAdjUno": "6364",
+    "_eSignatureAttributeSet_esig_envelope_id": null,
+    "transactionID_t": "CPQ-1469",
+    "taxExempt_t": false,
+    "opportunityName_t": "Pueba Estrategia Mypes",
+    "totalMonthlyDiscount_t": {
+        "value": 0.0,
+        "currency": "COP"
+    },
+    "_invoiceTo_t_fax": null,
+    "_shipTo_t_email": null,
+    "ultimaFechaDeActualizacin": "2022-03-17T12:19:29Z",
+    "parent_transaction_id_versionTransaction_t": "43847064",
+    "_pruebaLink_esig_recipients": null,
+    "fulfillmentStatus_t": null,
+    "regionalVendedor": "DIRECCIÓN COMERCIAL",
+    "trazabilidadDeEstado": "2022-02-18 16:30:03~gposada@icontec.org~icontec~Creacion de Cotización~2022-02-18 16:30:05~gposada@icontec.org~icontec~Creacion de Cotización~2022-02-18 16:31:22~gposada@icontec.org~icontec~Solicitud de Aprobación Director Regional~2022-02-18 16:31:23~gposada@icontec.org~icontec~Solicitud de Aprobación Director Regional~2022-02-18 16:54:02~gposada@icontec.org~icontec~Descuento Aprobado~2022-02-18 16:54:04~gposada@icontec.org~icontec~Descuento Aprobado~2022-03-16 15:07:10~gposada@icontec.org~icontec~Descuento Aprobado~2022-03-16 15:07:12~gposada@icontec.org~icontec~Descuento Aprobado~2022-03-17 12:19:13~superuser~icontec~Descuento Aprobado~2022-03-17 12:19:15~superuser~icontec~Descuento Aprobado~2022-03-17 12:19:31~superuser~icontec~Descuento Aprobado~2022-03-17 12:19:33~superuser~icontec~Descuento Aprobado~2022-03-17 12:50:11~superuser~icontec~Descuento Aprobado~2022-03-17 12:50:13~superuser~icontec~Descuento Aprobado~2022-03-17 15:43:22~superuser~icontec~Descuento Aprobado~2022-03-17 15:43:24~superuser~icontec~Descuento Aprobado~2022-03-17 15:58:41~superuser~icontec~Descuento Aprobado~2022-03-17 15:58:42~superuser~icontec~Descuento Aprobado~2022-03-17 15:58:59~superuser~icontec~Descuento Aprobado~2022-03-17 15:59:01~superuser~icontec~Descuento Aprobado~2022-03-17 16:55:25~superuser~icontec~Descuento Aprobado~2022-03-17 16:55:26~superuser~icontec~Descuento Aprobado~2022-03-17 16:56:26~superuser~icontec~En Revisión por Mesa de Ayuda [Sistema Gestion]~2022-03-17 16:56:28~superuser~icontec~En Revisión por Mesa de Ayuda [Sistema Gestion]~2022-03-17 16:58:27~superuser~icontec~En Revisión por Mesa de Ayuda [Sistema Gestion]~2022-03-17 16:58:29~superuser~icontec~En Revisión por Mesa de Ayuda [Sistema Gestion]~2022-03-17 16:59:00~superuser~icontec~En Revisión por Mesa de Ayuda [Sistema Gestion]~2022-03-17 16:59:02~superuser~icontec~En Revisión por Mesa de Ayuda [Sistema Gestion]~2022-03-17 16:59:28~superuser~icontec~En Revisión por Mesa de Ayuda [Sistema Gestion]~2022-03-17 16:59:30~superuser~icontec~En Revisión por Mesa de Ayuda [Sistema Gestion]~2022-03-17 17:00:28~superuser~icontec~Aceptado por Mesa de Ayuda~2022-03-17 17:00:29~superuser~icontec~Aceptado por Mesa de Ayuda",
+    "approval_history_submit_t": null,
+    "adjuntosComercial3": {
+        "fileName": null,
+        "fileType": null,
+        "fileID": null,
+        "isFileSaved": false,
+        "fileLocation": "https://icontec.bigmachines.com/rest/v8/commerceProcesses/oraclecpqo_bmClone_1/documents/37525312/attachmentAttributes/adjuntosComercial3/transactions/44778269/documentNumbers/1"
+    },
+    "soldToPartySiteID_t": "100000001671878",
+    "numeroDeOrden": "####",
+    "adjuntosComercial2": {
+        "fileName": null,
+        "fileType": null,
+        "fileID": null,
+        "isFileSaved": false,
+        "fileLocation": "https://icontec.bigmachines.com/rest/v8/commerceProcesses/oraclecpqo_bmClone_1/documents/37525312/attachmentAttributes/adjuntosComercial2/transactions/44778269/documentNumbers/1"
+    },
+    "taxpayer_nit": "830080928-2",
+    "_direccionesMultisitio_last_name": null,
+    "nuevaOportunidad": null,
+    "_shipTo_t_city": null,
+    "defaultRequestDate_t": null,
+    "firmaEjecutivo": "Firmas_Ejecutivos/POSADA_GREIFFENSTEIN_GREGORIO.png",
+    "oRCL_ERP_AvailabilityCheckDate_t": null,
+    "_approve_link": "",
+    "observacionesFlujoInterno": "2022-02-18 16:42:24~lfuquen@icontec.org~icontec~prueba",
+    "_direccionesMultisitio_company_name": null,
+    "auditoriaCombinada": false,
+    "patrocinioTotalImpuestoLineasIntegradas": {
+        "value": 0.0,
+        "currency": "COP"
+    },
+    "observaciones": null,
+    "_id": 44778269,
+    "serviciossolicitadosGG": null,
+    "_invoiceTo_t_address_2": null,
+    "totalReintegros": {
+        "value": 3760496.39,
+        "currency": "COP"
+    },
+    "patrocinioTotalLineasSimples": {
+        "value": 0.0,
+        "currency": "COP"
+    },
+    "estadoCotizacin": "En Revisión por Mesa de Ayuda",
+    "soldToPartyID_t": null,
+    "_step_var_name": "aceptadoPorMesaDeAyuda",
+    "_soldTo_t_company_name_2": null,
+    "_pruebaLink_state": null,
+    "conceptoFinanacieroV2": null,
+    "fechaAsignacinUT": null,
+    "customerContactRole": "GERENTE DE PROYECTO",
+    "observacionesUF": null,
+    "pruebaCampo": null,
+    "approval_revision_aprobacion": 1,
+    "responsable": null,
+    "claseDeRiesgoARL": null,
+    "_soldTo_t_address": null,
+    "approval_status_aprobacion": null,
+    "_invoiceTo_t_last_name": null,
+    "alcanceDeLaPropuesta": null,
+    "approval_revision_submit_t": 1,
+    "_supplier_company_name": "icontec",
+    "_bill_to_email": null,
+    "totalFacturableReintegro": {
+        "value": 3160081.0,
+        "currency": "COP"
+    },
+    "_pp_name": "Ejecutivo",
+    "status_t": {
+        "displayValue": "Creada",
+        "value": "CREATED"
+    },
+    "totalAfiliado": {
+        "value": 2949408.0,
+        "currency": "COP"
+    },
+    "eSTADOAFILIACION": null,
+    "_pruebaLink_company_name": null,
+    "_customer_id": null,
+    "_invoiceTo_t_state": null,
+    "nombreDeProyectoPropuesto": "8300809282 CPQ-1469 ITIS SUPPORT LTDA",
+    "observaciones_UT": null,
+    "cargoEjecutivo": "JEFE DE DESARROLLO COMERCIAL",
+    "_customer_t_state": null,
+    "totalContractValue_t": {
+        "value": 6320161.0,
+        "currency": "COP"
+    },
+    "_ship_to_email": null,
+    "adjuntos": {
+        "fileName": "Sin título.png",
+        "fileType": "image/png",
+        "fileID": "44823491",
+        "isFileSaved": true,
+        "fileLocation": "https://icontec.bigmachines.com/rest/v8/commerceProcesses/oraclecpqo_bmClone_1/documents/37525312/attachmentAttributes/adjuntos/transactions/44778269/documentNumbers/1"
+    },
+    "_date_modified": "2022-03-17T17:00:29.000Z",
+    "_invoiceTo_t_email": null,
+    "oRCL_ERP_OrgID_t": "999",
+    "approval_history_aprobacion": null,
+    "telefonoEjecutivo": "604 5907426  Ext.4102",
+    "oRCL_ERP_IntegrationStatusText_t": null,
+    "taxExemptReason_t": null,
+    "jefeEjecutivo": "LEONARDO DAVID FUQUEN BECERRA",
+    "customerName": "ITIS SUPPORT LTDA",
+    "tipoDeAuditoria": {
+        "displayValue": "Simple",
+        "value": "simple"
+    },
+    "adjuntoPedro": {
+        "fileName": null,
+        "fileType": null,
+        "fileID": null,
+        "isFileSaved": false,
+        "fileLocation": "https://icontec.bigmachines.com/rest/v8/commerceProcesses/oraclecpqo_bmClone_1/documents/37525312/attachmentAttributes/adjuntoPedro/transactions/44778269/documentNumbers/1"
+    },
+    "_shipTo_t_last_name": null,
+    "totalLineasCombinadasImpuesto": {
+        "value": 0.0,
+        "currency": "COP"
+    },
+    "telefonoDirector": "601 5806419 Ext.1231",
+    "patrocinioTotalImpuestoLineasCombinadas": {
+        "value": 0.0,
+        "currency": "COP"
+    },
+    "_invoiceTo_t_company_name_2": null,
+    "_pruebaLink_last_name": null,
+    "cargoJefe": "DIRECCIÓN COMERCIAL",
+    "_soldTo_t_zip": null,
+    "_ship_to_company_name": null,
+    "totalNoAfiliadoIVA": {
+        "value": 0.0,
+        "currency": "COP"
+    },
+    "rejectExplanation_t": null,
+    "_pruebaLink_address_2": null,
+    "_soldTo_t_fax": null,
+    "_customer_t_country": null,
+    "_ship_to_company_name_2": null,
+    "totalOneTimeNetAmount_t": {
+        "value": 6320161.0,
+        "currency": "COP"
+    },
+    "bs_id": "44778269",
+    "currentStepForTesting_tempDisplay_t": "Aceptado por Mesa de Ayuda",
+    "CorreoRepLegal": "null",
+    "cancelExplanation_t": null,
+    "_customer_t_email": null,
+    "_ship_to_state": null,
+    "_bill_to_address": null,
+    "vigencia": {
+        "displayValue": "30 días",
+        "value": "30 Net"
+    },
+    "estadoDeOrden": "Sin Generar",
+    "totalFacturacionParcial": {
+        "value": 0.0,
+        "currency": "COP"
+    },
+    "accountID_t": "100000001675193",
+    "_pruebaLink_company_name_2": null,
+    "customerPartySiteID_t": null,
+    "totalContractDiscount_t": {
+        "value": 702240.0,
+        "currency": "COP"
+    },
+    "direccinEjecutivo": "CALLE 5 A # 39 -90",
+    "orderPlacedBy_t": null,
+    "_soldTo_t_first_name": null,
+    "currencyCode": null,
+    "profesionalUT": null,
+    "country": "CO",
+    "_direccionesMultisitio_phone": null,
+    "valorFacturableImpuesto": {
+        "value": 3760496.39,
+        "currency": "COP"
+    },
+    "fechaDeFinalizacin": null,
+    "businessUnit": "BU_IC_COLOMBIA_AR",
+    "_invoiceTo_t_company_name": null,
+    "customerID_t": null,
+    "_direccionesMultisitio_city": null,
+    "_customer_t_company_name": "ITIS SUPPORT SAS",
+    "userKey_t": "CPQ-1469v2",
+    "_transaction_total": {
+        "value": 6320161.0,
+        "currency": "COP"
+    },
+    "approve_reject_icon_submit_t": null,
+    "_direccionesMultisitio_first_name": null,
+    "_bill_to_company_name": null,
+    "_customer_t_city": null,
+    "_eSignatureAttributeSet_esig_date_modified": null,
+    "coverLetter_t": null,
+    "ownerResourcePartyId": "300000002524229",
+    "documentoRepresentanteLegal": "null",
+    "lineaCo": "Evaluación de la Conformidad",
+    "_pruebaLink_country": null,
+    "transactionName_t": null,
+    "statusPartial_t": false,
+    "_ship_to_zip": null,
+    "totalLineasIntegradasImpuesto": {
+        "value": 0.0,
+        "currency": "COP"
+    },
+    "_pp_id": 37544463,
+    "oRCL_ERP_SoapRequest_t": null,
+    "_shipTo_t_phone": null,
+    "_ship_to_country": null,
+    "_pruebaLink_esig_file_attachment": {
+        "fileName": null,
+        "fileType": null,
+        "fileID": null,
+        "isFileSaved": false,
+        "fileLocation": "https://icontec.bigmachines.com/rest/v8/commerceProcesses/oraclecpqo_bmClone_1/documents/37525312/attachmentAttributes/_pruebaLink_esig_file_attachment/transactions/44778269/documentNumbers/1"
+    },
+    "servicioCo": "Certificación Sistema",
+    "totalMonthlyListAmount_t": {
+        "value": 0.0,
+        "currency": "COP"
+    },
+    "shipToPartyID_t": null,
+    "_pruebaLink_esig_date_modified": null,
+    "sectorIAF": null,
+    "_invoiceTo_t_country": null,
+    "version_t": 2,
+    "proposalPreparedByPhone_t": null,
+    "_price_book_custom_fields": {
+        "value": null
+    },
+    "_bill_to_fax": null,
+    "sEDES": null,
+    "afiliadolblv2": "No",
+    "afiliado": {
+        "displayValue": "No Afiliado",
+        "value": "false"
+    },
+    "_bill_to_zip": null,
+    "solicitudViabilidadEconomica": false,
+    "_pruebaLink_esig_envelope_id": null,
+    "prefijoTratamiento": "Doctor(a)",
+    "correoFacturacionElectronica": "N/A",
+    "totalMonthlyNetAmount_t": {
+        "value": 0.0,
+        "currency": "COP"
+    },
+    "patrocinioTotalLineasIntegradas": {
+        "value": 0.0,
+        "currency": "COP"
+    },
+    "tipo": null,
+    "type": "ZCA_CUSTOMER",
+    "_invoiceTo_t_address": null,
+    "documentoDirector": "79941006",
+    "_soldTo_t_city": null,
+    "createdDate_t": "2022-03-16T15:17:00Z",
+    "TelefonoRepLegal": "null",
+    "approval_status_submit_t": null,
+    "aprobadoPorElCliente": false,
+    "_bill_to_last_name": null,
+    "firmaDirector": "Firmas_Ejecutivos/LEONARDO_DAVID_FUQUEN_BECERRA.png",
+    "patrocinioTotalImpuestoLineasSimples": {
+        "value": 0.0,
+        "currency": "COP"
+    },
+    "approve_reject_icon_aprobacion": null,
+    "_ship_to_last_name": null,
+    "emailDirector": "lfuquen@icontec.org",
+    "oRCL_ERP_PartialShipAllowed_t": false,
+    "customerPartyID_t": "100000001675193",
+    "_shipTo_t_state": null,
+    "_ship_to_fax": null,
+    "reasignarOportunidad": false,
+    "header_ID": "300000088874908",
+    "_soldTo_t_address_2": null,
+    "_pruebaLink_esig_status": {
+        "displayValue": "Not Sent",
+        "value": "Not Sent"
+    },
+    "_ship_to_first_name": null,
+    "_process_var_name": "oraclecpqo_bmClone_1",
+    "_pruebaLink_first_name": null,
+    "iNTEGRADO": {
+        "displayValue": "N/A",
+        "value": "nA"
+    },
+    "_bill_to_company_name_2": null,
+    "createdBy_t": "GREGORIO POSADA GREIFFENSTEIN",
+    "_soldTo_t_last_name": null,
+    "_bill_to_address_2": null,
+    "opciondecertGG": null,
+    "celularEjecutivo": "57 3202753708",
+    "totalImpuestoIntegradas": {
+        "value": 0.0,
+        "currency": "COP"
+    },
+    "ultimaFechaDeActualizacinUT": "2022-03-17T16:59:26Z",
+    "invoiceToPartySiteID_t": null,
+    "_bill_to_phone": null,
+    "t_l": null,
+    "oRCL_ERP_ReservationStatus_t": null,
+    "CorreoFactElectronica": null,
+    "numeroDeGuias": null,
+    "descuento": 10.0,
+    "ultimaFechaDeActualizacinUF": "2022-03-17T15:43:20Z",
+    "_buyer_company_name": "icontec",
+    "bodega": null,
+    "_soldTo_t_phone": null,
+    "facturacionParcial": false,
+    "multisitio": false,
+    "telefonoContacto": "+57 (310)3890418",
+    "_eSignatureAttributeSet_esig_recipients": null,
+    "tipoDeConvenio": null,
+    "oRCL_ERP_IntegrationStatus_t": "&#160;",
+    "_customer_t_last_name": "SANCHEZ",
+    "salesChannel_t": null,
+    "_ship_to_city": null,
+    "totalAnnualValue_t": {
+        "value": 0.0,
+        "currency": "COP"
+    },
+    "fSSC": false,
+    "_shipTo_t_country": null,
+    "telefono_n": null,
+    "orderDate_t": null,
+    "nombreDelCertificado": null,
+    "nombrePropuestoProyecto": "CPQ-1469  ",
+    "_bill_to_city": null,
+    "purchaseOrderNumber_t": "CPQ-1469",
+    "_last_document_number": 5,
+    "patrocinadaPor": "N/A",
+    "_price_book_custom_field_text": {
+        "value": null
+    },
+    "contAdjTres": "0",
+    "_bill_to_state": null,
+    "_customer_t_address_2": null,
+    "requireApprovalIfChecked_temporary_t": false,
+    "totalLineasSimples": {
+        "value": 3160081.0,
+        "currency": "COP"
+    },
+    "oRCL_ERP_SoapResponse_t": null,
+    "patrocinioTotalLineasCombinadas": {
+        "value": 0.0,
+        "currency": "COP"
+    },
+    "_shipTo_t_company_name_2": null,
+    "CargoRepLegal": null,
+    "link": null,
+    "cdigosClasificacin": {
+        "displayValue": "N/A",
+        "value": "nA"
+    },
+    "pruebaLink2": null,
+    "_shipTo_t_address_2": null,
+    "documentoContacto": "88994455",
+    "cancelReason_t": null,
+    "nombreEjecutivo": "POSADA GREIFFENSTEIN GREGORIO",
+    "totalLineasCombinadas": {
+        "value": 0.0,
+        "currency": "COP"
+    },
+    "TotalAnnualDiscount_t": {
+        "value": 0.0,
+        "currency": "COP"
+    },
+    "_ship_to_address_2": null,
+    "propietarioOportunidad": "gposada@icontec.org",
+    "_direccionesMultisitio_zip": null,
+    "_pruebaLink_address": null,
+    "_customer_t_company_name_2": null,
+    "_ship_to_address": null,
+    "_direccionesMultisitio_fax": null,
+    "viaticos": {
+        "value": 0.0,
+        "currency": "COP"
+    },
+    "version_number_versionTransaction_t": "2",
+    "_customer_t_first_name": "MARCO AURELIO",
+    "uRLDOCUMENTOSCOTIZACIN": null,
+    "totalLineasIntegrada": {
+        "value": 0.0,
+        "currency": "COP"
+    }
+}
