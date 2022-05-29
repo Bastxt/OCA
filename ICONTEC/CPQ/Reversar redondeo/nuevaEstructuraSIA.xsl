@@ -28,23 +28,13 @@
 
     <xsl:variable name="servN" select="/transaction/data_xml/document[@document_var_name='transactionLine' and not(item_l/_part_custom_field2  = preceding:: item_l/_part_custom_field2) and item_l/_part_custom_field2 != '' and not(fase='Viaticos') and facturable = 'true' and not(item_l/_part_number = 'VA3150302')]"/>
 
-
     <xsl:for-each select="$servN">
         <xsl:variable name="servAg" select="item_l/_part_custom_field2"/>
         <!-- Totales -->
         <xsl:variable name="sumCantC" select="sum(/transaction/data_xml/document[@document_var_name='transactionLine' and not(fase='Viaticos') and tipoDeEsquema = 'simple' and facturable = 'true' and reintegro = 'noaplica' and item_l/_part_custom_field2 = $servAg]/cantidadItem)"/>
-
-        <xsl:variable name="totalC" select="/transaction/data_xml/document[@document_var_name='transactionLine' and not(fase='Viaticos') and tipoDeEsquema = 'simple' and facturable = 'true' and reintegro = 'noaplica' and item_l/_part_custom_field2 = $servAg]"/>
+        <xsl:variable name="totalC" select="sum(/transaction/data_xml/document[@document_var_name='transactionLine' and not(fase='Viaticos') and tipoDeEsquema = 'simple' and facturable = 'true' and reintegro = 'noaplica' and item_l/_part_custom_field2 = $servAg]/netAmount_l)"/>
         <xsl:variable name="totalCimp" select="sum(/transaction/data_xml/document[@document_var_name='transactionLine' and not(fase='Viaticos') and tipoDeEsquema = 'simple' and facturable = 'true' and reintegro = 'noaplica' and item_l/_part_custom_field2 = $servAg]/precioNetoImpuesto)"/>
-        <xsl:variable name="totalCiva" select="/transaction/data_xml/document[@document_var_name='transactionLine' and not(fase='Viaticos') and tipoDeEsquema = 'simple' and facturable = 'true' and reintegro = 'noaplica' and item_l/_part_custom_field2 = $servAg]/valorImpuesto"/>
-
-
-        <xsl:value-of select="$servAg"/>
-
-        <xsl:value-of select="number($totalC/netAmount_l)"/>
-
-        <xsl:variable name="totalCivaT" select="//transaction/data_xml/document[@document_var_name='transactionLine' and not(fase='Viaticos') and tipoDeEsquema = 'simple' and facturable = 'true' and reintegro = 'noaplica' and item_l/_part_custom_field2 = $servAg]"/>
-
+        <xsl:variable name="totalCiva" select="sum(/transaction/data_xml/document[@document_var_name='transactionLine' and not(fase='Viaticos') and tipoDeEsquema = 'simple' and facturable = 'true' and reintegro = 'noaplica' and item_l/_part_custom_field2 = $servAg]/valorImpuesto)"/>
 
         <fo:block space-before="10px">
             <fo:table width="100%" table-layout="fixed">
@@ -58,14 +48,14 @@
                         <fo:table-cell border="solid 0.4mm black" border-style="solid" background-color="#203864">
                             <fo:block-container height="5%" display-align="center">
                                 <fo:block color="#FFFFFF" font-family="sans-serif" font-size="11pt" text-align="center">
-                                        CONCEPTO
+                                    CONCEPTO
                                 </fo:block>
                             </fo:block-container>
                         </fo:table-cell>
                         <fo:table-cell border="solid 0.4mm black" border-style="solid" background-color="#203864">
                             <fo:block-container height="5%" display-align="center">
                                 <fo:block color="#FFFFFF" font-family="sans-serif" font-size="11pt" text-align="center">
-                                        DESCRIPCIÓN
+                                    DESCRIPCIÓN
                                 </fo:block>
                             </fo:block-container>
                         </fo:table-cell>
@@ -125,35 +115,35 @@
                         <fo:table-cell border="solid 0.4mm black" border-style="solid" background-color="#203864">
                             <fo:block-container height="5%" display-align="center">
                                 <fo:block color="#FFFFFF" font-family="sans-serif" font-size="11pt" text-align="center">
-                                        DESCRIPCIÓN DEL SERVICIO
+                                    DESCRIPCIÓN DEL SERVICIO
                                 </fo:block>
                             </fo:block-container>
                         </fo:table-cell>
                         <fo:table-cell border="solid 0.4mm black" border-style="solid" background-color="#203864">
                             <fo:block-container height="5%" display-align="center">
                                 <fo:block color="#FFFFFF" font-family="sans-serif" font-size="11pt" text-align="center">
-                                        CANTIDAD
+                                    CANTIDAD
                                 </fo:block>
                             </fo:block-container>
                         </fo:table-cell>
                         <fo:table-cell border="solid 0.4mm black" border-style="solid" background-color="#203864">
                             <fo:block-container height="5%" display-align="center">
                                 <fo:block color="#FFFFFF" font-family="sans-serif" font-size="11pt" text-align="center">
-                                        VALOR POR SERVICIO
+                                    VALOR POR SERVICIO
                                 </fo:block>
                             </fo:block-container>
                         </fo:table-cell>
                         <fo:table-cell border="solid 0.4mm black" border-style="solid" background-color="#203864">
                             <fo:block-container height="5%" display-align="center">
                                 <fo:block color="#FFFFFF" font-family="sans-serif" font-size="11pt" text-align="center">
-                                        IVA
+                                    IVA
                                 </fo:block>
                             </fo:block-container>
                         </fo:table-cell>
                         <fo:table-cell border="solid 0.4mm black" border-style="solid" background-color="#203864">
                             <fo:block-container height="5%" display-align="center">
                                 <fo:block color="#FFFFFF" font-family="sans-serif" font-size="11pt" text-align="center">
-                                        VALOR TOTAL + IVA
+                                    VALOR TOTAL + IVA
                                 </fo:block>
                             </fo:block-container>
                         </fo:table-cell>
@@ -179,7 +169,6 @@
                                     </fo:table-cell>
                                     <fo:table-cell border="solid 0.4mm black" border-style="solid">
                                         <fo:block color="#28324D" font-family="sans-serif" font-size="10pt" text-align="center">
-                                            <!-- concat('$ ',format-number(netAmount_l, '#,##0.00')) -->
                                             <xsl:value-of select="concat('$ ',format-number(translate(netAmount_l,',','.'), '#,##0.00'))"/>
                                         </fo:block>
                                     </fo:table-cell>
@@ -201,11 +190,10 @@
                         <fo:table-cell border="solid 0.4mm black" border-style="solid" background-color="#203864">
                             <fo:block-container height="5%" display-align="center">
                                 <fo:block color="#FFFFFF" font-family="sans-serif" font-size="10pt" text-align="left">
-                                        TOTAL
+                                    TOTAL
                                 </fo:block>
                             </fo:block-container>
                         </fo:table-cell>
-                        <!-- concat('$ ',format-number(translate(precioNetoImpuesto,',','.'), '#,##0.00')) -->
                         <fo:table-cell border="solid 0.4mm black" border-style="solid" background-color="#203864">
                             <fo:block-container height="5%" display-align="center">
                                 <fo:block color="#FFFFFF" font-family="sans-serif" font-size="10pt" text-align="center">
@@ -223,11 +211,14 @@
                                         <xsl:otherwise>
                                             <xsl:choose>
                                                 <xsl:when test="count($lstRep) > 0">
-                                                    <xsl:value-of select="$totalC"/>
+                                                    <xsl:call-template name="totalSer">
+                                                        <xsl:with-param name="servicio" select = "$servAg" />
+                                                    </xsl:call-template>
                                                 </xsl:when>
                                                 <xsl:otherwise>
-                                                    <!-- +$lstRepT -->
-                                                    <xsl:value-of select="$totalC"/>
+                                                    <xsl:call-template name="totalSer">
+                                                        <xsl:with-param name="servicio" select = "$servAg" />
+                                                    </xsl:call-template>
                                                 </xsl:otherwise>
                                             </xsl:choose>
                                         </xsl:otherwise>
@@ -238,7 +229,9 @@
                         <fo:table-cell border="solid 0.4mm black" border-style="solid" background-color="#203864">
                             <fo:block-container height="5%" display-align="center">
                                 <fo:block color="#FFFFFF" font-family="sans-serif" font-size="10pt" text-align="center">
-                                    <xsl:value-of select="concat('$ ',format-number($totalCiva,'#,###.00'))"/>
+                                    <xsl:call-template name="totalSerIva">
+                                        <xsl:with-param name="servicio" select = "$servAg" />
+                                    </xsl:call-template>
                                 </fo:block>
                             </fo:block-container>
                         </fo:table-cell>
@@ -252,10 +245,14 @@
                                         <xsl:otherwise>
                                             <xsl:choose>
                                                 <xsl:when test="count($lstRep) > 0">
-                                                    <xsl:value-of select="concat('$ ',format-number(translate($totalCimp,',','.'), '#,##0.00'))"/>
+                                                    <xsl:call-template name="totalSerIvaTotal">
+                                                        <xsl:with-param name="servicio" select = "$servAg" />
+                                                    </xsl:call-template>
                                                 </xsl:when>
                                                 <xsl:otherwise>
-                                                    <xsl:value-of select="concat('$ ',format-number(translate($totalCimp,',','.')+$lstRepT,'#,##0.00'))"/>
+                                                    <xsl:call-template name="totalSerIvaTotal">
+                                                        <xsl:with-param name="servicio" select = "$servAg" />
+                                                    </xsl:call-template>
                                                 </xsl:otherwise>
                                             </xsl:choose>
                                         </xsl:otherwise>
@@ -293,28 +290,28 @@
                             <fo:table-cell border="solid 0.4mm black" border-style="solid" background-color="#203864">
                                 <fo:block-container height="5%" display-align="center">
                                     <fo:block color="#FFFFFF" font-family="sans-serif" font-size="10pt" text-align="center">
-                                                CONCEPTO
+                                            CONCEPTO
                                     </fo:block>
                                 </fo:block-container>
                             </fo:table-cell>
                             <fo:table-cell border="solid 0.4mm black" border-style="solid" background-color="#203864">
                                 <fo:block-container height="5%" display-align="center">
                                     <fo:block color="#FFFFFF" font-family="sans-serif" font-size="10pt" text-align="center">
-                                                DÍAS AUDITOR
+                                            DÍAS AUDITOR
                                     </fo:block>
                                 </fo:block-container>
                             </fo:table-cell>
                             <fo:table-cell border="solid 0.4mm black" border-style="solid" background-color="#203864">
                                 <fo:block-container height="5%" display-align="center">
                                     <fo:block color="#FFFFFF" font-family="sans-serif" font-size="10pt" text-align="center">
-                                                VALOR SIN IVA
+                                            VALOR SIN IVA
                                     </fo:block>
                                 </fo:block-container>
                             </fo:table-cell>
                             <fo:table-cell border="solid 0.4mm black" border-style="solid" background-color="#203864">
                                 <fo:block-container height="5%" display-align="center">
                                     <fo:block color="#FFFFFF" font-family="sans-serif" font-size="10pt" text-align="center">
-                                                VALOR CON IVA
+                                            VALOR CON IVA
                                     </fo:block>
                                 </fo:block-container>
                             </fo:table-cell>
@@ -338,7 +335,7 @@
                                 </fo:table-cell>
                                 <fo:table-cell border="solid 0.4mm black" border-style="solid">
                                     <fo:block color="#28324D" font-family="sans-serif" font-size="10pt" text-align="center">
-                                        <xsl:value-of select="format-number(netAmount_l, '#,##0.00')"/>
+                                        <xsl:value-of select="format-number(translate(netAmount_l,',','.'), '#,##0.00')"/>
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell border="solid 0.4mm black" border-style="solid">
@@ -353,6 +350,7 @@
             </fo:block>
         </xsl:if>
     </fo:block>
+
     <xsl:choose>
         <xsl:when test="$obser != ''">
             <fo:block space-before="25px" border-width="1mm">
@@ -364,7 +362,7 @@
                             <fo:table-cell border="solid 0.4mm black" border-style="solid">
                                 <fo:block-container height="auto" display-align="center">
                                     <fo:block font-family="sans-serif" font-size="10pt" text-align="left">
-                                        NOTA:
+                                    NOTA:
                                         <xsl:value-of select="$obser"/>
                                     </fo:block>
                                 </fo:block-container>

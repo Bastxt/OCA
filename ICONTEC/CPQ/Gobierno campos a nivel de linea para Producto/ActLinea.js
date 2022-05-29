@@ -9,7 +9,7 @@ indices = range(sizepp);
 
 for index in indices {
     refTemp = jsonarrayget(refProd, index, "json");
-    if (index+1 == numeroDeLinea) {
+    if (index + 1 == numeroDeLinea) {
         jsonput(refTemp, "referencialDeCertificacin", referencialCertificacin_pro);
         jsonput(refTemp, "procesoOServicioACertificar", procesoOServicioACertificar_pro);
         jsonput(refTemp, "esquemaDeCertificacin", esquemaDeCertificacion_pro);
@@ -23,6 +23,6 @@ for index in indices {
     }
 }
 
-result = result + "|"+_document_number+"~parametrosProducto~" + jsonarrayrefid(parametrosProducto) + "|";
+result = result + "|" + _document_number + "~parametrosProducto~" + jsonarrayrefid(parametrosProducto) + "|";
 
 return result;
