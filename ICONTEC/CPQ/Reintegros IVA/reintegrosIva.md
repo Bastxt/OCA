@@ -42,3 +42,6 @@ _____
         }
         return system_result;
     ``` 
+5. Se agrega regla para sumar IVA de reintegros a los totales de cotizacion
+    -   se modifican todas las formulas implicadas en la propuesta de SDG
+        *   todos los campos de simple,integrada,combinada
