@@ -12,6 +12,7 @@ Se debe agregar la funcionabilidad de eliminar referenciales
 
         return res; 
     ```
+-   Modificar regla de ocultamiento para la visualizacion del boton Eliminar 
 -   Visualizacion para campos:
     * solo visibles para la mesa de ayuda 
     * no debe ser visible para el ejecutivo despues de ser aceptado por mesa de ayuda
