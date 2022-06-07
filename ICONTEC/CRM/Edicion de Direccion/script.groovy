@@ -16,11 +16,8 @@ while (psIterator.hasNext())
             facturacion = true
         }
     }
-
-    //si confirma la modificacion de la linea actual
+    
     if (psrow.getPrimaryRowState().isModified()) {
-        //si rol != ICO_ADMIN_CLIENTES_CUSTOM
-        //mover la condicion de facturacion.
         if (secCtx.isUserInRole('ICO_ADMIN_VENTAS') || secCtx.isUserInRole('DOO_ORDER_MANAGER_JOB_IC_JEFE_CARTERA') || secCtx.isUserInRole('ORA_POZ_SUPPLIER_MANAGER_ABSTRACT')) {
             if (facturacion == false) {
                 sta = 1
