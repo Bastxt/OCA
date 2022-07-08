@@ -1,0 +1,371 @@
+[2022-06-02T14:21:48.381+00:00] [OBIS] [TRACE:2] [USER-0] [] [ecid: 005s7UttSbTBh4MLqMl3iY0000Lq0006a5,0:5:1:18:3] [sik: ssi] [tid: a5692700] [messageId: USER-0] [requestid: 49d2001c] [sessionid: 49d20000] [username: mquintero@icontec.org] ############################################## [[
+-------------------- SQL Request, logical request hash:
+3d459cdf
+SET VARIABLE QUERY_SRC_CD='Report',SAW_SRC_PATH='/shared/Sales/Embedded Content/Sales Representative/Tile: My Actuals vs. Quota',PREFERRED_CURRENCY='User Preferred Currency 1',OPTY_DS_CONTEXT='FNDDS__MOO_VIEW_OPPORTUNITY_BY_SALES_TEAM_DATA__MOO_OPTY';SELECT
+   0 s_0,
+   "Sales - CRM Pipeline"."Currency"."Common Currency Code" s_1,
+   (IFNULL("Sales - CRM Pipeline"."Pipeline Detail Facts"."Closed Opportunity Line Revenue",0)/FILTER("Sales - CRM Pipeline"."Resource Quota Facts"."Resource Quota" USING ("Sales - CRM Pipeline"."Sales Goal"."Goal Number" ='GOAL_1000')))*100 s_2,
+   IFNULL("Sales - CRM Pipeline"."Pipeline Detail Facts"."Closed Opportunity Line Revenue",0) s_3,
+   IFNULL(FILTER("Sales - CRM Pipeline"."Resource Quota Facts"."Resource Quota" USING ("Sales - CRM Pipeline"."Sales Goal"."Goal Number" ='GOAL_1000')),0) s_4,
+   IFNULL(FILTER("Sales - CRM Pipeline"."Resource Quota Facts"."Resource Quota" USING ("Sales - CRM Pipeline"."Sales Goal"."Goal Number" ='GOAL_1000')),0)-IFNULL("Sales - CRM Pipeline"."Pipeline Detail Facts"."Closed Opportunity Line Revenue",0) s_5
+FROM "Sales - CRM Pipeline"
+WHERE
+(("Time"."Enterprise Quarter" =  VALUEOF("CURRENT_ENTERPRISE_QUARTER")) AND ("Employee"."Employee Login" =  VALUEOF(NQ_SESSION."USER_PARTY_ID")))
+FETCH FIRST 75001 ROWS ONLY
+
+
+]]
+[2022-06-02T14:21:48.382+00:00] [OBIS] [TRACE:2] [USER-23] [] [ecid: 005s7UttSbTBh4MLqMl3iY0000Lq0006a5,0:5:1:18:3] [sik: ssi] [tid: a5692700] [messageId: USER-23] [requestid: 49d2001c] [sessionid: 49d20000] [username: mquintero@icontec.org] -------------------- General Query Info: [[
+Repository: ssi, Subject Area: Core, Presentation: Sales - CRM Pipeline
+
+]]
+[2022-06-02T14:21:48.391+00:00] [OBIS] [TRACE:2] [USER-55] [] [ecid: 005s7UttSbTBh4MLqMl3iY0000Lq0006a5,0:5:1:18:3] [sik: ssi] [tid: a5692700] [messageId: USER-55] [requestid: 49d2001c] [sessionid: 49d20000] [username: mquintero@icontec.org] -------------------- Measure 'Closed Opportunity Line Revenue' fixed to 'grand total' level in dimension 'Quota Goal' because of missing logical join [[
+-------------------- Measure 'Closed Opportunity Line Revenue' fixed to 'grand total' level in dimension 'Quota Goal' because of missing logical join
+-------------------- Measure 'Closed Opportunity Line Revenue' fixed to 'grand total' level in dimension 'Quota Goal' because of missing logical join
+
+
+]]
+[2022-06-02T14:21:48.569+00:00] [OBIS] [TRACE:2] [USER-18] [] [ecid: 005s7UttSbTBh4MLqMl3iY0000Lq0006a5,0:5:1:18:5:1] [sik: ssi] [tid: b8f01700] [messageId: USER-18] [requestid: 49d2001c] [sessionid: 49d20000] [username: mquintero@icontec.org] -------------------- Sending query to database named oracle.apps.crm.model.analytics.applicationModule.CrmAnalyticsAM_CrmAnalyticsAMLocal (id: <<369648806>> SQLBypass Gateway), client type OracleADF_HTTP, connection pool named Connection Pool, logical request hash 3d459cdf, physical request hash 94e4a79e: [[
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+
+<ADFQuery mode="SQLBypass" queryid="1911638779-1867986891" locale="es">
+
+<Parameters>
+	<Parameter><Name><![CDATA[AOL_LANGUAGE]]></Name><Value><![CDATA[es]]></Value></Parameter>
+	<Parameter><Name><![CDATA[OTBI_CDS_ENABLED]]></Name><Value><![CDATA[false]]></Value></Parameter>
+	<Parameter><Name><![CDATA[OPTY_DS_CONTEXT]]></Name><Value><![CDATA[FNDDS__MOO_VIEW_OPPORTUNITY_BY_SALES_TEAM_DATA__MOO_OPTY]]></Value></Parameter>
+</Parameters>
+<Projection>
+			<Attribute><Name><![CDATA[RevenueLookupCategory]]></Name><ViewObject><![CDATA[CrmAnalyticsAM.OpportunityAM.Revenue]]></ViewObject><ViewObjectAlias>Fact_CrmOpportunityAM_Revenue</ViewObjectAlias></Attribute>
+			<Attribute><Name><![CDATA[RevenuePrimaryFlag]]></Name><ViewObject><![CDATA[CrmAnalyticsAM.OpportunityAM.Revenue]]></ViewObject><ViewObjectAlias>Fact_CrmOpportunityAM_Revenue</ViewObjectAlias></Attribute>
+			<Attribute><Name><![CDATA[RevenueSalesCreditTypeCode]]></Name><ViewObject><![CDATA[CrmAnalyticsAM.OpportunityAM.Revenue]]></ViewObject><ViewObjectAlias>Fact_CrmOpportunityAM_Revenue</ViewObjectAlias></Attribute>
+			<Attribute><Name><![CDATA[RevenueOptyId]]></Name><ViewObject><![CDATA[CrmAnalyticsAM.OpportunityAM.Revenue]]></ViewObject><ViewObjectAlias>Fact_CrmOpportunityAM_Revenue</ViewObjectAlias></Attribute>
+			<Attribute><Name><![CDATA[RevenueSplitTypeCode]]></Name><ViewObject><![CDATA[CrmAnalyticsAM.OpportunityAM.Revenue]]></ViewObject><ViewObjectAlias>Fact_CrmOpportunityAM_Revenue</ViewObjectAlias></Attribute>
+			<Attribute><Name><![CDATA[RevenueRecurTypeCode]]></Name><ViewObject><![CDATA[CrmAnalyticsAM.OpportunityAM.Revenue]]></ViewObject><ViewObjectAlias>Fact_CrmOpportunityAM_Revenue</ViewObjectAlias></Attribute>
+			<Attribute><Name><![CDATA[RevenueCrmConversionRate]]></Name><ViewObject><![CDATA[CrmAnalyticsAM.OpportunityAM.Revenue]]></ViewObject><ViewObjectAlias>Fact_CrmOpportunityAM_Revenue</ViewObjectAlias></Attribute>
+			<Attribute><Name><![CDATA[RevenueRevnAmt]]></Name><ViewObject><![CDATA[CrmAnalyticsAM.OpportunityAM.Revenue]]></ViewObject><ViewObjectAlias>Fact_CrmOpportunityAM_Revenue</ViewObjectAlias></Attribute>
+			<Attribute><Name><![CDATA[RevenueRevnAmtCurcyCode]]></Name><ViewObject><![CDATA[CrmAnalyticsAM.OpportunityAM.Revenue]]></ViewObject><ViewObjectAlias>Fact_CrmOpportunityAM_Revenue</ViewObjectAlias></Attribute>
+</Projection>
+<JoinSpec>
+	<ViewObject>
+		<Name><![CDATA[CrmAnalyticsAM.ResourcesAnalyticsAM.PartyResource]]></Name><ViewObjectAlias>Dim_CrmResourceAM_PartyResource</ViewObjectAlias>
+		<ViewLink>
+			<Name><![CDATA[oracle.apps.sales.opptyMgmt.revenues.publicView.analytics.link.RevenuePVORevenuerOwnerResourceIdToPartyResourcePVO]]></Name>
+			<ComplexJoinName><![CDATA[Fact_CrmOpportunityAM_Revenue_Dim_CrmResourceAM_PartyResource]]></ComplexJoinName>
+		</ViewLink>
+	</ViewObject>
+	<ViewObject>
+		<Name><![CDATA[CrmAnalyticsAM.CrmAnalyticsModelAM.CrmFiscalDayPVO]]></Name><ViewObjectAlias>Dim_CrmAnalyticsAM_CrmAnalyticsModelAM_CrmFiscalDayPVO_Common</ViewObjectAlias>
+		<ViewLink>
+			<Name><![CDATA[oracle.apps.sales.opptyMgmt.revenues.publicView.analytics.link.RevenuePVORevenueEffectiveDateToFiscalDayPVO]]></Name>
+			<ComplexJoinName><![CDATA[Fact_CrmOpportunityAM_Revenue_Dim_CrmAnalyticsAM_FinGlCalAccAM_FiscalDayPVO_Common]]></ComplexJoinName>
+		</ViewLink>
+	</ViewObject>
+	<ViewObject>
+		<Name><![CDATA[CrmAnalyticsAM.OpportunityAM.Revenue]]></Name><ViewObjectAlias>Fact_CrmOpportunityAM_Revenue</ViewObjectAlias>
+		<ViewLink>
+			<Name><![CDATA[oracle.apps.sales.opptyMgmt.revenues.publicView.analytics.link.RevenuePVORevenuerOwnerResourceIdToPartyResourcePVO]]></Name>
+			<ComplexJoinName><![CDATA[Fact_CrmOpportunityAM_Revenue_Dim_CrmResourceAM_PartyResource]]></ComplexJoinName>
+		</ViewLink>
+		<ViewLink>
+			<Name><![CDATA[oracle.apps.sales.opptyMgmt.revenues.publicView.analytics.link.RevenuePVORevenueEffectiveDateToFiscalDayPVO]]></Name>
+			<ComplexJoinName><![CDATA[Fact_CrmOpportunityAM_Revenue_Dim_CrmAnalyticsAM_FinGlCalAccAM_FiscalDayPVO_Common]]></ComplexJoinName>
+		</ViewLink>
+	</ViewObject>
+</JoinSpec>
+<DetailFilter>
+<ViewCriteria>
+	<ViewCriteriaRow conjunction="VC_CONJ_AND">
+		<Attribute><Name><![CDATA[RevenuePrimaryFlag]]></Name><ViewObject><![CDATA[CrmAnalyticsAM.OpportunityAM.Revenue]]></ViewObject><ViewObjectAlias>Fact_CrmOpportunityAM_Revenue</ViewObjectAlias></Attribute>
+		<Value><![CDATA[N]]></Value>
+		<Predicate operator="OPER_EQ"/>
+	</ViewCriteriaRow>
+	<ViewCriteriaRow conjunction="VC_CONJ_AND">
+		<Attribute><Name><![CDATA[EnterpriseQuarter]]></Name><ViewObject><![CDATA[CrmAnalyticsAM.CrmAnalyticsModelAM.CrmFiscalDayPVO]]></ViewObject><ViewObjectAlias>Dim_CrmAnalyticsAM_CrmAnalyticsModelAM_CrmFiscalDayPVO_Common</ViewObjectAlias></Attribute>
+		<Value><![CDATA[2022 Q 2]]></Value>
+		<Predicate operator="OPER_EQ"/>
+	</ViewCriteriaRow>
+	<ViewCriteriaRow conjunction="VC_CONJ_AND">
+		<Attribute><Name><![CDATA[PartyResourcePartyId]]></Name><ViewObject><![CDATA[CrmAnalyticsAM.ResourcesAnalyticsAM.PartyResource]]></ViewObject><ViewObjectAlias>Dim_CrmResourceAM_PartyResource</ViewObjectAlias></Attribute>
+		<Value><![CDATA[300000002800089]]></Value>
+		<Predicate operator="OPER_EQ"/>
+	</ViewCriteriaRow>
+</ViewCriteria>
+</DetailFilter>
+</ADFQuery>
+
+]]
+[2022-06-02T14:21:48.569+00:00] [OBIS] [TRACE:2] [USER-18] [] [ecid: 005s7UttSbTBh4MLqMl3iY0000Lq0006a5,0:5:1:18:5:2] [sik: ssi] [tid: b5c5b700] [messageId: USER-18] [requestid: 49d2001c] [sessionid: 49d20000] [username: mquintero@icontec.org] -------------------- Sending query to database named oracle.apps.crm.model.analytics.applicationModule.CrmAnalyticsAM_CrmAnalyticsAMLocal (id: <<369648886>> SQLBypass Gateway), client type OracleADF_HTTP, connection pool named Connection Pool, logical request hash 3d459cdf, physical request hash 511f6ece: [[
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+
+<ADFQuery mode="SQLBypass" queryid="79438782-1006911239" locale="es">
+
+<Parameters>
+	<Parameter><Name><![CDATA[AOL_LANGUAGE]]></Name><Value><![CDATA[es]]></Value></Parameter>
+	<Parameter><Name><![CDATA[OTBI_CDS_ENABLED]]></Name><Value><![CDATA[false]]></Value></Parameter>
+	<Parameter><Name><![CDATA[OPTY_DS_CONTEXT]]></Name><Value><![CDATA[FNDDS__MOO_VIEW_OPPORTUNITY_BY_SALES_TEAM_DATA__MOO_OPTY]]></Value></Parameter>
+</Parameters>
+<Projection>
+			<Attribute><Name><![CDATA[ResourceQuotaPeriodResourcePeriodQuota]]></Name><ViewObject><![CDATA[CrmAnalyticsAM.QuotasAM.ResourceQuotaPeriod]]></ViewObject><ViewObjectAlias>Fact_CrmQuotasAM_ResourceQuotaPeriod</ViewObjectAlias></Attribute>
+			<Attribute><Name><![CDATA[GoalUom]]></Name><ViewObject><![CDATA[CrmAnalyticsAM.QuotasAM.Goal]]></ViewObject><ViewObjectAlias>Dim_CrmQuotasAM_QuotaGoal</ViewObjectAlias></Attribute>
+			<Attribute><Name><![CDATA[TerritoryQuotaCrmCorpCurrencyCode]]></Name><ViewObject><![CDATA[CrmAnalyticsAM.QuotasAM.ResourceQuotaPeriod]]></ViewObject><ViewObjectAlias>Fact_CrmQuotasAM_ResourceQuotaPeriod</ViewObjectAlias></Attribute>
+</Projection>
+<JoinSpec>
+	<ViewObject>
+		<Name><![CDATA[CrmAnalyticsAM.ResourcesAnalyticsAM.PartyResource]]></Name><ViewObjectAlias>Dim_CrmResourceAM_PartyResource</ViewObjectAlias>
+		<ViewLink>
+			<Name><![CDATA[oracle.apps.sales.territoryMgmt.quotas.publicView.analytics.link.ResourceQuotaPeriodPVOToPartyResourcePVO]]></Name>
+			<ComplexJoinName><![CDATA[Dim_CrmResourceAM_PartyResource_Fact_CrmQuotasAM_ResourceQuotaPeriod]]></ComplexJoinName>
+		</ViewLink>
+	</ViewObject>
+	<ViewObject>
+		<Name><![CDATA[CrmAnalyticsAM.CrmAnalyticsModelAM.CrmFiscalPeriodPVO]]></Name><ViewObjectAlias>Dim_CrmAnalyticsAM_CrmAnalyticsModelAM_CrmFiscalPeriodPVO_Common</ViewObjectAlias>
+		<ViewLink>
+			<Name><![CDATA[oracle.apps.sales.territoryMgmt.quotas.publicView.analytics.link.ResourceQuotaPeriodPVOToFiscalPeriodPVO]]></Name>
+			<ComplexJoinName><![CDATA[Dim_CrmAnalyticsAM_FinGlCalAccAM_GLFiscalPeriodPVO_Common_Fact_CrmQuotasAM_ResourceQuotaPeriod]]></ComplexJoinName>
+		</ViewLink>
+	</ViewObject>
+	<ViewObject>
+		<Name><![CDATA[CrmAnalyticsAM.QuotasAM.ResourceQuotaPeriod]]></Name><ViewObjectAlias>Fact_CrmQuotasAM_ResourceQuotaPeriod</ViewObjectAlias>
+		<ViewLink>
+			<Name><![CDATA[oracle.apps.sales.territoryMgmt.quotas.publicView.analytics.link.ResourceQuotaPeriodPVOToPartyResourcePVO]]></Name>
+			<ComplexJoinName><![CDATA[Dim_CrmResourceAM_PartyResource_Fact_CrmQuotasAM_ResourceQuotaPeriod]]></ComplexJoinName>
+		</ViewLink>
+		<ViewLink>
+			<Name><![CDATA[oracle.apps.sales.territoryMgmt.quotas.publicView.analytics.link.ResourceQuotaPeriodPVOToFiscalPeriodPVO]]></Name>
+			<ComplexJoinName><![CDATA[Dim_CrmAnalyticsAM_FinGlCalAccAM_GLFiscalPeriodPVO_Common_Fact_CrmQuotasAM_ResourceQuotaPeriod]]></ComplexJoinName>
+		</ViewLink>
+		<ViewLink>
+			<Name><![CDATA[oracle.apps.sales.territoryMgmt.quotas.publicView.analytics.link.ResourceQuotaPeriodPVOToQuotaPlanPVO]]></Name>
+			<ComplexJoinName><![CDATA[Dim_CrmQuotasAM_QuotaPlan_Fact_CrmQuotasAM_ResourceQuotaPeriod]]></ComplexJoinName>
+		</ViewLink>
+		<ViewLink>
+			<Name><![CDATA[oracle.apps.sales.territoryMgmt.quotas.publicView.analytics.link.ResourceQuotaPeriodPVOToGoalPVO]]></Name>
+			<ComplexJoinName><![CDATA[Dim_CrmQuotasAM_Goal_Fact_CrmQuotasAM_ResourceQuotaPeriod]]></ComplexJoinName>
+		</ViewLink>
+	</ViewObject>
+	<ViewObject>
+		<Name><![CDATA[CrmAnalyticsAM.QuotasAM.QuotaPlan]]></Name><ViewObjectAlias>Dim_CrmQuotasAM_QuotaPlan</ViewObjectAlias>
+		<ViewLink>
+			<Name><![CDATA[oracle.apps.sales.territoryMgmt.quotas.publicView.analytics.link.ResourceQuotaPeriodPVOToQuotaPlanPVO]]></Name>
+			<ComplexJoinName><![CDATA[Dim_CrmQuotasAM_QuotaPlan_Fact_CrmQuotasAM_ResourceQuotaPeriod]]></ComplexJoinName>
+		</ViewLink>
+	</ViewObject>
+	<ViewObject>
+		<Name><![CDATA[CrmAnalyticsAM.QuotasAM.Goal]]></Name><ViewObjectAlias>Dim_CrmQuotasAM_QuotaGoal</ViewObjectAlias>
+		<ViewLink>
+			<Name><![CDATA[oracle.apps.sales.territoryMgmt.quotas.publicView.analytics.link.ResourceQuotaPeriodPVOToGoalPVO]]></Name>
+			<ComplexJoinName><![CDATA[Dim_CrmQuotasAM_Goal_Fact_CrmQuotasAM_ResourceQuotaPeriod]]></ComplexJoinName>
+		</ViewLink>
+	</ViewObject>
+</JoinSpec>
+<DetailFilter>
+<ViewCriteria>
+	<ViewCriteriaRow conjunction="VC_CONJ_AND">
+		<Attribute><Name><![CDATA[TerritoryQuotaStatusCode]]></Name><ViewObject><![CDATA[CrmAnalyticsAM.QuotasAM.ResourceQuotaPeriod]]></ViewObject><ViewObjectAlias>Fact_CrmQuotasAM_ResourceQuotaPeriod</ViewObjectAlias></Attribute>
+		<Value><![CDATA[PUBLISHED]]></Value>
+		<Predicate operator="OPER_EQ"/>
+	</ViewCriteriaRow>
+	<ViewCriteriaRow conjunction="VC_CONJ_AND">
+		<Attribute><Name><![CDATA[QuotaPlanBaseTrackQuotaPlanFlag]]></Name><ViewObject><![CDATA[CrmAnalyticsAM.QuotasAM.QuotaPlan]]></ViewObject><ViewObjectAlias>Dim_CrmQuotasAM_QuotaPlan</ViewObjectAlias></Attribute>
+		<Value><![CDATA[Y]]></Value>
+		<Predicate operator="OPER_EQ"/>
+	</ViewCriteriaRow>
+	<ViewCriteriaRow conjunction="VC_CONJ_AND">
+		<Attribute><Name><![CDATA[EnterpriseQuarter]]></Name><ViewObject><![CDATA[CrmAnalyticsAM.CrmAnalyticsModelAM.CrmFiscalPeriodPVO]]></ViewObject><ViewObjectAlias>Dim_CrmAnalyticsAM_CrmAnalyticsModelAM_CrmFiscalPeriodPVO_Common</ViewObjectAlias></Attribute>
+		<Value><![CDATA[2022 Q 2]]></Value>
+		<Predicate operator="OPER_EQ"/>
+	</ViewCriteriaRow>
+	<ViewCriteriaRow conjunction="VC_CONJ_AND">
+		<Attribute><Name><![CDATA[GoalNumber]]></Name><ViewObject><![CDATA[CrmAnalyticsAM.QuotasAM.Goal]]></ViewObject><ViewObjectAlias>Dim_CrmQuotasAM_QuotaGoal</ViewObjectAlias></Attribute>
+		<Value><![CDATA[GOAL_1000]]></Value>
+		<Predicate operator="OPER_EQ"/>
+	</ViewCriteriaRow>
+	<ViewCriteriaRow conjunction="VC_CONJ_AND">
+		<Attribute><Name><![CDATA[PartyResourcePartyId]]></Name><ViewObject><![CDATA[CrmAnalyticsAM.ResourcesAnalyticsAM.PartyResource]]></ViewObject><ViewObjectAlias>Dim_CrmResourceAM_PartyResource</ViewObjectAlias></Attribute>
+		<Value><![CDATA[300000002800089]]></Value>
+		<Predicate operator="OPER_EQ"/>
+	</ViewCriteriaRow>
+<ViewCriteria conjunction="VC_CONJ_AND">
+	<ViewCriteriaRow conjunction="VC_CONJ_OR">
+		<Attribute><Name><![CDATA[GoalTLLanguage]]></Name><ViewObject><![CDATA[CrmAnalyticsAM.QuotasAM.Goal]]></ViewObject><ViewObjectAlias>Dim_CrmQuotasAM_QuotaGoal</ViewObjectAlias></Attribute>
+		<Value><![CDATA[E]]></Value>
+		<Predicate operator="OPER_EQ"/>
+	</ViewCriteriaRow>
+	<ViewCriteriaRow conjunction="VC_CONJ_OR">
+		<Attribute><Name><![CDATA[GoalTLLanguage]]></Name><ViewObject><![CDATA[CrmAnalyticsAM.QuotasAM.Goal]]></ViewObject><ViewObjectAlias>Dim_CrmQuotasAM_QuotaGoal</ViewObjectAlias></Attribute>
+		<Predicate operator="OPER_IS_BLANK"/>
+	</ViewCriteriaRow>
+</ViewCriteria>
+</ViewCriteria>
+</DetailFilter>
+</ADFQuery>
+
+]]
+[2022-06-02T14:21:48.848+00:00] [OBIS] [TRACE:2] [USER-16] [] [ecid: 005s7UttSbTBh4MLqMl3iY0000Lq0006a5,0:5:1:18:5] [sik: ssi] [tid: a5692700] [messageId: USER-16] [requestid: 49d2001c] [sessionid: 49d20000] [username: mquintero@icontec.org] -------------------- Execution plan: [[
+
+RqList <<369648777>> [for database 3023:500880:CRM_OLTP,57] distinct  /* FETCH FIRST 75001 ROWS ONLY */ 
+    0 as c1 GB [for database 3023:500880:CRM_OLTP,57],
+    'loc:es-CO' as c2 GB [for database 3023:500880:CRM_OLTP,57],
+    ifnull(D1.c1 , 0) / nullif( D2.c1 , 0) * 100 as c3 GB [for database 3023:500880:CRM_OLTP,57],
+    ifnull(D1.c1 , 0) as c4 GB [for database 3023:500880:CRM_OLTP,57],
+    ifnull(D2.c1 , 0) as c5 GB [for database 3023:500880:CRM_OLTP,57],
+    ifnull(D2.c1 , 0) - ifnull(D1.c1 , 0) as c6 GB [for database 3023:500880:CRM_OLTP,57]
+Child Nodes (RqJoinSpec): <<369649099>> [for database 3023:500880:CRM_OLTP,57]
+    RqJoinNode <<369649108>> []
+        
+            (
+                RqList <<369649228>> [for database 3023:500880:CRM_OLTP,57]
+                    sum(case  when D1.c2 = 'WON' and D1.c3 = 'N' and D1.c4 = 'QUOTA' and not D1.c5 is null then case  when D1.c6 = 'PARENTSPLIT' or D1.c7 = 'PARENTRECUR' then 0 else 1 end  * case  when D1.c10 = 'COP' then D1.c9 else D1.c8 * D1.c9 * 3800.0 end  end ) as c1 [for database 3023:500880:CRM_OLTP,57]
+                Child Nodes (RqJoinSpec): <<369649237>> [for database 3023:500880:CRM_OLTP,57]
+                    RqJoinNode <<369649236>> []
+                        (
+                            RqList <<369648806>> [for database 3023:500880:CRM_OLTP,57]
+                                T3494006.C14065347 as c2 [for database 3023:500880:CRM_OLTP,57],
+                                T3494006.C339725600 as c3 [for database 3023:500880:CRM_OLTP,57],
+                                T3494006.C150825790 as c4 [for database 3023:500880:CRM_OLTP,57],
+                                T3494006.C246777180 as c5 [for database 3023:500880:CRM_OLTP,57],
+                                T3494006.C515806611 as c6 [for database 3023:500880:CRM_OLTP,57],
+                                T3494006.C115147832 as c7 [for database 3023:500880:CRM_OLTP,57],
+                                T3494006.C247165484 as c8 [for database 3023:500880:CRM_OLTP,57],
+                                T3494006.C242265859 as c9 [for database 3023:500880:CRM_OLTP,57],
+                                T3494006.C156170369 as c10 [for database 3023:500880:CRM_OLTP,57]
+                            Child Nodes (RqJoinSpec): <<369649225>> [for database 3023:500880:CRM_OLTP,57]
+                                RqJoinNode <<369649325>> []
+                                    [SELECT V53960257.LOOKUP_CATEGORY AS C14065347,         V53960257.R_PRIMARY_FLAG AS C339725600,         V53960257.R_SALES_CREDIT_TYPE_CODE AS C150825790,         V53960257.R_OPTY_ID AS C246777180,         V53960257.R_SPLIT_TYPE_CODE AS C515806611,         V53960257.R_RECUR_TYPE_CODE AS C115147832,         V53960257.R_CRM_CONVERSION_RATE AS C247165484,         V53960257.R_REVN_AMT AS C242265859,         V53960257.R_REVN_AMT_CURCY_CODE AS C156170369,         V85860066.PARTY_RES_PARTY_ID AS C41623930,         V524003964.ENTERPRISE_QUARTER AS C467700095,         V53960257.R_REVN_ID AS PKA_RevenueRevnId0,         V53960257.LOOKUP_VALUES_ID AS PKA_LookupValuesId0,         V524003964.REPORT_DATE AS PKA_ReportDate0 FROM (SELECT /*+ NO_UNNEST(@MOO_OPTY_AC_HIER)  NO_UNNEST(@MOO_OPTY_ACC) */ Revenue.REVN_ID AS R_REVN_ID,         Revenue.OWNER_RESOURCE_ID AS R_OWNER_RESOURCE_ID,         Revenue.REVN_AMT_CURCY_CODE AS R_REVN_AMT_CURCY_CODE,         Revenue.REVN_AMT AS R_REVN_AMT,         Revenue.SALES_CREDIT_TYPE_CODE AS R_SALES_CREDIT_TYPE_CODE,         Revenue.SPLIT_TYPE_CODE AS R_SPLIT_TYPE_CODE,         Revenue.RECUR_TYPE_CODE AS R_RECUR_TYPE_CODE,         Revenue.PRIMARY_FLAG AS R_PRIMARY_FLAG,         Revenue.CRM_CONVERSION_RATE AS R_CRM_CONVERSION_RATE,         Revenue.OPTY_ID AS R_OPTY_ID,         LookupValuesMlsPEO.LOOKUP_CATEGORY,         LookupValuesMlsPEO.LOOKUP_VALUES_ID,         Revenue.EFFECTIVE_DATE AS R_EFFECTIVE_FULLDT FROM MOO_REVN Revenue, MOO_OPTY OpportunitiesPEO, ZBS_LOOKUP_VALUES_VL LookupValuesMlsPEO WHERE (Revenue.OPTY_ID = OpportunitiesPEO.OPTY_ID AND Revenue.STATUS_CODE = LookupValuesMlsPEO.LOOKUP_CODE AND ('OPTY_STATUS') = LookupValuesMlsPEO.LOOKUP_TYPE AND Revenue.STATUS_CODE_SET_ID = LookupValuesMlsPEO.SET_ID) AND ( ((1=1))  AND ( ((  ( (Revenue.REVN_LINE_TYPE_CODE = 'LINE_SET_MEMBER_REVN' ) )  OR ( (Revenue.REVN_LINE_TYPE_CODE = 'STANDARD_REVN' ) )  OR ( (Revenue.REVN_LINE_TYPE_CODE = 'OPTY_SUMMARY_REVN' ) )  )) ) )) V53960257, (SELECT /*+ qb_name(PartyResource) */ PartyResource.PARTY_ID AS PARTY_RES_PARTY_ID FROM HZ_PARTIES PartyResource) V85860066, (SELECT /*+ qb_name(CrmFiscalDay) */ CrmCalendarDenormPEO.ENTERPRISE_ID,         CrmCalendarDenormPEO.REPORT_DATE,         CrmCalendarDenormPEO.ENTERPRISE_QUARTER FROM ZCA_BI_CRM_CALENDAR CrmCalendarDenormPEO) V524003964 WHERE (V53960257.R_OWNER_RESOURCE_ID = V85860066.PARTY_RES_PARTY_ID(+) AND V53960257.R_EFFECTIVE_FULLDT = V524003964.REPORT_DATE(+)) AND ( ( (V53960257.R_PRIMARY_FLAG = 'N' ) )  AND ( (V524003964.ENTERPRISE_QUARTER = '2022 Q 2' ) )  AND ( (V85860066.PARTY_RES_PARTY_ID = 300000002800089 ) ) )] as T3494006
+                        ) as D1
+            ) as D1
+        CrossProductJoin  [for database 3023:500880:CRM_OLTP,57]<<369649107>>
+        
+            (
+                RqList <<369649268>> [for database 3023:500880:CRM_OLTP,57]
+                    sum(case  when D1.c3 = 'AMOUNT' then case  when D1.c4 = 'COP' then D1.c2 else D1.c2 * 3800.0 end  else D1.c2 end ) as c1 [for database 3023:500880:CRM_OLTP,57]
+                Child Nodes (RqJoinSpec): <<369649277>> [for database 3023:500880:CRM_OLTP,57]
+                    RqJoinNode <<369649276>> []
+                        (
+                            RqList <<369648886>> [for database 3023:500880:CRM_OLTP,57]
+                                T3494007.C486910930 as c2 [for database 3023:500880:CRM_OLTP,57],
+                                T3494007.C67779245 as c3 [for database 3023:500880:CRM_OLTP,57],
+                                T3494007.C149087194 as c4 [for database 3023:500880:CRM_OLTP,57]
+                            Child Nodes (RqJoinSpec): <<369649227>> [for database 3023:500880:CRM_OLTP,57]
+                                RqJoinNode <<369649364>> []
+                                    [SELECT V359466519.RQP_RESOURCE_PERIOD_QUOTA AS C486910930,         V120752392.UOM AS C67779245,         V359466519.TQ_CRM_CORP_CURRENCY_CODE AS C149087194,         V120752392.GOAL_NUMBER AS C502489292,         V359466519.TQ_STATUS_CODE AS C154173161,         V85860066.PARTY_RES_PARTY_ID AS C41623930,         V204507898.ENTERPRISE_QUARTER AS C191638215,         V120752392.LANGUAGE AS C332157674,         V303533420.QPB_TRACK_QUOTA_PLAN_FLAG AS C294139451,         V359466519.RQP_RESOURCE_QUOTA_PERIOD_ID AS PKA_ResourceQuotaPeriodResour0,         V359466519.TQ_TERRITORY_QUOTA_ID AS PKA_TerritoryQuotaTerritoryQu0,         V204507898.FISCAL_PER_PERIOD_NUMBER AS PKA_FiscalPeriodFiscalPeriodN0,         V204507898.FISCAL_PER_PERIOD_START_DATE AS PKA_FiscalPeriodFiscalPeriodS0,         V303533420.QPB_QUOTA_PLAN_ID AS PKA_QuotaPlanBaseQuotaPlanId0,         V120752392.GOAL_ID AS PKA_GoalId0,         V120752392.GOALTL_GOAL_ID AS PKA_GoalTLGoalId0 FROM (SELECT ResourceQuotaPeriodPEO.PERIOD_NAME AS RQP_PERIOD_NAME,         ResourceQuotaPeriodPEO.PERIOD_SET_NAME AS RQP_PERIOD_SET_NAME,         ResourceQuotaPeriodPEO.RESOURCE_PERIOD_QUOTA AS RQP_RESOURCE_PERIOD_QUOTA,         ResourceQuotaPeriodPEO.RESOURCE_QUOTA_PERIOD_ID AS RQP_RESOURCE_QUOTA_PERIOD_ID,         ResourceQuotaPEO.RESOURCE_ID AS RQ_RESOURCE_ID,         TerritoryQuotaPEO.TERRITORY_QUOTA_ID AS TQ_TERRITORY_QUOTA_ID,         TerritoryQuotaPEO.QUOTA_PLAN_ID AS TQ_QUOTA_PLAN_ID,         TerritoryQuotaPEO.STATUS_CODE AS TQ_STATUS_CODE,         TerritoryQuotaPEO.CRM_CORP_CURRENCY_CODE AS TQ_CRM_CORP_CURRENCY_CODE,         ResourceQuotaPEO.GOAL_ID FROM MOT_QM_RESOURCE_QUOTA_PERIODS ResourceQuotaPeriodPEO, MOT_QM_RESOURCE_QUOTAS ResourceQuotaPEO, MOT_QM_TERRITORY_QUOTAS TerritoryQuotaPEO, MOT_QM_TERR_QUOTA_CONFIG TerritoryQuotaConfigPEO WHERE (ResourceQuotaPeriodPEO.RESOURCE_QUOTA_ID = ResourceQuotaPEO.RESOURCE_QUOTA_ID AND ResourceQuotaPEO.TERRITORY_QUOTA_ID = TerritoryQuotaPEO.TERRITORY_QUOTA_ID AND TerritoryQuotaPEO.TERRITORY_ID = TerritoryQuotaConfigPEO.TERRITORY_ID AND TerritoryQuotaPEO.QUOTA_PLAN_ID = TerritoryQuotaConfigPEO.QUOTA_PLAN_ID) AND ( ( ((  ( (TerritoryQuotaConfigPEO.TERRITORY_DELETED_FLAG <> 'Y' ) )  OR ( (TerritoryQuotaConfigPEO.TERRITORY_DELETED_FLAG IS NULL ) )  )) )  AND ((( exists (select 1 from MOT_QM_TERRITORY_QUOTAS terrquotas, MOT_TERR_RESOURCES resources where ((resources.admin_flag = 'Y' and ResourceQuotaPEO.territory_quota_id = terrquotas.territory_quota_id) OR (ResourceQuotaPEO.territory_quota_id IS NULL OR (ResourceQuotaPEO.territory_quota_id = terrquotas.territory_quota_id AND ResourceQuotaPEO.resource_id = resources.RESOURCE_ID))) and terrquotas.territory_version_id = resources.territory_version_id and resources.RESOURCE_ID = (SELECT HZ_SESSION_UTIL.GET_USER_PARTYID FROM DUAL)) ) OR (EXISTS
+ (
+SELECT 1
+ FROM  ZCA_OBJECT_SHARE_VIEW SH, ZCA_ACCESS_GROUP_MEMBERS_VIEW GRP
+ WHERE GRP.ACCESS_GROUP_ID=SH.ACCESS_GROUP_ID
+ AND   GRP.TYPE_CODE=SH.ACCESS_GROUP_TYPE_CODE
+ AND   GRP.PARTY_ID=(SELECT HZ_SESSION_UTIL.GET_USER_PARTYID FROM DUAL)
+ AND   SH.ACCESS_LEVEL_CODE IN ('UPDATE','FULL')
+ AND   SH.OBJECT_ID= ResourceQuotaPEO.RESOURCE_QUOTA_ID
+ AND   SH.OBJECT_TYPE='ResourceQuota'
+)) OR (EXISTS
+ (
+SELECT 1
+ FROM  ZCA_OBJECT_SHARE_VIEW SH, ZCA_ACCESS_GROUP_MEMBERS_VIEW GRP
+ WHERE GRP.ACCESS_GROUP_ID=SH.ACCESS_GROUP_ID
+ AND GRP.TYPE_CODE=SH.ACCESS_GROUP_TYPE_CODE
+ AND GRP.PARTY_ID=(SELECT HZ_SESSION_UTIL.GET_USER_PARTYID FROM DUAL)
+ AND SH.ACCESS_LEVEL_CODE IN ('READ','UPDATE','DELETE','FULL')
+ AND SH.OBJECT_ID= ResourceQuotaPEO.RESOURCE_QUOTA_ID
+ AND SH.OBJECT_TYPE='ResourceQuota'
+)) OR (EXISTS ( SELECT 1
+ FROM ZCA_OBJECT_SHARE_VIEW SH, ZCA_ACCESS_GROUP_MEMBERS_VIEW GRP
+ WHERE GRP.ACCESS_GROUP_ID=SH.ACCESS_GROUP_ID
+ AND GRP.TYPE_CODE=SH.ACCESS_GROUP_TYPE_CODE
+ AND GRP.PARTY_ID=(SELECT HZ_SESSION_UTIL.GET_USER_PARTYID FROM DUAL)
+ AND SH.ACCESS_LEVEL_CODE IN ('DELETE','FULL')
+ AND SH.OBJECT_ID= ResourceQuotaPEO.RESOURCE_QUOTA_ID
+ AND SH.OBJECT_TYPE='ResourceQuota'
+)))) )) V359466519, (SELECT /*+ qb_name(PartyResource) */ PartyResource.PARTY_ID AS PARTY_RES_PARTY_ID FROM HZ_PARTIES PartyResource) V85860066, (SELECT CrmCalendarPeriodDenormPEO.FISCAL_PERIOD_SET_NAME AS FISCAL_PER_PERIOD_SET_NAME,         CrmCalendarPeriodDenormPEO.FISCAL_PERIOD_NAME AS FISCAL_PER_PERIOD_NAME,         CrmCalendarPeriodDenormPEO.FISCAL_PERIOD_NUMBER AS FISCAL_PER_PERIOD_NUMBER,         CrmCalendarPeriodDenormPEO.FISCAL_PERIOD_START_DATE AS FISCAL_PER_PERIOD_START_DATE,         CrmCalendarPeriodDenormPEO.ENTERPRISE_QUARTER FROM ZCA_BI_CRM_CAL_PERIOD CrmCalendarPeriodDenormPEO) V204507898, (SELECT QuotaPlanBasePEO.QUOTA_PLAN_ID AS QPB_QUOTA_PLAN_ID,         QuotaPlanBasePEO.TRACK_QUOTA_PLAN_FLAG AS QPB_TRACK_QUOTA_PLAN_FLAG FROM MOT_QM_QUOTA_PLANS_B QuotaPlanBasePEO) V303533420, (SELECT GoalBasePEO.GOAL_ID,         GoalBasePEO.GOAL_NUMBER,         GoalBasePEO.UOM,         GoalTranslationPEO.GOAL_ID AS GOALTL_GOAL_ID,         GoalTranslationPEO.LANGUAGE FROM MOT_QM_GOALS_B GoalBasePEO, MOT_QM_GOALS_TL GoalTranslationPEO WHERE GoalBasePEO.GOAL_ID = GoalTranslationPEO.GOAL_ID AND (USERENV('LANG')) = GoalTranslationPEO.LANGUAGE) V120752392 WHERE (V359466519.RQ_RESOURCE_ID = V85860066.PARTY_RES_PARTY_ID AND V359466519.RQP_PERIOD_SET_NAME = V204507898.FISCAL_PER_PERIOD_SET_NAME(+) AND V359466519.RQP_PERIOD_NAME = V204507898.FISCAL_PER_PERIOD_NAME(+) AND V359466519.TQ_QUOTA_PLAN_ID = V303533420.QPB_QUOTA_PLAN_ID(+) AND V359466519.GOAL_ID = V120752392.GOAL_ID) AND ( ( (V359466519.TQ_STATUS_CODE = 'PUBLISHED' ) )  AND ( (V303533420.QPB_TRACK_QUOTA_PLAN_FLAG = 'Y' ) )  AND ( (V204507898.ENTERPRISE_QUARTER = '2022 Q 2' ) )  AND ( (V120752392.GOAL_NUMBER = 'GOAL_1000' ) )  AND ( (V85860066.PARTY_RES_PARTY_ID = 300000002800089 ) )  AND ( ( (V120752392.LANGUAGE = 'E' ) )  OR ( (V120752392.LANGUAGE IS NULL ) ) ) )] as T3494007
+                        ) as D1
+            ) as D2
+
+]]
+[2022-06-02T14:21:48.865+00:00] [OBIS] [TRACE:2] [USER-18] [] [ecid: 005s7UttSbTBh4MLqMl3iY0000Lq0006a5,0:5:1:18:5] [sik: ssi] [tid: a5692700] [messageId: USER-18] [requestid: 49d2001c] [sessionid: 49d20000] [username: mquintero@icontec.org] -------------------- Sending query to database named CRM_OLTP (id: <<369648777>>), client type Oracle Call Interface (OCI), connection pool named Connection Pool, logical request hash 3d459cdf, physical request hash 28c3545d: [[
+WITH 
+SAWITH0 AS (select T3494006.C14065347 as c2,
+     T3494006.C339725600 as c3,
+     T3494006.C150825790 as c4,
+     T3494006.C246777180 as c5,
+     T3494006.C515806611 as c6,
+     T3494006.C115147832 as c7,
+     T3494006.C247165484 as c8,
+     T3494006.C242265859 as c9,
+     T3494006.C156170369 as c10
+from 
+     (SELECT V53960257.LOOKUP_CATEGORY AS C14065347,         V53960257.R_PRIMARY_FLAG AS C339725600,         V53960257.R_SALES_CREDIT_TYPE_CODE AS C150825790,         V53960257.R_OPTY_ID AS C246777180,         V53960257.R_SPLIT_TYPE_CODE AS C515806611,         V53960257.R_RECUR_TYPE_CODE AS C115147832,         V53960257.R_CRM_CONVERSION_RATE AS C247165484,         V53960257.R_REVN_AMT AS C242265859,         V53960257.R_REVN_AMT_CURCY_CODE AS C156170369,         V85860066.PARTY_RES_PARTY_ID AS C41623930,         V524003964.ENTERPRISE_QUARTER AS C467700095,         V53960257.R_REVN_ID AS PKA_RevenueRevnId0,         V53960257.LOOKUP_VALUES_ID AS PKA_LookupValuesId0,         V524003964.REPORT_DATE AS PKA_ReportDate0 FROM (SELECT /*+ NO_UNNEST(@MOO_OPTY_AC_HIER)  NO_UNNEST(@MOO_OPTY_ACC) */ Revenue.REVN_ID AS R_REVN_ID,         Revenue.OWNER_RESOURCE_ID AS R_OWNER_RESOURCE_ID,         Revenue.REVN_AMT_CURCY_CODE AS R_REVN_AMT_CURCY_CODE,         Revenue.REVN_AMT AS R_REVN_AMT,         Revenue.SALES_CREDIT_TYPE_CODE AS R_SALES_CREDIT_TYPE_CODE,         Revenue.SPLIT_TYPE_CODE AS R_SPLIT_TYPE_CODE,         Revenue.RECUR_TYPE_CODE AS R_RECUR_TYPE_CODE,         Revenue.PRIMARY_FLAG AS R_PRIMARY_FLAG,         Revenue.CRM_CONVERSION_RATE AS R_CRM_CONVERSION_RATE,         Revenue.OPTY_ID AS R_OPTY_ID,         LookupValuesMlsPEO.LOOKUP_CATEGORY,         LookupValuesMlsPEO.LOOKUP_VALUES_ID,         Revenue.EFFECTIVE_DATE AS R_EFFECTIVE_FULLDT FROM MOO_REVN Revenue, MOO_OPTY OpportunitiesPEO, ZBS_LOOKUP_VALUES_VL LookupValuesMlsPEO WHERE (Revenue.OPTY_ID = OpportunitiesPEO.OPTY_ID AND Revenue.STATUS_CODE = LookupValuesMlsPEO.LOOKUP_CODE AND ('OPTY_STATUS') = LookupValuesMlsPEO.LOOKUP_TYPE AND Revenue.STATUS_CODE_SET_ID = LookupValuesMlsPEO.SET_ID) AND ( ((1=1))  AND ( ((  ( (Revenue.REVN_LINE_TYPE_CODE = 'LINE_SET_MEMBER_REVN' ) )  OR ( (Revenue.REVN_LINE_TYPE_CODE = 'STANDARD_REVN' ) )  OR ( (Revenue.REVN_LINE_TYPE_CODE = 'OPTY_SUMMARY_REVN' ) )  )) ) )) V53960257, (SELECT /*+ qb_name(PartyResource) */ PartyResource.PARTY_ID AS PARTY_RES_PARTY_ID FROM HZ_PARTIES PartyResource) V85860066, (SELECT /*+ qb_name(CrmFiscalDay) */ CrmCalendarDenormPEO.ENTERPRISE_ID,         CrmCalendarDenormPEO.REPORT_DATE,         CrmCalendarDenormPEO.ENTERPRISE_QUARTER FROM ZCA_BI_CRM_CALENDAR CrmCalendarDenormPEO) V524003964 WHERE (V53960257.R_OWNER_RESOURCE_ID = V85860066.PARTY_RES_PARTY_ID(+) AND V53960257.R_EFFECTIVE_FULLDT = V524003964.REPORT_DATE(+)) AND ( ( (V53960257.R_PRIMARY_FLAG = 'N' ) )  AND ( (V524003964.ENTERPRISE_QUARTER = '2022 Q 2' ) )  AND ( (V85860066.PARTY_RES_PARTY_ID = 300000002800089 ) ) )) T3494006),
+SAWITH1 AS (select sum(case  when D1.c2 = 'WON' and D1.c3 = 'N' and D1.c4 = 'QUOTA' and not D1.c5 is null then case  when D1.c6 in ('PARENTSPLIT') or D1.c7 in ('PARENTRECUR') then 0 else 1 end  * case  when D1.c10 = 'COP' then D1.c9 else D1.c8 * D1.c9 * 3800.0 end  end ) as c1
+from 
+     SAWITH0 D1),
+SAWITH2 AS (select T3494007.C486910930 as c2,
+     T3494007.C67779245 as c3,
+     T3494007.C149087194 as c4
+from 
+     (SELECT V359466519.RQP_RESOURCE_PERIOD_QUOTA AS C486910930,         V120752392.UOM AS C67779245,         V359466519.TQ_CRM_CORP_CURRENCY_CODE AS C149087194,         V120752392.GOAL_NUMBER AS C502489292,         V359466519.TQ_STATUS_CODE AS C154173161,         V85860066.PARTY_RES_PARTY_ID AS C41623930,         V204507898.ENTERPRISE_QUARTER AS C191638215,         V120752392.LANGUAGE AS C332157674,         V303533420.QPB_TRACK_QUOTA_PLAN_FLAG AS C294139451,         V359466519.RQP_RESOURCE_QUOTA_PERIOD_ID AS PKA_ResourceQuotaPeriodResour0,         V359466519.TQ_TERRITORY_QUOTA_ID AS PKA_TerritoryQuotaTerritoryQu0,         V204507898.FISCAL_PER_PERIOD_NUMBER AS PKA_FiscalPeriodFiscalPeriodN0,         V204507898.FISCAL_PER_PERIOD_START_DATE AS PKA_FiscalPeriodFiscalPeriodS0,         V303533420.QPB_QUOTA_PLAN_ID AS PKA_QuotaPlanBaseQuotaPlanId0,         V120752392.GOAL_ID AS PKA_GoalId0,         V120752392.GOALTL_GOAL_ID AS PKA_GoalTLGoalId0 FROM (SELECT ResourceQuotaPeriodPEO.PERIOD_NAME AS RQP_PERIOD_NAME,         ResourceQuotaPeriodPEO.PERIOD_SET_NAME AS RQP_PERIOD_SET_NAME,         ResourceQuotaPeriodPEO.RESOURCE_PERIOD_QUOTA AS RQP_RESOURCE_PERIOD_QUOTA,         ResourceQuotaPeriodPEO.RESOURCE_QUOTA_PERIOD_ID AS RQP_RESOURCE_QUOTA_PERIOD_ID,         ResourceQuotaPEO.RESOURCE_ID AS RQ_RESOURCE_ID,         TerritoryQuotaPEO.TERRITORY_QUOTA_ID AS TQ_TERRITORY_QUOTA_ID,         TerritoryQuotaPEO.QUOTA_PLAN_ID AS TQ_QUOTA_PLAN_ID,         TerritoryQuotaPEO.STATUS_CODE AS TQ_STATUS_CODE,         TerritoryQuotaPEO.CRM_CORP_CURRENCY_CODE AS TQ_CRM_CORP_CURRENCY_CODE,         ResourceQuotaPEO.GOAL_ID FROM MOT_QM_RESOURCE_QUOTA_PERIODS ResourceQuotaPeriodPEO, MOT_QM_RESOURCE_QUOTAS ResourceQuotaPEO, MOT_QM_TERRITORY_QUOTAS TerritoryQuotaPEO, MOT_QM_TERR_QUOTA_CONFIG TerritoryQuotaConfigPEO WHERE (ResourceQuotaPeriodPEO.RESOURCE_QUOTA_ID = ResourceQuotaPEO.RESOURCE_QUOTA_ID AND ResourceQuotaPEO.TERRITORY_QUOTA_ID = TerritoryQuotaPEO.TERRITORY_QUOTA_ID AND TerritoryQuotaPEO.TERRITORY_ID = TerritoryQuotaConfigPEO.TERRITORY_ID AND TerritoryQuotaPEO.QUOTA_PLAN_ID = TerritoryQuotaConfigPEO.QUOTA_PLAN_ID) AND ( ( ((  ( (TerritoryQuotaConfigPEO.TERRITORY_DELETED_FLAG <> 'Y' ) )  OR ( (TerritoryQuotaConfigPEO.TERRITORY_DELETED_FLAG IS NULL ) )  )) )  AND ((( exists (select 1 from MOT_QM_TERRITORY_QUOTAS terrquotas, MOT_TERR_RESOURCES resources where ((resources.admin_flag = 'Y' and ResourceQuotaPEO.territory_quota_id = terrquotas.territory_quota_id) OR (ResourceQuotaPEO.territory_quota_id IS NULL OR (ResourceQuotaPEO.territory_quota_id = terrquotas.territory_quota_id AND ResourceQuotaPEO.resource_id = resources.RESOURCE_ID))) and terrquotas.territory_version_id = resources.territory_version_id and resources.RESOURCE_ID = (SELECT HZ_SESSION_UTIL.GET_USER_PARTYID FROM DUAL)) ) OR (EXISTS
+ (
+SELECT 1
+ FROM  ZCA_OBJECT_SHARE_VIEW SH, ZCA_ACCESS_GROUP_MEMBERS_VIEW GRP
+ WHERE GRP.ACCESS_GROUP_ID=SH.ACCESS_GROUP_ID
+ AND   GRP.TYPE_CODE=SH.ACCESS_GROUP_TYPE_CODE
+ AND   GRP.PARTY_ID=(SELECT HZ_SESSION_UTIL.GET_USER_PARTYID FROM DUAL)
+ AND   SH.ACCESS_LEVEL_CODE IN ('UPDATE','FULL')
+ AND   SH.OBJECT_ID= ResourceQuotaPEO.RESOURCE_QUOTA_ID
+ AND   SH.OBJECT_TYPE='ResourceQuota'
+)) OR (EXISTS
+ (
+SELECT 1
+ FROM  ZCA_OBJECT_SHARE_VIEW SH, ZCA_ACCESS_GROUP_MEMBERS_VIEW GRP
+ WHERE GRP.ACCESS_GROUP_ID=SH.ACCESS_GROUP_ID
+ AND GRP.TYPE_CODE=SH.ACCESS_GROUP_TYPE_CODE
+ AND GRP.PARTY_ID=(SELECT HZ_SESSION_UTIL.GET_USER_PARTYID FROM DUAL)
+ AND SH.ACCESS_LEVEL_CODE IN ('READ','UPDATE','DELETE','FULL')
+ AND SH.OBJECT_ID= ResourceQuotaPEO.RESOURCE_QUOTA_ID
+ AND SH.OBJECT_TYPE='ResourceQuota'
+)) OR (EXISTS ( SELECT 1
+ FROM ZCA_OBJECT_SHARE_VIEW SH, ZCA_ACCESS_GROUP_MEMBERS_VIEW GRP
+ WHERE GRP.ACCESS_GROUP_ID=SH.ACCESS_GROUP_ID
+ AND GRP.TYPE_CODE=SH.ACCESS_GROUP_TYPE_CODE
+ AND GRP.PARTY_ID=(SELECT HZ_SESSION_UTIL.GET_USER_PARTYID FROM DUAL)
+ AND SH.ACCESS_LEVEL_CODE IN ('DELETE','FULL')
+ AND SH.OBJECT_ID= ResourceQuotaPEO.RESOURCE_QUOTA_ID
+ AND SH.OBJECT_TYPE='ResourceQuota'
+)))) )) V359466519, (SELECT /*+ qb_name(PartyResource) */ PartyResource.PARTY_ID AS PARTY_RES_PARTY_ID FROM HZ_PARTIES PartyResource) V85860066, (SELECT CrmCalendarPeriodDenormPEO.FISCAL_PERIOD_SET_NAME AS FISCAL_PER_PERIOD_SET_NAME,         CrmCalendarPeriodDenormPEO.FISCAL_PERIOD_NAME AS FISCAL_PER_PERIOD_NAME,         CrmCalendarPeriodDenormPEO.FISCAL_PERIOD_NUMBER AS FISCAL_PER_PERIOD_NUMBER,         CrmCalendarPeriodDenormPEO.FISCAL_PERIOD_START_DATE AS FISCAL_PER_PERIOD_START_DATE,         CrmCalendarPeriodDenormPEO.ENTERPRISE_QUARTER FROM ZCA_BI_CRM_CAL_PERIOD CrmCalendarPeriodDenormPEO) V204507898, (SELECT QuotaPlanBasePEO.QUOTA_PLAN_ID AS QPB_QUOTA_PLAN_ID,         QuotaPlanBasePEO.TRACK_QUOTA_PLAN_FLAG AS QPB_TRACK_QUOTA_PLAN_FLAG FROM MOT_QM_QUOTA_PLANS_B QuotaPlanBasePEO) V303533420, (SELECT GoalBasePEO.GOAL_ID,         GoalBasePEO.GOAL_NUMBER,         GoalBasePEO.UOM,         GoalTranslationPEO.GOAL_ID AS GOALTL_GOAL_ID,         GoalTranslationPEO.LANGUAGE FROM MOT_QM_GOALS_B GoalBasePEO, MOT_QM_GOALS_TL GoalTranslationPEO WHERE GoalBasePEO.GOAL_ID = GoalTranslationPEO.GOAL_ID AND (USERENV('LANG')) = GoalTranslationPEO.LANGUAGE) V120752392 WHERE (V359466519.RQ_RESOURCE_ID = V85860066.PARTY_RES_PARTY_ID AND V359466519.RQP_PERIOD_SET_NAME = V204507898.FISCAL_PER_PERIOD_SET_NAME(+) AND V359466519.RQP_PERIOD_NAME = V204507898.FISCAL_PER_PERIOD_NAME(+) AND V359466519.TQ_QUOTA_PLAN_ID = V303533420.QPB_QUOTA_PLAN_ID(+) AND V359466519.GOAL_ID = V120752392.GOAL_ID) AND ( ( (V359466519.TQ_STATUS_CODE = 'PUBLISHED' ) )  AND ( (V303533420.QPB_TRACK_QUOTA_PLAN_FLAG = 'Y' ) )  AND ( (V204507898.ENTERPRISE_QUARTER = '2022 Q 2' ) )  AND ( (V120752392.GOAL_NUMBER = 'GOAL_1000' ) )  AND ( (V85860066.PARTY_RES_PARTY_ID = 300000002800089 ) )  AND ( ( (V120752392.LANGUAGE = 'E' ) )  OR ( (V120752392.LANGUAGE IS NULL ) ) ) )) T3494007),
+SAWITH3 AS (select sum(case  when D1.c3 = 'AMOUNT' then case  when D1.c4 = 'COP' then D1.c2 else D1.c2 * 3800.0 end  else D1.c2 end ) as c1
+from 
+     SAWITH2 D1)
+select D1.c1 as c1, D1.c2 as c2, D1.c3 as c3, D1.c4 as c4, D1.c5 as c5, D1.c6 as c6 from ( select distinct 0 as c1,
+     'loc:es-CO' as c2,
+     nvl(D1.c1 , 0) / nullif( D2.c1, 0) * 100 as c3,
+     nvl(D1.c1 , 0) as c4,
+     nvl(D2.c1 , 0) as c5,
+     nvl(D2.c1 , 0) - nvl(D1.c1 , 0) as c6
+from 
+     
+          SAWITH1 D1 , 
+          SAWITH3 D2 ) D1 where rownum <= 75001
+    
+]]
+[2022-06-02T14:21:48.868+00:00] [OBIS] [TRACE:2] [USER-18] [] [ecid: 005s7UttSbTBh4MLqMl3iY0000Lq0006a5,0:5:1:18:5:3] [sik: ssi] [tid: 59038700] [messageId: USER-18] [requestid: 49d2001c] [sessionid: 49d20000] [username: mquintero@icontec.org] -------------------- Sending query to database named CRM_OLTP (id: <<369648777>> pre query 0), client type Oracle Call Interface (OCI), connection pool named Connection Pool, logical request hash 3d459cdf, physical request hash 62222a03: [[
+BEGIN fnd_session_mgmt.attach_session('DFB3F03FCAB8CFBCE053D562310A7161');END;
+
+]]
+[2022-06-02T14:21:49.037+00:00] [OBIS] [TRACE:2] [USER-18] [] [ecid: 005s7UttSbTBh4MLqMl3iY0000Lq0006a5,0:5:1:18:5:3] [sik: ssi] [tid: 59038700] [messageId: USER-18] [requestid: 49d2001c] [sessionid: 49d20000] [username: mquintero@icontec.org] -------------------- Sending query to database named CRM_OLTP (id: <<369648777>> post query 0), client type Oracle Call Interface (OCI), connection pool named Connection Pool, logical request hash 3d459cdf, physical request hash 93d7d2ae: [[
+BEGIN fnd_session_mgmt.detach_session;END;
+
+]]
+[2022-06-02T14:21:49.040+00:00] [OBIS] [TRACE:2] [USER-34] [] [ecid: 005s7UttSbTBh4MLqMl3iY0000Lq0006a5,0:5:1:18:8:1] [sik: ssi] [tid: a5692700] [messageId: USER-34] [requestid: 49d2001c] [sessionid: 49d20000] [username: mquintero@icontec.org] -------------------- Query Status: Successful Completion
+[2022-06-02T14:21:49.040+00:00] [OBIS] [TRACE:2] [USER-26] [] [ecid: 005s7UttSbTBh4MLqMl3iY0000Lq0006a5,0:5:1:18:8:1] [sik: ssi] [tid: a5692700] [messageId: USER-26] [requestid: 49d2001c] [sessionid: 49d20000] [username: mquintero@icontec.org] -------------------- Rows 1, bytes 32772 retrieved from database query id: <<369648806>> SQLBypass Gateway, physical request hash 1ea95037 
+[2022-06-02T14:21:49.041+00:00] [OBIS] [TRACE:2] [USER-28] [] [ecid: 005s7UttSbTBh4MLqMl3iY0000Lq0006a5,0:5:1:18:8:1] [sik: ssi] [tid: a5692700] [messageId: USER-28] [requestid: 49d2001c] [sessionid: 49d20000] [username: mquintero@icontec.org] -------------------- Physical query response: Total time 0.096 (seconds), Fetch time 0.000 (seconds), Execute time 0.096 (seconds), id <<369648806>> SQLBypass Gateway, physical request hash 1ea95037 
+[2022-06-02T14:21:49.041+00:00] [OBIS] [TRACE:2] [USER-26] [] [ecid: 005s7UttSbTBh4MLqMl3iY0000Lq0006a5,0:5:1:18:8:1] [sik: ssi] [tid: a5692700] [messageId: USER-26] [requestid: 49d2001c] [sessionid: 49d20000] [username: mquintero@icontec.org] -------------------- Rows 1, bytes 32772 retrieved from database query id: <<369648886>> SQLBypass Gateway, physical request hash 35ae4ecc 
+[2022-06-02T14:21:49.041+00:00] [OBIS] [TRACE:2] [USER-28] [] [ecid: 005s7UttSbTBh4MLqMl3iY0000Lq0006a5,0:5:1:18:8:1] [sik: ssi] [tid: a5692700] [messageId: USER-28] [requestid: 49d2001c] [sessionid: 49d20000] [username: mquintero@icontec.org] -------------------- Physical query response: Total time 0.095 (seconds), Fetch time 0.000 (seconds), Execute time 0.094 (seconds), id <<369648886>> SQLBypass Gateway, physical request hash 35ae4ecc 
+[2022-06-02T14:21:49.041+00:00] [OBIS] [TRACE:2] [USER-26] [] [ecid: 005s7UttSbTBh4MLqMl3iY0000Lq0006a5,0:5:1:18:8:1] [sik: ssi] [tid: a5692700] [messageId: USER-26] [requestid: 49d2001c] [sessionid: 49d20000] [username: mquintero@icontec.org] -------------------- Rows 1, bytes 96 retrieved from database query id: <<369648777>>, physical request hash 28c3545d 
+[2022-06-02T14:21:49.041+00:00] [OBIS] [TRACE:2] [USER-28] [] [ecid: 005s7UttSbTBh4MLqMl3iY0000Lq0006a5,0:5:1:18:8:1] [sik: ssi] [tid: a5692700] [messageId: USER-28] [requestid: 49d2001c] [sessionid: 49d20000] [username: mquintero@icontec.org] -------------------- Physical query response: Total time 0.169 (seconds), Fetch time 0.000 (seconds), Execute time 0.167 (seconds), id <<369648777>>, physical request hash 28c3545d 
+[2022-06-02T14:21:49.041+00:00] [OBIS] [TRACE:2] [USER-29] [] [ecid: 005s7UttSbTBh4MLqMl3iY0000Lq0006a5,0:5:1:18:8:1] [sik: ssi] [tid: a5692700] [messageId: USER-29] [requestid: 49d2001c] [sessionid: 49d20000] [username: mquintero@icontec.org] -------------------- Physical Query Summary Stats: Number of physical queries 3, Cumulative time 0.360, DB-connect time 0.000 (seconds)
+[2022-06-02T14:21:49.041+00:00] [OBIS] [TRACE:2] [USER-24] [] [ecid: 005s7UttSbTBh4MLqMl3iY0000Lq0006a5,0:5:1:18:8:1] [sik: ssi] [tid: a5692700] [messageId: USER-24] [requestid: 49d2001c] [sessionid: 49d20000] [username: mquintero@icontec.org] -------------------- Rows returned to Client 1
+[2022-06-02T14:21:49.041+00:00] [OBIS] [TRACE:2] [USER-33] [] [ecid: 005s7UttSbTBh4MLqMl3iY0000Lq0006a5,0:5:1:18:8:1] [sik: ssi] [tid: a5692700] [messageId: USER-33] [requestid: 49d2001c] [sessionid: 49d20000] [username: mquintero@icontec.org] -------------------- Logical Query Summary Stats: Elapsed time 0.664, Total time in BI Server 0.662, Execution time 0.663, Response time 0.663, Compilation time 0.490 (seconds), logical request hash 3d459cdf 
+[2022-06-02T14:21:49.041+00:00] [OBIS] [TRACE:2] [USER-116] [] [ecid: 005s7UttSbTBh4MLqMl3iY0000Lq0006a5,0:5:1:18:8:1] [sik: ssi] [tid: a5692700] [messageId: USER-116] [requestid: 49d2001c] [sessionid: 49d20000] [username: mquintero@icontec.org] -------------------- Deferred init block execution time for logical request hash 3d459cdf : 0.000 (seconds)

@@ -1,0 +1,30 @@
+<soapenv:Envelope
+    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:typ="http://xmlns.oracle.com/apps/crmCommon/orders/salesOrdersService/types/"
+    xmlns:ns2="http://xmlns.oracle.com/apps/crmCommon/orders/salesOrdersService/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <typ:updateSalesOrderHeader>
+            <typ:salesOrderHeader>
+                <ns2:CurrencyCode>{{CURRENCY}}</ns2:CurrencyCode> <!--currency_t--> <!--{{CURRENCY}}-->
+                <ns2:ExternalReferenceNumber>{{EXTNUM}}</ns2:ExternalReferenceNumber> <!--bs_id--><!--{{EXTNUM}}-->
+                <ns2:Name>{{NAME}}</ns2:Name><!--ctransactionID_t--><!--{{NAME}}-->
+                <ns2:OptyId>{{OPTYID}}</ns2:OptyId><!--opportunityID_t--><!--{{OPTYID}}-->
+                <ns2:OrderTotal>{{TOTAL}}</ns2:OrderTotal><!--totalOneTimeNetAmount_t--><!--{{TOTAL}}-->
+                <ns2:SoldCustomerPartyId>{{CUSID}}</ns2:SoldCustomerPartyId><!--accountID_t--><!--{{CUSID}}-->
+                <ns2:VersionNumber>{{VER}}</ns2:VersionNumber><!--version_t--><!--{{VER}}-->
+                <ns2:Owner>{{OWNER}}</ns2:Owner><!--createdBy_t--><!--{{OWNER}}-->
+                <ns2:ExternalSystemReferenceCode>BMQUOTE</ns2:ExternalSystemReferenceCode><!--FIJOt-->
+                <ns2:Status>{{STA}}</ns2:Status><!--status_t--><!--{{STA}}-->
+                <ns2:EstadoCPQ_c>{{STEP}}</ns2:EstadoCPQ_c>
+                <ns2:ActiveVersionFlag>{{ACT}}</ns2:ActiveVersionFlag>
+                <ns2:AprobadoPorElCliente_c>{{APR}}</ns2:AprobadoPorElCliente_c>
+                <!-- test <ns2:FechaDeCreacion_c>{{CRE_DATE}}</ns2:FechaDeCreacion_c> -->
+                <ns2:FechaCreacion_c>{{CRE_DATE}}</ns2:FechaCreacion_c>
+                <ns2:PropietarioCPQ_c>{{OWN_CPQ}}</ns2:PropietarioCPQ_c>
+                <ns2:Descuento_c>{{DES}}</ns2:Descuento_c>
+                <ns2:Convenio_c>{{CONV}}</ns2:Convenio_c>
+            </typ:salesOrderHeader>
+        </typ:updateSalesOrderHeader>
+    </soapenv:Body>
+</soapenv:Envelope> 

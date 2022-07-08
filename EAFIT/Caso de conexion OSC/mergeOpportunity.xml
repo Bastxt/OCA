@@ -1,0 +1,27 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:typ="http://xmlns.oracle.com/apps/sales/opptyMgmt/opportunities/opportunityService/types/"
+    xmlns:opp="http://xmlns.oracle.com/apps/sales/opptyMgmt/opportunities/opportunityService/"
+    xmlns:rev="http://xmlns.oracle.com/apps/sales/opptyMgmt/revenues/revenueService/"
+    xmlns:not="http://xmlns.oracle.com/apps/crmCommon/notes/noteService"
+    xmlns:not1="http://xmlns.oracle.com/apps/crmCommon/notes/flex/noteDff/"
+    xmlns:rev1="http://xmlns.oracle.com/oracle/apps/sales/opptyMgmt/revenues/revenueService/"
+    xmlns:act="http://xmlns.oracle.com/apps/crmCommon/activities/activitiesService/">
+    <soapenv:Body>
+        <typ:mergeOpportunity>
+            <typ:opportunity>
+                <opp:PrimaryOrganizationId>300000002408786</opp:PrimaryOrganizationId>
+                <opp:SalesStageId>300000002469241</opp:SalesStageId>
+                <opp:Name>CE-601213-2022-2-POS12801</opp:Name>
+                <opp:OptyId>300000052250241</opp:OptyId>
+                <opp:OwnerResourcePartyId>300000017188527</opp:OwnerResourcePartyId>
+                <opp:KeyContactId>300000052244027</opp:KeyContactId>
+                <opp:EffectiveDate>2022-05-04-05:00</opp:EffectiveDate>
+                <opp:EAFIT_TipoPublico_c>PERSONA</opp:EAFIT_TipoPublico_c>
+                <opp:EAFIT_AsistioAExamen_c>false</opp:EAFIT_AsistioAExamen_c>
+                <opp:EAFIT_AsistioAEntrevista_c>false</opp:EAFIT_AsistioAEntrevista_c>
+                <opp:EAFIT_FechaDeInscripcion_c>2022-05-02T12:19:22.986334-05:00</opp:EAFIT_FechaDeInscripcion_c>
+                <opp:EAFIT_TipoDeAdmision_c>Estudios Primera Vez</opp:EAFIT_TipoDeAdmision_c>
+            </typ:opportunity>
+        </typ:mergeOpportunity>
+    </soapenv:Body>
+</soapenv:Envelope>

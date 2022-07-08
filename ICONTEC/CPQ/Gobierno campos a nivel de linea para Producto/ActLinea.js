@@ -5,22 +5,26 @@ result = "";
 refProd = parametrosProducto;
 sizepp = jsonarraysize(parametrosProducto);
 indices = range(sizepp);
+c = 0;
 
 
 for index in indices {
     refTemp = jsonarrayget(refProd, index, "json");
-    if (index + 1 == numeroDeLinea) {
-        jsonput(refTemp, "referencialDeCertificacin", referencialCertificacin_pro);
-        jsonput(refTemp, "procesoOServicioACertificar", procesoOServicioACertificar_pro);
-        jsonput(refTemp, "esquemaDeCertificacin", esquemaDeCertificacion_pro);
-        jsonput(refTemp, "tipoDeServicioProducto", tipoServicioPPS);
-        jsonput(refTemp, "vigenciaDeLaCertificacin", vigenciaDeLaCertificacin_pro);
-        jsonput(refTemp, "tipoDeAcreditacin", tipoDeAcreditacion_pro);
-        jsonput(refTemp, "naceP", naceProducto);
-        jsonput(refTemp, "iCS_pro", iCS);
-        jsonput(refTemp, "divisinNaceL", divisinNace);
+    lAct = jsonget(refTemp, "nLinea", "integer");
+    if (lAct == numeroDeLinea) {
+        newLine = c;
+        jsonput(refTemp, "referencialDeCertificacin",commerce.comRule(referencialCertificacin_pro));
+        jsonput(refTemp, "procesoOServicioACertificar",commerce.comRule(procesoOServicioACertificar_pro));
+        jsonput(refTemp, "esquemaDeCertificacin",commerce.comRule(esquemaDeCertificacion_pro));
+        jsonput(refTemp, "tipoDeServicioProducto",commerce.comRule(tipoServicioPPS));
+        jsonput(refTemp, "vigenciaDeLaCertificacin",commerce.comRule(vigenciaDeLaCertificacin_pro));
+        jsonput(refTemp, "tipoDeAcreditacin",commerce.comRule(tipoDeAcreditacion_pro));
+        //jsonput(refTemp, "naceP",commerce.comRule(naceProducto));
+        //jsonput(refTemp, "iCS_pro",commerce.comRule(iCS));
+        //jsonput(refTemp, "divisinNaceL",commerce.comRule(divisinNace));
         break;
     }
+    c = c + 1;
 }
 
 result = result + "|" + _document_number + "~parametrosProducto~" + jsonarrayrefid(parametrosProducto) + "|";

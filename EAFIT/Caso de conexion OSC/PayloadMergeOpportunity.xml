@@ -1,0 +1,20 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://xmlns.oracle.com/apps/sales/opptyMgmt/opportunities/opportunityService/types/" xmlns:opp="http://xmlns.oracle.com/apps/sales/opptyMgmt/opportunities/opportunityService/" xmlns:rev="http://xmlns.oracle.com/apps/sales/opptyMgmt/revenues/revenueService/" xmlns:not="http://xmlns.oracle.com/apps/crmCommon/notes/noteService" xmlns:not1="http://xmlns.oracle.com/apps/crmCommon/notes/flex/noteDff/" xmlns:rev1="http://xmlns.oracle.com/oracle/apps/sales/opptyMgmt/revenues/revenueService/" xmlns:act="http://xmlns.oracle.com/apps/crmCommon/activities/activitiesService/">
+	<soapenv:Body>
+		<typ:mergeOpportunity xmlns:typ="http://xmlns.oracle.com/pcbpel/adapter/osc/IntegracionesEafit/Oportunidad/ActualizarOportunidad/types">
+			<typ:opportunity>
+				<opp:PrimaryOrganizationId>300000002408786</opp:PrimaryOrganizationId>
+				<opp:SalesStageId>300000002469247</opp:SalesStageId>
+				<opp:Name>CC-1077477174-2022-2-POS01801</opp:Name>
+				<opp:OptyId>300000050912556</opp:OptyId>
+				<opp:OwnerResourcePartyId>300000017188527</opp:OwnerResourcePartyId>
+				<opp:KeyContactId>300000047623358</opp:KeyContactId>
+				<opp:EffectiveDate>2022-06-02-05:00</opp:EffectiveDate>
+				<opp:EAFIT_TipoPublico_c>PERSONA</opp:EAFIT_TipoPublico_c>
+				<opp:EAFIT_AsistioAExamen_c>false</opp:EAFIT_AsistioAExamen_c>
+				<opp:EAFIT_AsistioAEntrevista_c>false</opp:EAFIT_AsistioAEntrevista_c>
+				<opp:EAFIT_FechaDeAdmision_c>2022-04-28T19:40:47.501661-05:00</opp:EAFIT_FechaDeAdmision_c>
+				<opp:EAFIT_TipoDeAdmision_c>Estudios Primera Vez</opp:EAFIT_TipoDeAdmision_c>
+			</typ:opportunity>
+		</typ:mergeOpportunity>
+	</soapenv:Body>
+</soapenv:Envelope>

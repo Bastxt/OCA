@@ -534,7 +534,7 @@
                                             </ns2:Line> 
                                         {{else}}
                                             <!--Condicion para item correspondiente a regalias, esto solo aplica para reintegros -->
-                                            {{#equal _part_number "VA2050301"}}
+                                            {{#equal _part_number "VA2050302"}}
                                                 <ns2:Line>
                                                     <ns2:SourceTransactionLineIdentifier>{{lineID_l}}</ns2:SourceTransactionLineIdentifier>
                                                     <ns2:SourceTransactionScheduleIdentifier>{{lineID_l}}</ns2:SourceTransactionScheduleIdentifier>

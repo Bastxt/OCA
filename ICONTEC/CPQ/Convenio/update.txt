@@ -1,0 +1,31 @@
+<soapenv:Envelope
+    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:typ="http://xmlns.oracle.com/apps/crmCommon/orders/salesOrdersService/types/"
+    xmlns:sal="http://xmlns.oracle.com/apps/crmCommon/orders/salesOrdersService/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <typ:createSalesOrderHeader>
+            <typ:salesOrderHeader>
+                <sal:CurrencyCode>{{CURRENCY}}</sal:CurrencyCode> <!--currency_t--><!--{{CURRENCY}}-->
+                <sal:ActiveVersionFlag>1</sal:ActiveVersionFlag>
+                <sal:ExternalReferenceNumber>{{EXTNUM}}</sal:ExternalReferenceNumber> <!--bs_id--><!--{{EXTNUM}}-->
+                <sal:Name>{{NAME}}</sal:Name><!--ctransactionID_t--><!--{{NAME}}-->
+                <sal:OptyId>{{OPTYID}}</sal:OptyId><!--opportunityID_t--><!--{{OPTYID}}-->
+                <sal:OrderTotal>{{TOTAL}}</sal:OrderTotal><!--totalOneTimeNetAmount_t--><!--{{TOTAL}}-->
+                <sal:SoldCustomerPartyId>{{CUSID}}</sal:SoldCustomerPartyId><!--accountID_t--><!--{{CUSID}}-->
+                <sal:VersionNumber>{{VER}}</sal:VersionNumber><!--version_t--><!--{{VER}}-->
+                <sal:Owner>{{OWNER}}</sal:Owner><!--createdBy_t--><!--{{OWNER}}-->
+                <sal:ExternalSystemReferenceCode>BMQUOTE</sal:ExternalSystemReferenceCode><!--FIJOt-->
+                <sal:Status>{{STA}}</sal:Status><!--status_t--><!--{{STA}}-->
+                <sal:EstadoCPQ_c>{{STEP}}</sal:EstadoCPQ_c>
+                <sal:ActiveVersionFlag>{{ACT}}</sal:ActiveVersionFlag>
+                <sal:AprobadoPorElCliente_c>{{APR}}</sal:AprobadoPorElCliente_c>
+                <sal:FechaCreacion_c>{{CRE_DATE}}</sal:FechaCreacion_c>
+                <!-- test<sal:FechaDeCreacion_c>{{CRE_DATE}}</sal:FechaDeCreacion_c> --> 
+                <sal:PropietarioCPQ_c>{{OWN_CPQ}}</sal:PropietarioCPQ_c>
+                <sal:Descuento_c>{{DES}}</sal:Descuento_c>
+                <sal:Convenio_c>{{CONV}}</sal:Convenio_c>
+            </typ:salesOrderHeader>
+        </typ:createSalesOrderHeader>
+    </soapenv:Body>
+</soapenv:Envelope>

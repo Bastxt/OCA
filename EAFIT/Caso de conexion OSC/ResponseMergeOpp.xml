@@ -1,0 +1,194 @@
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://www.w3.org/2005/08/addressing">
+   <env:Header>
+      <wsa:Action>http://xmlns.oracle.com/apps/sales/opptyMgmt/opportunities/opportunityService/OpportunityService/mergeOpportunityResponse</wsa:Action>
+      <wsa:MessageID>urn:uuid:d06b2d19-552b-45de-8b79-d22090833171</wsa:MessageID>
+   </env:Header>
+   <env:Body>
+      <ns0:mergeOpportunityResponse xmlns:ns0="http://xmlns.oracle.com/apps/sales/opptyMgmt/opportunities/opportunityService/types/">
+         <ns3:result xsi:type="ns2:Opportunity" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/" xmlns:ns1="http://xmlns.oracle.com/apps/sales/opptyMgmt/revenues/revenueService/" xmlns:ns6="http://xmlns.oracle.com/apps/crmCommon/notes/noteService" xmlns:ns7="http://xmlns.oracle.com/oracle/apps/sales/opptyMgmt/revenues/revenueService/" xmlns:ns8="http://xmlns.oracle.com/apps/crmCommon/activities/activitiesService/" xmlns:ns2="http://xmlns.oracle.com/apps/sales/opptyMgmt/opportunities/opportunityService/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns3="http://xmlns.oracle.com/apps/sales/opptyMgmt/opportunities/opportunityService/types/">
+            <ns2:BudgetAvailableDate xsi:nil="true"/>
+            <ns2:BudgetedFlag>false</ns2:BudgetedFlag>
+            <ns2:PrimaryOrganizationId>300000002408786</ns2:PrimaryOrganizationId>
+            <ns2:ChampionFlag>false</ns2:ChampionFlag>
+            <ns2:ConflictId>0</ns2:ConflictId>
+            <ns2:CreatedBy>ROL_TECN</ns2:CreatedBy>
+            <ns2:CreationDate>2022-04-09T06:46:19Z</ns2:CreationDate>
+            <ns2:CurrencyCode>COP</ns2:CurrencyCode>
+            <ns2:OpportunityTypeCode xsi:nil="true"/>
+            <ns2:RenewalProcess xsi:nil="true"/>
+            <ns2:SalesMethodId>300000002469236</ns2:SalesMethodId>
+            <ns2:SalesStageId>300000002469247</ns2:SalesStageId>
+            <ns2:CustomerAccountId xsi:nil="true"/>
+            <ns2:DealHorizonCode xsi:nil="true"/>
+            <ns2:DealHorizonCodeSetId xsi:nil="true"/>
+            <ns2:DecisionLevelCode xsi:nil="true"/>
+            <ns2:DecisionLevelCodeSetId xsi:nil="true"/>
+            <ns2:Description xsi:nil="true"/>
+            <ns2:LastUpdateDate>2022-06-09T19:38:37.411Z</ns2:LastUpdateDate>
+            <ns2:LastUpdatedBy>ROL_TECN</ns2:LastUpdatedBy>
+            <ns2:LastUpdateLogin>DFB5724992F10651E053DB62310A2818</ns2:LastUpdateLogin>
+            <ns2:Name>CC-1077477174-2022-2-POS01801</ns2:Name>
+            <ns2:ObjectVersionNumber>8</ns2:ObjectVersionNumber>
+            <ns2:OptyId>300000050912556</ns2:OptyId>
+            <ns2:OptyNumber>410512</ns2:OptyNumber>
+            <ns2:OwnerResourcePartyId>300000017188527</ns2:OwnerResourcePartyId>
+            <ns2:PrimaryCompetitorId xsi:nil="true"/>
+            <ns2:KeyContactId>300000047623358</ns2:KeyContactId>
+            <ns2:ReasonWonLostCode xsi:nil="true"/>
+            <ns2:ReasonWonLostCodeSetId xsi:nil="true"/>
+            <ns2:RiskLevelCode xsi:nil="true"/>
+            <ns2:RiskLevelCodeSetId xsi:nil="true"/>
+            <ns2:StatusCode>OPEN</ns2:StatusCode>
+            <ns2:StatusCodeSetId>0</ns2:StatusCodeSetId>
+            <ns2:StrategicLevelCode xsi:nil="true"/>
+            <ns2:StrategicLevelCodeSetId xsi:nil="true"/>
+            <ns2:PrimaryRevenueId>300000050912557</ns2:PrimaryRevenueId>
+            <ns2:TargetPartyId xsi:nil="true"/>
+            <ns2:UserLastUpdateDate xsi:nil="true"/>
+            <ns2:TargetPartyName/>
+            <ns2:DUNSNumber xsi:nil="true"/>
+            <ns2:SalesMethod>Método de Ventas Posgrado Persona</ns2:SalesMethod>
+            <ns2:SalesMethodEOObjVerNumber>91</ns2:SalesMethodEOObjVerNumber>
+            <ns2:SalesStage>Admitido</ns2:SalesStage>
+            <ns2:DescriptionText xsi:nil="true"/>
+            <ns2:AverageDaysAtStage xsi:nil="true"/>
+            <ns2:MaximumDaysInStage xsi:nil="true"/>
+            <ns2:PhaseCd>EAFIT_ADMISION</ns2:PhaseCd>
+            <ns2:QuotaFactor>1</ns2:QuotaFactor>
+            <ns2:RcmndWinProb>85</ns2:RcmndWinProb>
+            <ns2:StageStatusCd>OPEN</ns2:StageStatusCd>
+            <ns2:StgOrder>3</ns2:StgOrder>
+            <ns2:SalesStageEOObjVerNumber>1</ns2:SalesStageEOObjVerNumber>
+            <ns2:EffectiveDate>2022-06-02</ns2:EffectiveDate>
+            <ns2:Revenue currencyCode="COP">1</ns2:Revenue>
+            <ns2:RevenueType xsi:nil="true"/>
+            <ns2:RevnId>300000050912557</ns2:RevnId>
+            <ns2:EmployeesTotal xsi:nil="true"/>
+            <ns2:CurrentFyPotentialRevenue xsi:nil="true"/>
+            <ns2:WinProb>85</ns2:WinProb>
+            <ns2:ObjectVersionNumber1>7</ns2:ObjectVersionNumber1>
+            <ns2:PrimaryContactPartyName>Yoimar  Romaña Cordoba</ns2:PrimaryContactPartyName>
+            <ns2:PrimaryContactPartyId>300000047623358</ns2:PrimaryContactPartyId>
+            <ns2:PrimaryContactFormattedPhoneNumber>+57 3207462673</ns2:PrimaryContactFormattedPhoneNumber>
+            <ns2:PrimaryContactEmailAddress>yoimarra@gmail.com</ns2:PrimaryContactEmailAddress>
+            <ns2:AccountNumber xsi:nil="true"/>
+            <ns2:PartyName/>
+            <ns2:LocationId/>
+            <ns2:FormattedAddress xsi:nil="true"/>
+            <ns2:City xsi:nil="true"/>
+            <ns2:Country/>
+            <ns2:PostalCode xsi:nil="true"/>
+            <ns2:State xsi:nil="true"/>
+            <ns2:BdgtAmount xsi:nil="true"/>
+            <ns2:Comments xsi:nil="true"/>
+            <ns2:PartyName1>Carolina Cadavid Perez</ns2:PartyName1>
+            <ns2:PrSrcNumber xsi:nil="true"/>
+            <ns2:DownsideAmount currencyCode="COP">0</ns2:DownsideAmount>
+            <ns2:UpsideAmount currencyCode="COP">1</ns2:UpsideAmount>
+            <ns2:EmailAddress>posgrados@eafit.edu.co</ns2:EmailAddress>
+            <ns2:LastAssignedDate>2022-04-09</ns2:LastAssignedDate>
+            <ns2:LookupCategory>OPEN</ns2:LookupCategory>
+            <ns2:LookupValuesId xsi:nil="true"/>
+            <ns2:OptyCreationDate>2022-04-09T06:46:19Z</ns2:OptyCreationDate>
+            <ns2:ExpectAmount currencyCode="COP">0.85</ns2:ExpectAmount>
+            <ns2:PreferredFunctionalCurrency xsi:nil="true"/>
+            <ns2:PartyUniqueName xsi:nil="true"/>
+            <ns2:PrConRelationshipId xsi:nil="true"/>
+            <ns2:OptyCreatedBy>ROL_TECN</ns2:OptyCreatedBy>
+            <ns2:CrmConversionRate>1</ns2:CrmConversionRate>
+            <ns2:CrmRevenue>1</ns2:CrmRevenue>
+            <ns2:RevnLineSetEnabledFlag>false</ns2:RevnLineSetEnabledFlag>
+            <ns2:PartyType/>
+            <ns2:OptyLastUpdateDate>2022-06-09T19:38:37.411Z</ns2:OptyLastUpdateDate>
+            <ns2:OptyLastUpdatedBy>ROL_TECN</ns2:OptyLastUpdatedBy>
+            <ns2:SalesChannelCd>ZPM_DIRECT_CHANNEL_TYPES</ns2:SalesChannelCd>
+            <ns2:LineOfBusinessCode xsi:nil="true"/>
+            <ns2:PhonePreferenceExistsFlag>false</ns2:PhonePreferenceExistsFlag>
+            <ns2:PartyUniqueName1 xsi:nil="true"/>
+            <ns2:PrimaryOrganizationName>Posgrado</ns2:PrimaryOrganizationName>
+            <ns2:SalesAccountId xsi:nil="true"/>
+            <ns2:SalesAccountUniqueName xsi:nil="true"/>
+            <ns2:ConsumerFirstName xsi:nil="true"/>
+            <ns2:ConsumerLastName xsi:nil="true"/>
+            <ns2:PrimaryContactFirstName>Yoimar</ns2:PrimaryContactFirstName>
+            <ns2:PrimaryContactLastName>Romaña Cordoba</ns2:PrimaryContactLastName>
+            <ns2:PrimaryPartnerOrgPartyName/>
+            <ns2:PrimaryPartnerId xsi:nil="true"/>
+            <ns2:LastAssignedTimestamp>2022-04-09T06:46:37.861Z</ns2:LastAssignedTimestamp>
+            <ns2:RegistrationStatus xsi:nil="true"/>
+            <ns2:RegistrationType xsi:nil="true"/>
+            <ns2:Registered>NO</ns2:Registered>
+            <ns2:UpdateFlag>true</ns2:UpdateFlag>
+            <ns2:DeleteFlag>true</ns2:DeleteFlag>
+            <ns2:AssetNumber xsi:nil="true"/>
+            <ns2:AssetId xsi:nil="true"/>
+            <ns2:AssetProduct xsi:nil="true"/>
+            <ns2:AssetSerialNumber xsi:nil="true"/>
+            <ns2:QuotedFlag>false</ns2:QuotedFlag>
+            <ns2:IBAssetId xsi:nil="true"/>
+            <ns2:IBAssetNumber/>
+            <ns2:IBAssetSerialNumber xsi:nil="true"/>
+            <ns2:TargetPartyPrimaryAddressCountry xsi:nil="true"/>
+            <ns2:EAFIT_CanalDeOrigen_c xsi:nil="true"/>
+            <ns2:EAFIT_CartaContrato_c>false</ns2:EAFIT_CartaContrato_c>
+            <ns2:EAFIT_CohorteDeInteres_c>2022-2</ns2:EAFIT_CohorteDeInteres_c>
+            <ns2:CoordAcade_c xsi:nil="true"/>
+            <ns2:EAFIT_DocFaltantes_c>Sin documentos pendientes</ns2:EAFIT_DocFaltantes_c>
+            <ns2:EAFIT_Factura_c xsi:nil="true"/>
+            <ns2:EAFIT_FechaAspirante_c xsi:nil="true"/>
+            <ns2:EAFIT_FechaDeAdmision_c>2022-04-28</ns2:EAFIT_FechaDeAdmision_c>
+            <ns2:EAFIT_FechaDeEntrevista_c xsi:nil="true"/>
+            <ns2:EAFIT_FechaDeExamen_c xsi:nil="true"/>
+            <ns2:EAFIT_FechaDeInscripcion_c>2022-04-08</ns2:EAFIT_FechaDeInscripcion_c>
+            <ns2:EAFIT_FechaDeMatricula_c xsi:nil="true"/>
+            <ns2:EAFIT_FechasHorariosYSedes_Cor_c>false</ns2:EAFIT_FechasHorariosYSedes_Cor_c>
+            <ns2:EAFIT_FichaDeApertura_c>false</ns2:EAFIT_FichaDeApertura_c>
+            <ns2:IncluirEnPronostico_c>NO</ns2:IncluirEnPronostico_c>
+            <ns2:EAFIT_ListadoDeParticipantes_c>false</ns2:EAFIT_ListadoDeParticipantes_c>
+            <ns2:EAFIT_NivelDeInteres_c xsi:nil="true"/>
+            <ns2:EAFIT_NOTIFICACION_30_DIAS_c>false</ns2:EAFIT_NOTIFICACION_30_DIAS_c>
+            <ns2:EAFIT_Observaciones_c xsi:nil="true"/>
+            <ns2:EAFIT_OrdenDeServicio_c>false</ns2:EAFIT_OrdenDeServicio_c>
+            <ns2:EAFIT_TipoPublico_c>PERSONA</ns2:EAFIT_TipoPublico_c>
+            <ns2:EAFIT_ComoSeEntero2_c xsi:nil="true"/>
+            <ns2:TpoDePrograma_c xsi:nil="true"/>
+            <ns2:EAFIT_TipoPorDuracion_c xsi:nil="true"/>
+            <ns2:EAFIT_Promocion_c xsi:nil="true"/>
+            <ns2:EAFIT_PropuestaAprobada_c>false</ns2:EAFIT_PropuestaAprobada_c>
+            <ns2:EAFIT_Subtema_c xsi:nil="true"/>
+            <ns2:EAFIT_Puntaje_c xsi:nil="true"/>
+            <ns2:EAFIT_AsistioAlEvento_c>false</ns2:EAFIT_AsistioAlEvento_c>
+            <ns2:EAFIT_OtroEstado_c xsi:nil="true"/>
+            <ns2:EAFIT_TipoDePrograma_c xsi:nil="true"/>
+            <ns2:EAFIT_AsistioAExamen_c>false</ns2:EAFIT_AsistioAExamen_c>
+            <ns2:EAFIT_AsistioAEntrevista_c>false</ns2:EAFIT_AsistioAEntrevista_c>
+            <ns2:EAFIT_TipoDeAdmision_c>Estudios Primera Vez</ns2:EAFIT_TipoDeAdmision_c>
+            <ns2:EAFIT_Importe_c>1.00</ns2:EAFIT_Importe_c>
+            <ns2:EAFIT_Gestion_c>PENDIENTE</ns2:EAFIT_Gestion_c>
+            <ns2:CheckAsociarProducto_c>true</ns2:CheckAsociarProducto_c>
+            <ns2:Importe2_c xsi:nil="true"/>
+            <ns2:EAFIT_Tipificacion_PRE_c xsi:nil="true"/>
+            <ns2:EAFIT_Tipificacion_POS_c xsi:nil="true"/>
+            <ns2:HoraExamen_c xsi:nil="true"/>
+            <ns2:LugarExamen_c xsi:nil="true"/>
+            <ns2:SedeExamen_c xsi:nil="true"/>
+            <ns2:HoraEntrevista_c xsi:nil="true"/>
+            <ns2:LugarEntrevista_c xsi:nil="true"/>
+            <ns2:SedeEntrevista_c xsi:nil="true"/>
+            <ns2:Entrevistador_c xsi:nil="true"/>
+            <ns2:LeadScoring_c xsi:nil="true"/>
+            <ns2:EAFIT_UnidadDeNegocio_opp_c>Posgrado</ns2:EAFIT_UnidadDeNegocio_opp_c>
+            <ns2:EAFIT_Programa_opp_c>POS-ESPECIALIZACIÓN EN FINANZAS-MEDELLÍN</ns2:EAFIT_Programa_opp_c>
+            <ns2:EAFIT_NumeroDeDocumento_c>1077477174</ns2:EAFIT_NumeroDeDocumento_c>
+            <ns2:EAFIT_UniversidadPregrado_O_c/>
+            <ns2:EAFIT_UniversidadPosgrado_O_c/>
+            <ns2:EAFIT_OtrosPendientes_c xsi:nil="true"/>
+            <ns2:EAFIT_Entrevistador_c xsi:nil="true"/>
+            <ns2:Tipificación_c xsi:nil="true"/>
+            <ns2:TipoDeModalidad_c xsi:nil="true"/>
+            <ns2:TipificacionEP_c xsi:nil="true"/>
+            <ns2:EAFIT_Tipificacion_IDIO_c xsi:nil="true"/>
+         </ns3:result>
+      </ns0:mergeOpportunityResponse>
+   </env:Body>
+</env:Envelope>

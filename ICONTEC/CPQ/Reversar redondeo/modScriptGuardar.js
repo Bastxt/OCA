@@ -129,12 +129,12 @@ if (tSsize <> 0) {
                 if (jsonget(row, "servicio") == k and success <> true) {
                     jsonput(row, "total", get(resTotalesSer, k));
                     jsonput(row, "iva", get(resTotalesSerIva, k));
-                    jsonput(row, "totaliva", get(resTotalesSerIva, k)+get(resTotalesSer, k));
+                    jsonput(row, "totaliva", get(resTotalesSerIva, k) + get(resTotalesSer, k));
                     //se encontro registro
                     success = true;
                     //se almacena index de elemento retornado de la funcion cargarTotalesPorServicio
                     //cuando este coincide con la linea de la matriz
-                    contIndex[indexK] = indexK;   
+                    contIndex[indexK] = indexK;
                 }
             }
             indexK = indexK + 1;
@@ -164,12 +164,13 @@ else {
             jsonput(newRow, "servicio", k);
             jsonput(newRow, "total", get(resTotalesSer, k));
             jsonput(newRow, "iva", get(resTotalesSerIva, k));
-            jsonput(newRow, "totaliva", get(resTotalesSerIva, k)+get(resTotalesSer, k));
+            jsonput(newRow, "totaliva", get(resTotalesSerIva, k) + get(resTotalesSer, k));
             jsonarrayappend(totalesPorServicio, newRow);
         }
     }
     //ret = ret + "|1~totalesPorServicio~" + jsonarrayrefid(totalesPorServicio) + "|";
 }
+
 
 
 //busqueda inversa para creacion
@@ -185,22 +186,24 @@ rCount = 0;
 //cuando no encuentra coincidencia con la tabla crea este registro
 for k in index{
     for fndIndex in contIndex{
-        if(k == index[fndIndex] and succ <> true){
+        if (k == index[fndIndex] and succ <> true) {
             succ = true;
         }
     }
-    if(succ == false){
+    if (succ == false) {
         //creacion de linea si no se encuentra
         newRow = json();
         jsonput(newRow, "servicio", k);
         jsonput(newRow, "total", get(resTotalesSer, k));
         jsonput(newRow, "iva", get(resTotalesSerIva, k));
-        jsonput(newRow, "totaliva", get(resTotalesSerIva, k)+get(resTotalesSer, k));
+        jsonput(newRow, "totaliva", get(resTotalesSerIva, k) + get(resTotalesSer, k));
         jsonarrayappend(totalesPorServicio, newRow);
     }
     rCount = rCount + 1;
     succ = false;
 }
+
+
 ret = ret + "|1~totalesPorServicio~" + jsonarrayrefid(totalesPorServicio) + "|";
 
 return ret;

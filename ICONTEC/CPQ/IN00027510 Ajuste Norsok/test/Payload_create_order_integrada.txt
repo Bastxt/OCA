@@ -1,0 +1,846 @@
+<soap:Envelope
+    xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+        <ns1:createOrdersAsync
+            xmlns:ns1="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/types/">
+            <ns1:request
+                xmlns:ns2="http://xmlns.oracle.com/apps/scm/fom/importOrders/orderImportService/">
+                <ns2:BatchName/>
+                <ns2:Order>
+                    <ns2:SourceTransactionIdentifier>{{TRN_NUM}}</ns2:SourceTransactionIdentifier>
+                    <ns2:SourceTransactionSystem>OPS</ns2:SourceTransactionSystem>
+                    <ns2:SourceTransactionNumber>{{TRN_NUM}}</ns2:SourceTransactionNumber>
+                    <ns2:TransactionTypeCode>Standard</ns2:TransactionTypeCode>
+                    <ns2:BuyingPartyName>{{PAR_NAME}}</ns2:BuyingPartyName>
+                    <ns2:BuyingPartyType>ORGANIZATION</ns2:BuyingPartyType>
+                    <ns2:ShipToPartyType>ORGANIZATION</ns2:ShipToPartyType>
+                    <ns2:BillToPartyType>ORGANIZATION</ns2:BillToPartyType>
+                    <ns2:CustomerPONumber>{{PO_NUM}}</ns2:CustomerPONumber>
+                    <ns2:BuyingPartyContactName>{{CONTACT_NAME}}</ns2:BuyingPartyContactName>
+                    <ns2:TransactionalCurrencyCode>{{CURR_CODE}}</ns2:TransactionalCurrencyCode>
+                    <ns2:TransactionOn>{{DATE}}</ns2:TransactionOn>
+                    <ns2:OrigSystemDocumentReference/>
+                    <ns2:RequestingBusinessUnitName>{{L_BUSS_NAME}}</ns2:RequestingBusinessUnitName>
+                    <ns2:RequestingLegalUnitName>{{L_BUSS_NAME}}</ns2:RequestingLegalUnitName>
+                    <ns2:FreezePriceFlag>true</ns2:FreezePriceFlag>
+                    <ns2:PaymentTerms>{{PAY_TER}}</ns2:PaymentTerms>
+                    <ns2:FreezeTaxFlag>false</ns2:FreezeTaxFlag>
+                    <ns2:FreezeShippingChargeFlag>true</ns2:FreezeShippingChargeFlag>
+                    <ns2:OrigSystemDocumentReference></ns2:OrigSystemDocumentReference>
+                    <ns2:ShipToPartyName>{{PAR_NAME}}</ns2:ShipToPartyName>
+                    <ns2:ShipToPartySiteIdentifier>{{SHIP_TO}}</ns2:ShipToPartySiteIdentifier>
+                    <ns2:BillToCustomerName>{{PAR_NAME}}</ns2:BillToCustomerName>
+                    <ns2:BillToAccountSiteUseIdentifier>{{BILL_TO}}</ns2:BillToAccountSiteUseIdentifier>
+                    <ns2:SalesPerson>{{USER}}</ns2:SalesPerson>
+                    <ns2:SalesCredit>
+                        <ns2:SalesPersonIdentifier>{{OWN_RES_P}}</ns2:SalesPersonIdentifier>
+                        <ns2:Percent>100</ns2:Percent>
+                        <ns2:SalesCreditTypeCode>1</ns2:SalesCreditTypeCode>
+                        <ns2:SourceTransactionSalesCreditIdentifier>{{TRN_NUM}}</ns2:SourceTransactionSalesCreditIdentifier>
+                    </ns2:SalesCredit>
+                    {{#each transactionLine}}
+                        {{#equal netAmount_l "0.0"}}
+                        {{else}}
+                            {{#equal cantidadItem "0.0"}}
+                            {{else}}
+                                {{#equal facturable "true"}}
+                                    {{#equal tipoDeEsquema "integrada"}}
+                                        {{#equal reintegro "noaplica"}}
+                                            {{#equal dePatrocinio "0"}}
+                                                {{#equal parCheckv2 "1"}}
+                                                    <ns2:Line>
+                                                        <ns2:SourceTransactionLineIdentifier>{{lineID_l}}</ns2:SourceTransactionLineIdentifier>
+                                                        <ns2:SourceTransactionScheduleIdentifier>{{lineID_l}}</ns2:SourceTransactionScheduleIdentifier>
+                                                        <ns2:SourceTransactionLineNumber>{{lineID_l}}</ns2:SourceTransactionLineNumber>
+                                                        <ns2:SourceTransactionScheduleNumber>{{lineID_l}}</ns2:SourceTransactionScheduleNumber>
+                                                        <ns2:BuyingPartyType>ORGANIZATION</ns2:BuyingPartyType>
+                                                        <ns2:ShipToPartyType>ORGANIZATION</ns2:ShipToPartyType>
+                                                        <ns2:BillToPartyType>ORGANIZATION</ns2:BillToPartyType>
+                                                        <ns2:RequestedFulfillmentOrganizationIdentifier>300000002002173</ns2:RequestedFulfillmentOrganizationIdentifier>
+                                                        <ns2:ProductNumber>{{_part_number}}</ns2:ProductNumber>
+                                                        <ns2:ShippingInstructions>{{reintegro}}</ns2:ShippingInstructions>
+                                                        {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                        <ns2:OrderedQuantity unitCode="HR">{{cantidadItem}}</ns2:OrderedQuantity>
+                                                        {{else}}
+                                                        <ns2:OrderedQuantity unitCode="UN">{{cantidadItem}}</ns2:OrderedQuantity>
+                                                        {{/equal}}
+                                                        {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                        <ns2:OrderedUOMCode>HR</ns2:OrderedUOMCode>
+                                                        {{else}}
+                                                        <ns2:OrderedUOMCode>UN</ns2:OrderedUOMCode>
+                                                        {{/equal}}
+                                                        {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                        <ns2:OrderedUOM>HR</ns2:OrderedUOM>
+                                                        {{else}}
+                                                        <ns2:OrderedUOM>UN</ns2:OrderedUOM>
+                                                        {{/equal}}
+                                                        <ns2:RequestingBusinessUnitName>{{PAR_NAME}}</ns2:RequestingBusinessUnitName>
+                                                        <ns2:RequestedShipDate>{{DATE}}</ns2:RequestedShipDate>
+                                                        <ns2:TransactionCategoryCode>ORDER</ns2:TransactionCategoryCode>
+                                                        <ns2:UnitListPrice currencyCode="{{CURR_CODE}}">{{valorParcial}}</ns2:UnitListPrice>
+                                                        <ns2:UnitSellingPrice currencyCode="{{CURR_CODE}}">{{valorParcial}}</ns2:UnitSellingPrice>
+                                                        <ns2:ExtendedAmount currencyCode="{{CURR_CODE}}">{{parcialxCant}}</ns2:ExtendedAmount>
+                                                        <ns2:ShipToPartyName>{{PAR_NAME}}</ns2:ShipToPartyName>
+                                                        <ns2:ShipToPartySiteIdentifier>{{SHIP_TO}}</ns2:ShipToPartySiteIdentifier>
+                                                        <ns2:BillToCustomerName>{{PAR_NAME}}</ns2:BillToCustomerName>
+                                                        <ns2:BillToAccountSiteUseIdentifier>{{BILL_TO}}</ns2:BillToAccountSiteUseIdentifier>
+                                                        <ns2:PartialShipAllowedFlag>false</ns2:PartialShipAllowedFlag>
+                                                        <ns2:OrigSystemDocumentReference>ORIGSYS</ns2:OrigSystemDocumentReference>
+                                                        <ns2:OrigSystemDocumentLineReference>ORIGSYSLINE</ns2:OrigSystemDocumentLineReference>
+                                                        <ns2:PaymentTerms>{{PAY_TER}}</ns2:PaymentTerms>
+                                                        <ns2:SalesPersonIdentifier>{{OWN_RES_P}}</ns2:SalesPersonIdentifier>
+                                                        <ns2:OrderCharge>
+                                                            <ns2:ChargeDefinitionCode>QP_SALE_PRICE</ns2:ChargeDefinitionCode>
+                                                            <ns2:ChargeSubtypeCode>ORA_PRICE</ns2:ChargeSubtypeCode>
+                                                            <ns2:PriceTypeCode>ONE_TIME</ns2:PriceTypeCode>
+                                                            {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                            <ns2:PricedQuantity unitCode="HR">{{cantidadItem}}</ns2:PricedQuantity>
+                                                            {{else}}
+                                                            <ns2:PricedQuantity unitCode="UN">{{cantidadItem}}</ns2:PricedQuantity>
+                                                            {{/equal}}
+                                                            {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                            <ns2:PricedQuantityUOMCode>HR</ns2:PricedQuantityUOMCode>
+                                                            {{else}}
+                                                            <ns2:PricedQuantityUOMCode>UN</ns2:PricedQuantityUOMCode>
+                                                            {{/equal}}
+                                                            <ns2:SourceChargeIdentifier>SC{{lineID_l}}</ns2:SourceChargeIdentifier>
+                                                            <ns2:PrimaryFlag>true</ns2:PrimaryFlag>
+                                                            <ns2:ApplyTo>PRICE</ns2:ApplyTo>
+                                                            <ns2:RollupFlag>false</ns2:RollupFlag>
+                                                            <ns2:ChargeTypeCode>ORA_SALE</ns2:ChargeTypeCode>
+                                                            <ns2:ChargeCurrencyCode>{{CURR_CODE}}</ns2:ChargeCurrencyCode>
+                                                            <ns2:SequenceNumber>1</ns2:SequenceNumber>
+                                                            <ns2:PricePeriodicityCode/>
+                                                            <ns2:GsaUnitPrice/>
+                                                            <ns2:OrderChargeComponent>
+                                                                <ns2:ChargeCurrencyCode>{{CURR_CODE}}</ns2:ChargeCurrencyCode>
+                                                                <ns2:HeaderCurrencyCode>{{CURR_CODE}}</ns2:HeaderCurrencyCode>
+                                                                <ns2:HeaderCurrencyExtendedAmount currencyCode="{{CURR_CODE}}">{{parcialxCant}}</ns2:HeaderCurrencyExtendedAmount>
+                                                                <ns2:PriceElementCode>QP_LIST_PRICE</ns2:PriceElementCode>
+                                                                <ns2:SequenceNumber>1</ns2:SequenceNumber>
+                                                                <ns2:PriceElementUsageCode>LIST_PRICE</ns2:PriceElementUsageCode>
+                                                                <ns2:ChargeCurrencyUnitPrice currencyCode="{{CURR_CODE}}">{{valorParcial}}</ns2:ChargeCurrencyUnitPrice>
+                                                                <ns2:HeaderCurrencyUnitPrice currencyCode="{{CURR_CODE}}">{{valorParcial}}</ns2:HeaderCurrencyUnitPrice>
+                                                                <ns2:RollupFlag>false</ns2:RollupFlag>
+                                                                <ns2:SourceChargeIdentifier>SC{{lineID_l}}</ns2:SourceChargeIdentifier>
+                                                                <ns2:SourceChargeComponentIdentifier>SCC1</ns2:SourceChargeComponentIdentifier>
+                                                                <ns2:ChargeCurrencyExtendedAmount>{{parcialxCant}}</ns2:ChargeCurrencyExtendedAmount>
+                                                            </ns2:OrderChargeComponent>
+                                                            <ns2:OrderChargeComponent>
+                                                                <ns2:ChargeCurrencyCode>{{CURR_CODE}}</ns2:ChargeCurrencyCode>
+                                                                <ns2:HeaderCurrencyCode>{{CURR_CODE}}</ns2:HeaderCurrencyCode>
+                                                                <ns2:HeaderCurrencyExtendedAmount>{{parcialxCant}}</ns2:HeaderCurrencyExtendedAmount>
+                                                                <ns2:PriceElementCode>QP_NET_PRICE</ns2:PriceElementCode>
+                                                                <ns2:SequenceNumber>2</ns2:SequenceNumber>
+                                                                <ns2:PriceElementUsageCode>NET_PRICE</ns2:PriceElementUsageCode>
+                                                                <ns2:ChargeCurrencyUnitPrice>{{valorParcial}}</ns2:ChargeCurrencyUnitPrice>
+                                                                <ns2:HeaderCurrencyUnitPrice>{{valorParcial}}</ns2:HeaderCurrencyUnitPrice>
+                                                                <ns2:RollupFlag>false</ns2:RollupFlag>
+                                                                <ns2:SourceParentChargeComponentId/>
+                                                                <ns2:SourceChargeIdentifier>SC{{lineID_l}}</ns2:SourceChargeIdentifier>
+                                                                <ns2:SourceChargeComponentIdentifier>SCC2</ns2:SourceChargeComponentIdentifier>
+                                                                <ns2:ChargeCurrencyExtendedAmount>{{parcialxCant}}</ns2:ChargeCurrencyExtendedAmount>
+                                                            </ns2:OrderChargeComponent>
+                                                        </ns2:OrderCharge>
+                                                    </ns2:Line> 
+                                                {{else}}
+                                                    <ns2:Line>
+                                                        <ns2:SourceTransactionLineIdentifier>{{lineID_l}}</ns2:SourceTransactionLineIdentifier>
+                                                        <ns2:SourceTransactionScheduleIdentifier>{{lineID_l}}</ns2:SourceTransactionScheduleIdentifier>
+                                                        <ns2:SourceTransactionLineNumber>{{lineID_l}}</ns2:SourceTransactionLineNumber>
+                                                        <ns2:SourceTransactionScheduleNumber>{{lineID_l}}</ns2:SourceTransactionScheduleNumber>
+                                                        <ns2:BuyingPartyType>ORGANIZATION</ns2:BuyingPartyType>
+                                                        <ns2:ShipToPartyType>ORGANIZATION</ns2:ShipToPartyType>
+                                                        <ns2:BillToPartyType>ORGANIZATION</ns2:BillToPartyType>
+                                                        <ns2:RequestedFulfillmentOrganizationIdentifier>300000002002173</ns2:RequestedFulfillmentOrganizationIdentifier>
+                                                        <ns2:ProductNumber>{{_part_number}}</ns2:ProductNumber>
+                                                        <ns2:ShippingInstructions>{{reintegro}}</ns2:ShippingInstructions>
+                                                        {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                        <ns2:OrderedQuantity unitCode="HR">{{cantidadItem}}</ns2:OrderedQuantity>
+                                                        {{else}}
+                                                        <ns2:OrderedQuantity unitCode="UN">{{cantidadItem}}</ns2:OrderedQuantity>
+                                                        {{/equal}}
+                                                        {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                        <ns2:OrderedUOMCode>HR</ns2:OrderedUOMCode>
+                                                        {{else}}
+                                                        <ns2:OrderedUOMCode>UN</ns2:OrderedUOMCode>
+                                                        {{/equal}}
+                                                        {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                        <ns2:OrderedUOM>HR</ns2:OrderedUOM>
+                                                        {{else}}
+                                                        <ns2:OrderedUOM>UN</ns2:OrderedUOM>
+                                                        {{/equal}}
+                                                        <ns2:RequestingBusinessUnitName>{{PAR_NAME}}</ns2:RequestingBusinessUnitName>
+                                                        <ns2:RequestedShipDate>{{DATE}}</ns2:RequestedShipDate>
+                                                        <ns2:TransactionCategoryCode>ORDER</ns2:TransactionCategoryCode>
+                                                        <ns2:UnitListPrice currencyCode="{{CURR_CODE}}">{{netPrice_l}}</ns2:UnitListPrice>
+                                                        <ns2:UnitSellingPrice currencyCode="{{CURR_CODE}}">{{netPrice_l}}</ns2:UnitSellingPrice>
+                                                        <ns2:ExtendedAmount currencyCode="{{CURR_CODE}}">{{netAmount_l}}</ns2:ExtendedAmount>
+                                                        <ns2:ShipToPartyName>{{PAR_NAME}}</ns2:ShipToPartyName>
+                                                        <ns2:ShipToPartySiteIdentifier>{{SHIP_TO}}</ns2:ShipToPartySiteIdentifier>
+                                                        <ns2:BillToCustomerName>{{PAR_NAME}}</ns2:BillToCustomerName>
+                                                        <ns2:BillToAccountSiteUseIdentifier>{{BILL_TO}}</ns2:BillToAccountSiteUseIdentifier>
+                                                        <ns2:PartialShipAllowedFlag>false</ns2:PartialShipAllowedFlag>
+                                                        <ns2:OrigSystemDocumentReference>ORIGSYS</ns2:OrigSystemDocumentReference>
+                                                        <ns2:OrigSystemDocumentLineReference>ORIGSYSLINE</ns2:OrigSystemDocumentLineReference>
+                                                        <ns2:PaymentTerms>{{PAY_TER}}</ns2:PaymentTerms>
+                                                        <ns2:SalesPersonIdentifier>{{OWN_RES_P}}</ns2:SalesPersonIdentifier>
+                                                        <ns2:OrderCharge>
+                                                            <ns2:ChargeDefinitionCode>QP_SALE_PRICE</ns2:ChargeDefinitionCode>
+                                                            <ns2:ChargeSubtypeCode>ORA_PRICE</ns2:ChargeSubtypeCode>
+                                                            <ns2:PriceTypeCode>ONE_TIME</ns2:PriceTypeCode>
+                                                            {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                            <ns2:PricedQuantity unitCode="HR">{{cantidadItem}}</ns2:PricedQuantity>
+                                                            {{else}}
+                                                            <ns2:PricedQuantity unitCode="UN">{{cantidadItem}}</ns2:PricedQuantity>
+                                                            {{/equal}}
+                                                            {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                            <ns2:PricedQuantityUOMCode>HR</ns2:PricedQuantityUOMCode>
+                                                            {{else}}
+                                                            <ns2:PricedQuantityUOMCode>UN</ns2:PricedQuantityUOMCode>
+                                                            {{/equal}}
+                                                            <ns2:SourceChargeIdentifier>SC{{lineID_l}}</ns2:SourceChargeIdentifier>
+                                                            <ns2:PrimaryFlag>true</ns2:PrimaryFlag>
+                                                            <ns2:ApplyTo>PRICE</ns2:ApplyTo>
+                                                            <ns2:RollupFlag>false</ns2:RollupFlag>
+                                                            <ns2:ChargeTypeCode>ORA_SALE</ns2:ChargeTypeCode>
+                                                            <ns2:ChargeCurrencyCode>{{CURR_CODE}}</ns2:ChargeCurrencyCode>
+                                                            <ns2:SequenceNumber>1</ns2:SequenceNumber>
+                                                            <ns2:PricePeriodicityCode/>
+                                                            <ns2:GsaUnitPrice/>
+                                                            <ns2:OrderChargeComponent>
+                                                                <ns2:ChargeCurrencyCode>{{CURR_CODE}}</ns2:ChargeCurrencyCode>
+                                                                <ns2:HeaderCurrencyCode>{{CURR_CODE}}</ns2:HeaderCurrencyCode>
+                                                                <ns2:HeaderCurrencyExtendedAmount currencyCode="{{CURR_CODE}}">{{netAmount_l}}</ns2:HeaderCurrencyExtendedAmount>
+                                                                <ns2:PriceElementCode>QP_LIST_PRICE</ns2:PriceElementCode>
+                                                                <ns2:SequenceNumber>1</ns2:SequenceNumber>
+                                                                <ns2:PriceElementUsageCode>LIST_PRICE</ns2:PriceElementUsageCode>
+                                                                <ns2:ChargeCurrencyUnitPrice currencyCode="{{CURR_CODE}}">{{netPrice_l}}</ns2:ChargeCurrencyUnitPrice>
+                                                                <ns2:HeaderCurrencyUnitPrice currencyCode="{{CURR_CODE}}">{{netPrice_l}}</ns2:HeaderCurrencyUnitPrice>
+                                                                <ns2:RollupFlag>false</ns2:RollupFlag>
+                                                                <ns2:SourceChargeIdentifier>SC{{lineID_l}}</ns2:SourceChargeIdentifier>
+                                                                <ns2:SourceChargeComponentIdentifier>SCC1</ns2:SourceChargeComponentIdentifier>
+                                                                <ns2:ChargeCurrencyExtendedAmount>{{netAmount_l}}</ns2:ChargeCurrencyExtendedAmount>
+                                                            </ns2:OrderChargeComponent>
+                                                            <ns2:OrderChargeComponent>
+                                                                <ns2:ChargeCurrencyCode>{{CURR_CODE}}</ns2:ChargeCurrencyCode>
+                                                                <ns2:HeaderCurrencyCode>{{CURR_CODE}}</ns2:HeaderCurrencyCode>
+                                                                <ns2:HeaderCurrencyExtendedAmount>{{netAmount_l}}</ns2:HeaderCurrencyExtendedAmount>
+                                                                <ns2:PriceElementCode>QP_NET_PRICE</ns2:PriceElementCode>
+                                                                <ns2:SequenceNumber>2</ns2:SequenceNumber>
+                                                                <ns2:PriceElementUsageCode>NET_PRICE</ns2:PriceElementUsageCode>
+                                                                <ns2:ChargeCurrencyUnitPrice>{{netPrice_l}}</ns2:ChargeCurrencyUnitPrice>
+                                                                <ns2:HeaderCurrencyUnitPrice>{{netPrice_l}}</ns2:HeaderCurrencyUnitPrice>
+                                                                <ns2:RollupFlag>false</ns2:RollupFlag>
+                                                                <ns2:SourceParentChargeComponentId/>
+                                                                <ns2:SourceChargeIdentifier>SC{{lineID_l}}</ns2:SourceChargeIdentifier>
+                                                                <ns2:SourceChargeComponentIdentifier>SCC2</ns2:SourceChargeComponentIdentifier>
+                                                                <ns2:ChargeCurrencyExtendedAmount>{{netAmount_l}}</ns2:ChargeCurrencyExtendedAmount>
+                                                            </ns2:OrderChargeComponent>
+                                                        </ns2:OrderCharge>
+                                                    </ns2:Line>
+                                                {{/equal}}
+                                            {{else}}
+                                                <!-- codigo para patrocinio > 0 -->
+                                                {{#equal parCheckv2 "1"}}
+                                                    <ns2:Line>
+                                                        <ns2:SourceTransactionLineIdentifier>{{lineID_l}}</ns2:SourceTransactionLineIdentifier>
+                                                        <ns2:SourceTransactionScheduleIdentifier>{{lineID_l}}</ns2:SourceTransactionScheduleIdentifier>
+                                                        <ns2:SourceTransactionLineNumber>{{lineID_l}}</ns2:SourceTransactionLineNumber>
+                                                        <ns2:SourceTransactionScheduleNumber>{{lineID_l}}</ns2:SourceTransactionScheduleNumber>
+                                                        <ns2:BuyingPartyType>ORGANIZATION</ns2:BuyingPartyType>
+                                                        <ns2:ShipToPartyType>ORGANIZATION</ns2:ShipToPartyType>
+                                                        <ns2:BillToPartyType>ORGANIZATION</ns2:BillToPartyType>
+                                                        <ns2:RequestedFulfillmentOrganizationIdentifier>300000002002173</ns2:RequestedFulfillmentOrganizationIdentifier>
+                                                        <ns2:ProductNumber>{{_part_number}}</ns2:ProductNumber>
+                                                        <ns2:ShippingInstructions>{{reintegro}}</ns2:ShippingInstructions>
+                                                        {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                        <ns2:OrderedQuantity unitCode="HR">{{cantidadItem}}</ns2:OrderedQuantity>
+                                                        {{else}}
+                                                        <ns2:OrderedQuantity unitCode="UN">{{cantidadItem}}</ns2:OrderedQuantity>
+                                                        {{/equal}}
+                                                        {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                        <ns2:OrderedUOMCode>HR</ns2:OrderedUOMCode>
+                                                        {{else}}
+                                                        <ns2:OrderedUOMCode>UN</ns2:OrderedUOMCode>
+                                                        {{/equal}}
+                                                        {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                        <ns2:OrderedUOM>HR</ns2:OrderedUOM>
+                                                        {{else}}
+                                                        <ns2:OrderedUOM>UN</ns2:OrderedUOM>
+                                                        {{/equal}}
+                                                        <ns2:RequestingBusinessUnitName>{{PAR_NAME}}</ns2:RequestingBusinessUnitName>
+                                                        <ns2:RequestedShipDate>{{DATE}}</ns2:RequestedShipDate>
+                                                        <ns2:TransactionCategoryCode>ORDER</ns2:TransactionCategoryCode>
+                                                        <ns2:UnitListPrice currencyCode="{{CURR_CODE}}">{{valorParcial}}</ns2:UnitListPrice>
+                                                        <ns2:UnitSellingPrice currencyCode="{{CURR_CODE}}">{{valorParcial}}</ns2:UnitSellingPrice>
+                                                        <ns2:ExtendedAmount currencyCode="{{CURR_CODE}}">{{parcialxCant}}</ns2:ExtendedAmount>
+                                                        <ns2:ShipToPartyName>{{PAR_NAME}}</ns2:ShipToPartyName>
+                                                        <ns2:ShipToPartySiteIdentifier>{{SHIP_TO}}</ns2:ShipToPartySiteIdentifier>
+                                                        <ns2:BillToCustomerName>{{PAR_NAME}}</ns2:BillToCustomerName>
+                                                        <ns2:BillToAccountSiteUseIdentifier>{{BILL_TO}}</ns2:BillToAccountSiteUseIdentifier>
+                                                        <ns2:PartialShipAllowedFlag>false</ns2:PartialShipAllowedFlag>
+                                                        <ns2:OrigSystemDocumentReference>ORIGSYS</ns2:OrigSystemDocumentReference>
+                                                        <ns2:OrigSystemDocumentLineReference>ORIGSYSLINE</ns2:OrigSystemDocumentLineReference>
+                                                        <ns2:PaymentTerms>{{PAY_TER}}</ns2:PaymentTerms>
+                                                        <ns2:SalesPersonIdentifier>{{OWN_RES_P}}</ns2:SalesPersonIdentifier>
+                                                        <ns2:OrderCharge>
+                                                            <ns2:ChargeDefinitionCode>QP_SALE_PRICE</ns2:ChargeDefinitionCode>
+                                                            <ns2:ChargeSubtypeCode>ORA_PRICE</ns2:ChargeSubtypeCode>
+                                                            <ns2:PriceTypeCode>ONE_TIME</ns2:PriceTypeCode>
+                                                            {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                            <ns2:PricedQuantity unitCode="HR">{{cantidadItem}}</ns2:PricedQuantity>
+                                                            {{else}}
+                                                            <ns2:PricedQuantity unitCode="UN">{{cantidadItem}}</ns2:PricedQuantity>
+                                                            {{/equal}}
+                                                            {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                            <ns2:PricedQuantityUOMCode>HR</ns2:PricedQuantityUOMCode>
+                                                            {{else}}
+                                                            <ns2:PricedQuantityUOMCode>UN</ns2:PricedQuantityUOMCode>
+                                                            {{/equal}}
+                                                            <ns2:SourceChargeIdentifier>SC{{lineID_l}}</ns2:SourceChargeIdentifier>
+                                                            <ns2:PrimaryFlag>true</ns2:PrimaryFlag>
+                                                            <ns2:ApplyTo>PRICE</ns2:ApplyTo>
+                                                            <ns2:RollupFlag>false</ns2:RollupFlag>
+                                                            <ns2:ChargeTypeCode>ORA_SALE</ns2:ChargeTypeCode>
+                                                            <ns2:ChargeCurrencyCode>{{CURR_CODE}}</ns2:ChargeCurrencyCode>
+                                                            <ns2:SequenceNumber>1</ns2:SequenceNumber>
+                                                            <ns2:PricePeriodicityCode/>
+                                                            <ns2:GsaUnitPrice/>
+                                                            <ns2:OrderChargeComponent>
+                                                                <ns2:ChargeCurrencyCode>{{CURR_CODE}}</ns2:ChargeCurrencyCode>
+                                                                <ns2:HeaderCurrencyCode>{{CURR_CODE}}</ns2:HeaderCurrencyCode>
+                                                                <ns2:HeaderCurrencyExtendedAmount currencyCode="{{CURR_CODE}}">{{parcialxCant}}</ns2:HeaderCurrencyExtendedAmount>
+                                                                <ns2:PriceElementCode>QP_LIST_PRICE</ns2:PriceElementCode>
+                                                                <ns2:SequenceNumber>1</ns2:SequenceNumber>
+                                                                <ns2:PriceElementUsageCode>LIST_PRICE</ns2:PriceElementUsageCode>
+                                                                <ns2:ChargeCurrencyUnitPrice currencyCode="{{CURR_CODE}}">{{valorParcial}}</ns2:ChargeCurrencyUnitPrice>
+                                                                <ns2:HeaderCurrencyUnitPrice currencyCode="{{CURR_CODE}}">{{valorParcial}}</ns2:HeaderCurrencyUnitPrice>
+                                                                <ns2:RollupFlag>false</ns2:RollupFlag>
+                                                                <ns2:SourceChargeIdentifier>SC{{lineID_l}}</ns2:SourceChargeIdentifier>
+                                                                <ns2:SourceChargeComponentIdentifier>SCC1</ns2:SourceChargeComponentIdentifier>
+                                                                <ns2:ChargeCurrencyExtendedAmount>{{parcialxCant}}</ns2:ChargeCurrencyExtendedAmount>
+                                                            </ns2:OrderChargeComponent>
+                                                            <ns2:OrderChargeComponent>
+                                                                <ns2:ChargeCurrencyCode>{{CURR_CODE}}</ns2:ChargeCurrencyCode>
+                                                                <ns2:HeaderCurrencyCode>{{CURR_CODE}}</ns2:HeaderCurrencyCode>
+                                                                <ns2:HeaderCurrencyExtendedAmount>{{parcialxCant}}</ns2:HeaderCurrencyExtendedAmount>
+                                                                <ns2:PriceElementCode>QP_NET_PRICE</ns2:PriceElementCode>
+                                                                <ns2:SequenceNumber>2</ns2:SequenceNumber>
+                                                                <ns2:PriceElementUsageCode>NET_PRICE</ns2:PriceElementUsageCode>
+                                                                <ns2:ChargeCurrencyUnitPrice>{{valorParcial}}</ns2:ChargeCurrencyUnitPrice>
+                                                                <ns2:HeaderCurrencyUnitPrice>{{valorParcial}}</ns2:HeaderCurrencyUnitPrice>
+                                                                <ns2:RollupFlag>false</ns2:RollupFlag>
+                                                                <ns2:SourceParentChargeComponentId/>
+                                                                <ns2:SourceChargeIdentifier>SC{{lineID_l}}</ns2:SourceChargeIdentifier>
+                                                                <ns2:SourceChargeComponentIdentifier>SCC2</ns2:SourceChargeComponentIdentifier>
+                                                                <ns2:ChargeCurrencyExtendedAmount>{{parcialxCant}}</ns2:ChargeCurrencyExtendedAmount>
+                                                            </ns2:OrderChargeComponent>
+                                                        </ns2:OrderCharge>
+                                                    </ns2:Line> 
+                                                {{else}}
+                                                    <ns2:Line>
+                                                        <ns2:SourceTransactionLineIdentifier>{{lineID_l}}</ns2:SourceTransactionLineIdentifier>
+                                                        <ns2:SourceTransactionScheduleIdentifier>{{lineID_l}}</ns2:SourceTransactionScheduleIdentifier>
+                                                        <ns2:SourceTransactionLineNumber>{{lineID_l}}</ns2:SourceTransactionLineNumber>
+                                                        <ns2:SourceTransactionScheduleNumber>{{lineID_l}}</ns2:SourceTransactionScheduleNumber>
+                                                        <ns2:BuyingPartyType>ORGANIZATION</ns2:BuyingPartyType>
+                                                        <ns2:ShipToPartyType>ORGANIZATION</ns2:ShipToPartyType>
+                                                        <ns2:BillToPartyType>ORGANIZATION</ns2:BillToPartyType>
+                                                        <ns2:RequestedFulfillmentOrganizationIdentifier>300000002002173</ns2:RequestedFulfillmentOrganizationIdentifier>
+                                                        <ns2:ProductNumber>{{_part_number}}</ns2:ProductNumber>
+                                                        <ns2:ShippingInstructions>{{reintegro}}</ns2:ShippingInstructions>
+                                                        {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                        <ns2:OrderedQuantity unitCode="HR">{{cantidadItem}}</ns2:OrderedQuantity>
+                                                        {{else}}
+                                                        <ns2:OrderedQuantity unitCode="UN">{{cantidadItem}}</ns2:OrderedQuantity>
+                                                        {{/equal}}
+                                                        {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                        <ns2:OrderedUOMCode>HR</ns2:OrderedUOMCode>
+                                                        {{else}}
+                                                        <ns2:OrderedUOMCode>UN</ns2:OrderedUOMCode>
+                                                        {{/equal}}
+                                                        {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                        <ns2:OrderedUOM>HR</ns2:OrderedUOM>
+                                                        {{else}}
+                                                        <ns2:OrderedUOM>UN</ns2:OrderedUOM>
+                                                        {{/equal}}
+                                                        <ns2:RequestingBusinessUnitName>{{PAR_NAME}}</ns2:RequestingBusinessUnitName>
+                                                        <ns2:RequestedShipDate>{{DATE}}</ns2:RequestedShipDate>
+                                                        <ns2:TransactionCategoryCode>ORDER</ns2:TransactionCategoryCode>
+                                                        <ns2:UnitListPrice currencyCode="{{CURR_CODE}}">{{patrocinio}}</ns2:UnitListPrice>
+                                                        <ns2:UnitSellingPrice currencyCode="{{CURR_CODE}}">{{patrocinio}}</ns2:UnitSellingPrice>
+                                                        <ns2:ExtendedAmount currencyCode="{{CURR_CODE}}">{{patxCant}}</ns2:ExtendedAmount>
+                                                        <ns2:ShipToPartyName>{{PAR_NAME}}</ns2:ShipToPartyName>
+                                                        <ns2:ShipToPartySiteIdentifier>{{SHIP_TO}}</ns2:ShipToPartySiteIdentifier>
+                                                        <ns2:BillToCustomerName>{{PAR_NAME}}</ns2:BillToCustomerName>
+                                                        <ns2:BillToAccountSiteUseIdentifier>{{BILL_TO}}</ns2:BillToAccountSiteUseIdentifier>
+                                                        <ns2:PartialShipAllowedFlag>false</ns2:PartialShipAllowedFlag>
+                                                        <ns2:OrigSystemDocumentReference>ORIGSYS</ns2:OrigSystemDocumentReference>
+                                                        <ns2:OrigSystemDocumentLineReference>ORIGSYSLINE</ns2:OrigSystemDocumentLineReference>
+                                                        <ns2:PaymentTerms>{{PAY_TER}}</ns2:PaymentTerms>
+                                                        <ns2:SalesPersonIdentifier>{{OWN_RES_P}}</ns2:SalesPersonIdentifier>
+                                                        <ns2:OrderCharge>
+                                                            <ns2:ChargeDefinitionCode>QP_SALE_PRICE</ns2:ChargeDefinitionCode>
+                                                            <ns2:ChargeSubtypeCode>ORA_PRICE</ns2:ChargeSubtypeCode>
+                                                            <ns2:PriceTypeCode>ONE_TIME</ns2:PriceTypeCode>
+                                                            {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                            <ns2:PricedQuantity unitCode="HR">{{cantidadItem}}</ns2:PricedQuantity>
+                                                            {{else}}
+                                                            <ns2:PricedQuantity unitCode="UN">{{cantidadItem}}</ns2:PricedQuantity>
+                                                            {{/equal}}
+                                                            {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                            <ns2:PricedQuantityUOMCode>HR</ns2:PricedQuantityUOMCode>
+                                                            {{else}}
+                                                            <ns2:PricedQuantityUOMCode>UN</ns2:PricedQuantityUOMCode>
+                                                            {{/equal}}
+                                                            <ns2:SourceChargeIdentifier>SC{{lineID_l}}</ns2:SourceChargeIdentifier>
+                                                            <ns2:PrimaryFlag>true</ns2:PrimaryFlag>
+                                                            <ns2:ApplyTo>PRICE</ns2:ApplyTo>
+                                                            <ns2:RollupFlag>false</ns2:RollupFlag>
+                                                            <ns2:ChargeTypeCode>ORA_SALE</ns2:ChargeTypeCode>
+                                                            <ns2:ChargeCurrencyCode>{{CURR_CODE}}</ns2:ChargeCurrencyCode>
+                                                            <ns2:SequenceNumber>1</ns2:SequenceNumber>
+                                                            <ns2:PricePeriodicityCode/>
+                                                            <ns2:GsaUnitPrice/>
+                                                            <ns2:OrderChargeComponent>
+                                                                <ns2:ChargeCurrencyCode>{{CURR_CODE}}</ns2:ChargeCurrencyCode>
+                                                                <ns2:HeaderCurrencyCode>{{CURR_CODE}}</ns2:HeaderCurrencyCode>
+                                                                <ns2:HeaderCurrencyExtendedAmount currencyCode="{{CURR_CODE}}">{{patxCant}}</ns2:HeaderCurrencyExtendedAmount>
+                                                                <ns2:PriceElementCode>QP_LIST_PRICE</ns2:PriceElementCode>
+                                                                <ns2:SequenceNumber>1</ns2:SequenceNumber>
+                                                                <ns2:PriceElementUsageCode>LIST_PRICE</ns2:PriceElementUsageCode>
+                                                                <ns2:ChargeCurrencyUnitPrice currencyCode="{{CURR_CODE}}">{{patrocinio}}</ns2:ChargeCurrencyUnitPrice>
+                                                                <ns2:HeaderCurrencyUnitPrice currencyCode="{{CURR_CODE}}">{{patrocinio}}</ns2:HeaderCurrencyUnitPrice>
+                                                                <ns2:RollupFlag>false</ns2:RollupFlag>
+                                                                <ns2:SourceChargeIdentifier>SC{{lineID_l}}</ns2:SourceChargeIdentifier>
+                                                                <ns2:SourceChargeComponentIdentifier>SCC1</ns2:SourceChargeComponentIdentifier>
+                                                                <ns2:ChargeCurrencyExtendedAmount>{{patxCant}}</ns2:ChargeCurrencyExtendedAmount>
+                                                            </ns2:OrderChargeComponent>
+                                                            <ns2:OrderChargeComponent>
+                                                                <ns2:ChargeCurrencyCode>{{CURR_CODE}}</ns2:ChargeCurrencyCode>
+                                                                <ns2:HeaderCurrencyCode>{{CURR_CODE}}</ns2:HeaderCurrencyCode>
+                                                                <ns2:HeaderCurrencyExtendedAmount>{{patxCant}}</ns2:HeaderCurrencyExtendedAmount>
+                                                                <ns2:PriceElementCode>QP_NET_PRICE</ns2:PriceElementCode>
+                                                                <ns2:SequenceNumber>2</ns2:SequenceNumber>
+                                                                <ns2:PriceElementUsageCode>NET_PRICE</ns2:PriceElementUsageCode>
+                                                                <ns2:ChargeCurrencyUnitPrice>{{patrocinio}}</ns2:ChargeCurrencyUnitPrice>
+                                                                <ns2:HeaderCurrencyUnitPrice>{{patrocinio}}</ns2:HeaderCurrencyUnitPrice>
+                                                                <ns2:RollupFlag>false</ns2:RollupFlag>
+                                                                <ns2:SourceParentChargeComponentId/>
+                                                                <ns2:SourceChargeIdentifier>SC{{lineID_l}}</ns2:SourceChargeIdentifier>
+                                                                <ns2:SourceChargeComponentIdentifier>SCC2</ns2:SourceChargeComponentIdentifier>
+                                                                <ns2:ChargeCurrencyExtendedAmount>{{patxCant}}</ns2:ChargeCurrencyExtendedAmount>
+                                                            </ns2:OrderChargeComponent>
+                                                        </ns2:OrderCharge>
+                                                    </ns2:Line>
+                                                {{/equal}}
+                                            {{/equal}}
+                                        {{else}}
+                                            {{#equal parCheckv2 "1"}}
+                                                <ns2:Line>
+                                                    <ns2:SourceTransactionLineIdentifier>{{lineID_l}}</ns2:SourceTransactionLineIdentifier>
+                                                    <ns2:SourceTransactionScheduleIdentifier>{{lineID_l}}</ns2:SourceTransactionScheduleIdentifier>
+                                                    <ns2:SourceTransactionLineNumber>{{lineID_l}}</ns2:SourceTransactionLineNumber>
+                                                    <ns2:SourceTransactionScheduleNumber>{{lineID_l}}</ns2:SourceTransactionScheduleNumber>
+                                                    <ns2:BuyingPartyType>ORGANIZATION</ns2:BuyingPartyType>
+                                                    <ns2:ShipToPartyType>ORGANIZATION</ns2:ShipToPartyType>
+                                                    <ns2:BillToPartyType>ORGANIZATION</ns2:BillToPartyType>
+                                                    <ns2:RequestedFulfillmentOrganizationIdentifier>300000002002173</ns2:RequestedFulfillmentOrganizationIdentifier>
+                                                    <ns2:ProductNumber>{{_part_number}}</ns2:ProductNumber>
+                                                    <ns2:ShippingInstructions>{{reintegro}}</ns2:ShippingInstructions>
+                                                    {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                    <ns2:OrderedQuantity unitCode="HR">{{cantidadItem}}</ns2:OrderedQuantity>
+                                                    {{else}}
+                                                    <ns2:OrderedQuantity unitCode="UN">{{cantidadItem}}</ns2:OrderedQuantity>
+                                                    {{/equal}}
+                                                    {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                    <ns2:OrderedUOMCode>HR</ns2:OrderedUOMCode>
+                                                    {{else}}
+                                                    <ns2:OrderedUOMCode>UN</ns2:OrderedUOMCode>
+                                                    {{/equal}}
+                                                    {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                    <ns2:OrderedUOM>HR</ns2:OrderedUOM>
+                                                    {{else}}
+                                                    <ns2:OrderedUOM>UN</ns2:OrderedUOM>
+                                                    {{/equal}}
+                                                    <ns2:RequestingBusinessUnitName>{{PAR_NAME}}</ns2:RequestingBusinessUnitName>
+                                                    <ns2:RequestedShipDate>{{DATE}}</ns2:RequestedShipDate>
+                                                    <ns2:TransactionCategoryCode>ORDER</ns2:TransactionCategoryCode>
+                                                    <ns2:UnitListPrice currencyCode="{{CURR_CODE}}">{{valorParcial}}</ns2:UnitListPrice>
+                                                    <ns2:UnitSellingPrice currencyCode="{{CURR_CODE}}">{{valorParcial}}</ns2:UnitSellingPrice>
+                                                    <ns2:ExtendedAmount currencyCode="{{CURR_CODE}}">{{parcialxCant}}</ns2:ExtendedAmount>
+                                                    <ns2:ShipToPartyName>{{PAR_NAME}}</ns2:ShipToPartyName>
+                                                    <ns2:ShipToPartySiteIdentifier>{{SHIP_TO}}</ns2:ShipToPartySiteIdentifier>
+                                                    <ns2:BillToCustomerName>{{PAR_NAME}}</ns2:BillToCustomerName>
+                                                    <ns2:BillToAccountSiteUseIdentifier>{{BILL_TO}}</ns2:BillToAccountSiteUseIdentifier>
+                                                    <ns2:PartialShipAllowedFlag>false</ns2:PartialShipAllowedFlag>
+                                                    <ns2:OrigSystemDocumentReference>ORIGSYS</ns2:OrigSystemDocumentReference>
+                                                    <ns2:OrigSystemDocumentLineReference>ORIGSYSLINE</ns2:OrigSystemDocumentLineReference>
+                                                    <ns2:PaymentTerms>{{PAY_TER}}</ns2:PaymentTerms>
+                                                    <ns2:SalesPersonIdentifier>{{OWN_RES_P}}</ns2:SalesPersonIdentifier>
+                                                    <ns2:OrderCharge>
+                                                        <ns2:ChargeDefinitionCode>QP_SALE_PRICE</ns2:ChargeDefinitionCode>
+                                                        <ns2:ChargeSubtypeCode>ORA_PRICE</ns2:ChargeSubtypeCode>
+                                                        <ns2:PriceTypeCode>ONE_TIME</ns2:PriceTypeCode>
+                                                        {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                        <ns2:PricedQuantity unitCode="HR">{{cantidadItem}}</ns2:PricedQuantity>
+                                                        {{else}}
+                                                        <ns2:PricedQuantity unitCode="UN">{{cantidadItem}}</ns2:PricedQuantity>
+                                                        {{/equal}}
+                                                        {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                        <ns2:PricedQuantityUOMCode>HR</ns2:PricedQuantityUOMCode>
+                                                        {{else}}
+                                                        <ns2:PricedQuantityUOMCode>UN</ns2:PricedQuantityUOMCode>
+                                                        {{/equal}}
+                                                        <ns2:SourceChargeIdentifier>SC{{lineID_l}}</ns2:SourceChargeIdentifier>
+                                                        <ns2:PrimaryFlag>true</ns2:PrimaryFlag>
+                                                        <ns2:ApplyTo>PRICE</ns2:ApplyTo>
+                                                        <ns2:RollupFlag>false</ns2:RollupFlag>
+                                                        <ns2:ChargeTypeCode>ORA_SALE</ns2:ChargeTypeCode>
+                                                        <ns2:ChargeCurrencyCode>{{CURR_CODE}}</ns2:ChargeCurrencyCode>
+                                                        <ns2:SequenceNumber>1</ns2:SequenceNumber>
+                                                        <ns2:PricePeriodicityCode/>
+                                                        <ns2:GsaUnitPrice/>
+                                                        <ns2:OrderChargeComponent>
+                                                            <ns2:ChargeCurrencyCode>{{CURR_CODE}}</ns2:ChargeCurrencyCode>
+                                                            <ns2:HeaderCurrencyCode>{{CURR_CODE}}</ns2:HeaderCurrencyCode>
+                                                            <ns2:HeaderCurrencyExtendedAmount currencyCode="{{CURR_CODE}}">{{parcialxCant}}</ns2:HeaderCurrencyExtendedAmount>
+                                                            <ns2:PriceElementCode>QP_LIST_PRICE</ns2:PriceElementCode>
+                                                            <ns2:SequenceNumber>1</ns2:SequenceNumber>
+                                                            <ns2:PriceElementUsageCode>LIST_PRICE</ns2:PriceElementUsageCode>
+                                                            <ns2:ChargeCurrencyUnitPrice currencyCode="{{CURR_CODE}}">{{valorParcial}}</ns2:ChargeCurrencyUnitPrice>
+                                                            <ns2:HeaderCurrencyUnitPrice currencyCode="{{CURR_CODE}}">{{valorParcial}}</ns2:HeaderCurrencyUnitPrice>
+                                                            <ns2:RollupFlag>false</ns2:RollupFlag>
+                                                            <ns2:SourceChargeIdentifier>SC{{lineID_l}}</ns2:SourceChargeIdentifier>
+                                                            <ns2:SourceChargeComponentIdentifier>SCC1</ns2:SourceChargeComponentIdentifier>
+                                                            <ns2:ChargeCurrencyExtendedAmount>{{parcialxCant}}</ns2:ChargeCurrencyExtendedAmount>
+                                                        </ns2:OrderChargeComponent>
+                                                        <ns2:OrderChargeComponent>
+                                                            <ns2:ChargeCurrencyCode>{{CURR_CODE}}</ns2:ChargeCurrencyCode>
+                                                            <ns2:HeaderCurrencyCode>{{CURR_CODE}}</ns2:HeaderCurrencyCode>
+                                                            <ns2:HeaderCurrencyExtendedAmount>{{parcialxCant}}</ns2:HeaderCurrencyExtendedAmount>
+                                                            <ns2:PriceElementCode>QP_NET_PRICE</ns2:PriceElementCode>
+                                                            <ns2:SequenceNumber>2</ns2:SequenceNumber>
+                                                            <ns2:PriceElementUsageCode>NET_PRICE</ns2:PriceElementUsageCode>
+                                                            <ns2:ChargeCurrencyUnitPrice>{{valorParcial}}</ns2:ChargeCurrencyUnitPrice>
+                                                            <ns2:HeaderCurrencyUnitPrice>{{valorParcial}}</ns2:HeaderCurrencyUnitPrice>
+                                                            <ns2:RollupFlag>false</ns2:RollupFlag>
+                                                            <ns2:SourceParentChargeComponentId/>
+                                                            <ns2:SourceChargeIdentifier>SC{{lineID_l}}</ns2:SourceChargeIdentifier>
+                                                            <ns2:SourceChargeComponentIdentifier>SCC2</ns2:SourceChargeComponentIdentifier>
+                                                            <ns2:ChargeCurrencyExtendedAmount>{{parcialxCant}}</ns2:ChargeCurrencyExtendedAmount>
+                                                        </ns2:OrderChargeComponent>
+                                                    </ns2:OrderCharge>
+                                                </ns2:Line> 
+                                            {{else}}
+                                                <ns2:Line>
+                                                    <ns2:SourceTransactionLineIdentifier>{{lineID_l}}</ns2:SourceTransactionLineIdentifier>
+                                                    <ns2:SourceTransactionScheduleIdentifier>{{lineID_l}}</ns2:SourceTransactionScheduleIdentifier>
+                                                    <ns2:SourceTransactionLineNumber>{{lineID_l}}</ns2:SourceTransactionLineNumber>
+                                                    <ns2:SourceTransactionScheduleNumber>{{lineID_l}}</ns2:SourceTransactionScheduleNumber>
+                                                    <ns2:BuyingPartyType>ORGANIZATION</ns2:BuyingPartyType>
+                                                    <ns2:ShipToPartyType>ORGANIZATION</ns2:ShipToPartyType>
+                                                    <ns2:BillToPartyType>ORGANIZATION</ns2:BillToPartyType>
+                                                    <ns2:RequestedFulfillmentOrganizationIdentifier>300000002002173</ns2:RequestedFulfillmentOrganizationIdentifier>
+                                                    <ns2:ProductNumber>{{_part_number}}</ns2:ProductNumber>
+                                                    <ns2:ShippingInstructions>{{reintegro}}</ns2:ShippingInstructions>
+                                                    {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                    <ns2:OrderedQuantity unitCode="HR">{{cantidadItem}}</ns2:OrderedQuantity>
+                                                    {{else}}
+                                                    <ns2:OrderedQuantity unitCode="UN">{{cantidadItem}}</ns2:OrderedQuantity>
+                                                    {{/equal}}
+                                                    {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                    <ns2:OrderedUOMCode>HR</ns2:OrderedUOMCode>
+                                                    {{else}}
+                                                    <ns2:OrderedUOMCode>UN</ns2:OrderedUOMCode>
+                                                    {{/equal}}
+                                                    {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                    <ns2:OrderedUOM>HR</ns2:OrderedUOM>
+                                                    {{else}}
+                                                    <ns2:OrderedUOM>UN</ns2:OrderedUOM>
+                                                    {{/equal}}
+                                                    <ns2:RequestingBusinessUnitName>{{PAR_NAME}}</ns2:RequestingBusinessUnitName>
+                                                    <ns2:RequestedShipDate>{{DATE}}</ns2:RequestedShipDate>
+                                                    <ns2:TransactionCategoryCode>ORDER</ns2:TransactionCategoryCode>
+                                                    <ns2:UnitListPrice currencyCode="{{CURR_CODE}}">{{valorReintegro}}</ns2:UnitListPrice>
+                                                    <ns2:UnitSellingPrice currencyCode="{{CURR_CODE}}">{{valorReintegro}}</ns2:UnitSellingPrice>
+                                                    <ns2:ExtendedAmount currencyCode="{{CURR_CODE}}">{{valorReintegro}}</ns2:ExtendedAmount>
+                                                    <ns2:ShipToPartyName>{{PAR_NAME}}</ns2:ShipToPartyName>
+                                                    <ns2:ShipToPartySiteIdentifier>{{SHIP_TO}}</ns2:ShipToPartySiteIdentifier>
+                                                    <ns2:BillToCustomerName>{{PAR_NAME}}</ns2:BillToCustomerName>
+                                                    <ns2:BillToAccountSiteUseIdentifier>{{BILL_TO}}</ns2:BillToAccountSiteUseIdentifier>
+                                                    <ns2:PartialShipAllowedFlag>false</ns2:PartialShipAllowedFlag>
+                                                    <ns2:OrigSystemDocumentReference>ORIGSYS</ns2:OrigSystemDocumentReference>
+                                                    <ns2:OrigSystemDocumentLineReference>ORIGSYSLINE</ns2:OrigSystemDocumentLineReference>
+                                                    <ns2:PaymentTerms>{{PAY_TER}}</ns2:PaymentTerms>
+                                                    <ns2:SalesPersonIdentifier>{{OWN_RES_P}}</ns2:SalesPersonIdentifier>
+                                                    <ns2:OrderCharge>
+                                                        <ns2:ChargeDefinitionCode>QP_SALE_PRICE</ns2:ChargeDefinitionCode>
+                                                        <ns2:ChargeSubtypeCode>ORA_PRICE</ns2:ChargeSubtypeCode>
+                                                        <ns2:PriceTypeCode>ONE_TIME</ns2:PriceTypeCode>
+                                                        {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                        <ns2:PricedQuantity unitCode="HR">{{cantidadItem}}</ns2:PricedQuantity>
+                                                        {{else}}
+                                                        <ns2:PricedQuantity unitCode="UN">{{cantidadItem}}</ns2:PricedQuantity>
+                                                        {{/equal}}
+                                                        {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                        <ns2:PricedQuantityUOMCode>HR</ns2:PricedQuantityUOMCode>
+                                                        {{else}}
+                                                        <ns2:PricedQuantityUOMCode>UN</ns2:PricedQuantityUOMCode>
+                                                        {{/equal}}
+                                                        <ns2:SourceChargeIdentifier>SC{{lineID_l}}</ns2:SourceChargeIdentifier>
+                                                        <ns2:PrimaryFlag>true</ns2:PrimaryFlag>
+                                                        <ns2:ApplyTo>PRICE</ns2:ApplyTo>
+                                                        <ns2:RollupFlag>false</ns2:RollupFlag>
+                                                        <ns2:ChargeTypeCode>ORA_SALE</ns2:ChargeTypeCode>
+                                                        <ns2:ChargeCurrencyCode>{{CURR_CODE}}</ns2:ChargeCurrencyCode>
+                                                        <ns2:SequenceNumber>1</ns2:SequenceNumber>
+                                                        <ns2:PricePeriodicityCode/>
+                                                        <ns2:GsaUnitPrice/>
+                                                        <ns2:OrderChargeComponent>
+                                                            <ns2:ChargeCurrencyCode>{{CURR_CODE}}</ns2:ChargeCurrencyCode>
+                                                            <ns2:HeaderCurrencyCode>{{CURR_CODE}}</ns2:HeaderCurrencyCode>
+                                                            <ns2:HeaderCurrencyExtendedAmount currencyCode="{{CURR_CODE}}">{{valorReintegro}}</ns2:HeaderCurrencyExtendedAmount>
+                                                            <ns2:PriceElementCode>QP_LIST_PRICE</ns2:PriceElementCode>
+                                                            <ns2:SequenceNumber>1</ns2:SequenceNumber>
+                                                            <ns2:PriceElementUsageCode>LIST_PRICE</ns2:PriceElementUsageCode>
+                                                            <ns2:ChargeCurrencyUnitPrice currencyCode="{{CURR_CODE}}">{{valorReintegro}}</ns2:ChargeCurrencyUnitPrice>
+                                                            <ns2:HeaderCurrencyUnitPrice currencyCode="{{CURR_CODE}}">{{valorReintegro}}</ns2:HeaderCurrencyUnitPrice>
+                                                            <ns2:RollupFlag>false</ns2:RollupFlag>
+                                                            <ns2:SourceChargeIdentifier>SC{{lineID_l}}</ns2:SourceChargeIdentifier>
+                                                            <ns2:SourceChargeComponentIdentifier>SCC1</ns2:SourceChargeComponentIdentifier>
+                                                            <ns2:ChargeCurrencyExtendedAmount>{{valorReintegro}}</ns2:ChargeCurrencyExtendedAmount>
+                                                        </ns2:OrderChargeComponent>
+                                                        <ns2:OrderChargeComponent>
+                                                            <ns2:ChargeCurrencyCode>{{CURR_CODE}}</ns2:ChargeCurrencyCode>
+                                                            <ns2:HeaderCurrencyCode>{{CURR_CODE}}</ns2:HeaderCurrencyCode>
+                                                            <ns2:HeaderCurrencyExtendedAmount>{{valorReintegro}}</ns2:HeaderCurrencyExtendedAmount>
+                                                            <ns2:PriceElementCode>QP_NET_PRICE</ns2:PriceElementCode>
+                                                            <ns2:SequenceNumber>2</ns2:SequenceNumber>
+                                                            <ns2:PriceElementUsageCode>NET_PRICE</ns2:PriceElementUsageCode>
+                                                            <ns2:ChargeCurrencyUnitPrice>{{valorReintegro}}</ns2:ChargeCurrencyUnitPrice>
+                                                            <ns2:HeaderCurrencyUnitPrice>{{valorReintegro}}</ns2:HeaderCurrencyUnitPrice>
+                                                            <ns2:RollupFlag>false</ns2:RollupFlag>
+                                                            <ns2:SourceParentChargeComponentId/>
+                                                            <ns2:SourceChargeIdentifier>SC{{lineID_l}}</ns2:SourceChargeIdentifier>
+                                                            <ns2:SourceChargeComponentIdentifier>SCC2</ns2:SourceChargeComponentIdentifier>
+                                                            <ns2:ChargeCurrencyExtendedAmount>{{valorReintegro}}</ns2:ChargeCurrencyExtendedAmount>
+                                                        </ns2:OrderChargeComponent>
+                                                    </ns2:OrderCharge>
+                                                </ns2:Line>
+                                            {{/equal}}
+                                        {{/equal}}
+                                    {{else}}
+                                        {{#equal tipoDeEsquema "simple"}}
+                                            {{#equal reintegro "noaplica"}}{{else}}
+                                                {{#equal parCheckv2 "1"}}
+                                                    <ns2:Line>
+                                                        <ns2:SourceTransactionLineIdentifier>{{lineID_l}}</ns2:SourceTransactionLineIdentifier>
+                                                        <ns2:SourceTransactionScheduleIdentifier>{{lineID_l}}</ns2:SourceTransactionScheduleIdentifier>
+                                                        <ns2:SourceTransactionLineNumber>{{lineID_l}}</ns2:SourceTransactionLineNumber>
+                                                        <ns2:SourceTransactionScheduleNumber>{{lineID_l}}</ns2:SourceTransactionScheduleNumber>
+                                                        <ns2:BuyingPartyType>ORGANIZATION</ns2:BuyingPartyType>
+                                                        <ns2:ShipToPartyType>ORGANIZATION</ns2:ShipToPartyType>
+                                                        <ns2:BillToPartyType>ORGANIZATION</ns2:BillToPartyType>
+                                                        <ns2:RequestedFulfillmentOrganizationIdentifier>300000002002173</ns2:RequestedFulfillmentOrganizationIdentifier>
+                                                        <ns2:ProductNumber>{{_part_number}}</ns2:ProductNumber>
+                                                        <ns2:ShippingInstructions>{{reintegro}}</ns2:ShippingInstructions>
+                                                        {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                        <ns2:OrderedQuantity unitCode="HR">{{cantidadItem}}</ns2:OrderedQuantity>
+                                                        {{else}}
+                                                        <ns2:OrderedQuantity unitCode="UN">{{cantidadItem}}</ns2:OrderedQuantity>
+                                                        {{/equal}}
+                                                        {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                        <ns2:OrderedUOMCode>HR</ns2:OrderedUOMCode>
+                                                        {{else}}
+                                                        <ns2:OrderedUOMCode>UN</ns2:OrderedUOMCode>
+                                                        {{/equal}}
+                                                        {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                        <ns2:OrderedUOM>HR</ns2:OrderedUOM>
+                                                        {{else}}
+                                                        <ns2:OrderedUOM>UN</ns2:OrderedUOM>
+                                                        {{/equal}}
+                                                        <ns2:RequestingBusinessUnitName>{{PAR_NAME}}</ns2:RequestingBusinessUnitName>
+                                                        <ns2:RequestedShipDate>{{DATE}}</ns2:RequestedShipDate>
+                                                        <ns2:TransactionCategoryCode>ORDER</ns2:TransactionCategoryCode>
+                                                        <ns2:UnitListPrice currencyCode="{{CURR_CODE}}">{{valorParcial}}</ns2:UnitListPrice>
+                                                        <ns2:UnitSellingPrice currencyCode="{{CURR_CODE}}">{{valorParcial}}</ns2:UnitSellingPrice>
+                                                        <ns2:ExtendedAmount currencyCode="{{CURR_CODE}}">{{parcialxCant}}</ns2:ExtendedAmount>
+                                                        <ns2:ShipToPartyName>{{PAR_NAME}}</ns2:ShipToPartyName>
+                                                        <ns2:ShipToPartySiteIdentifier>{{SHIP_TO}}</ns2:ShipToPartySiteIdentifier>
+                                                        <ns2:BillToCustomerName>{{PAR_NAME}}</ns2:BillToCustomerName>
+                                                        <ns2:BillToAccountSiteUseIdentifier>{{BILL_TO}}</ns2:BillToAccountSiteUseIdentifier>
+                                                        <ns2:PartialShipAllowedFlag>false</ns2:PartialShipAllowedFlag>
+                                                        <ns2:OrigSystemDocumentReference>ORIGSYS</ns2:OrigSystemDocumentReference>
+                                                        <ns2:OrigSystemDocumentLineReference>ORIGSYSLINE</ns2:OrigSystemDocumentLineReference>
+                                                        <ns2:PaymentTerms>{{PAY_TER}}</ns2:PaymentTerms>
+                                                        <ns2:SalesPersonIdentifier>{{OWN_RES_P}}</ns2:SalesPersonIdentifier>
+                                                        <ns2:OrderCharge>
+                                                            <ns2:ChargeDefinitionCode>QP_SALE_PRICE</ns2:ChargeDefinitionCode>
+                                                            <ns2:ChargeSubtypeCode>ORA_PRICE</ns2:ChargeSubtypeCode>
+                                                            <ns2:PriceTypeCode>ONE_TIME</ns2:PriceTypeCode>
+                                                            {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                            <ns2:PricedQuantity unitCode="HR">{{cantidadItem}}</ns2:PricedQuantity>
+                                                            {{else}}
+                                                            <ns2:PricedQuantity unitCode="UN">{{cantidadItem}}</ns2:PricedQuantity>
+                                                            {{/equal}}
+                                                            {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                            <ns2:PricedQuantityUOMCode>HR</ns2:PricedQuantityUOMCode>
+                                                            {{else}}
+                                                            <ns2:PricedQuantityUOMCode>UN</ns2:PricedQuantityUOMCode>
+                                                            {{/equal}}
+                                                            <ns2:SourceChargeIdentifier>SC{{lineID_l}}</ns2:SourceChargeIdentifier>
+                                                            <ns2:PrimaryFlag>true</ns2:PrimaryFlag>
+                                                            <ns2:ApplyTo>PRICE</ns2:ApplyTo>
+                                                            <ns2:RollupFlag>false</ns2:RollupFlag>
+                                                            <ns2:ChargeTypeCode>ORA_SALE</ns2:ChargeTypeCode>
+                                                            <ns2:ChargeCurrencyCode>{{CURR_CODE}}</ns2:ChargeCurrencyCode>
+                                                            <ns2:SequenceNumber>1</ns2:SequenceNumber>
+                                                            <ns2:PricePeriodicityCode/>
+                                                            <ns2:GsaUnitPrice/>
+                                                            <ns2:OrderChargeComponent>
+                                                                <ns2:ChargeCurrencyCode>{{CURR_CODE}}</ns2:ChargeCurrencyCode>
+                                                                <ns2:HeaderCurrencyCode>{{CURR_CODE}}</ns2:HeaderCurrencyCode>
+                                                                <ns2:HeaderCurrencyExtendedAmount currencyCode="{{CURR_CODE}}">{{parcialxCant}}</ns2:HeaderCurrencyExtendedAmount>
+                                                                <ns2:PriceElementCode>QP_LIST_PRICE</ns2:PriceElementCode>
+                                                                <ns2:SequenceNumber>1</ns2:SequenceNumber>
+                                                                <ns2:PriceElementUsageCode>LIST_PRICE</ns2:PriceElementUsageCode>
+                                                                <ns2:ChargeCurrencyUnitPrice currencyCode="{{CURR_CODE}}">{{valorParcial}}</ns2:ChargeCurrencyUnitPrice>
+                                                                <ns2:HeaderCurrencyUnitPrice currencyCode="{{CURR_CODE}}">{{valorParcial}}</ns2:HeaderCurrencyUnitPrice>
+                                                                <ns2:RollupFlag>false</ns2:RollupFlag>
+                                                                <ns2:SourceChargeIdentifier>SC{{lineID_l}}</ns2:SourceChargeIdentifier>
+                                                                <ns2:SourceChargeComponentIdentifier>SCC1</ns2:SourceChargeComponentIdentifier>
+                                                                <ns2:ChargeCurrencyExtendedAmount>{{parcialxCant}}</ns2:ChargeCurrencyExtendedAmount>
+                                                            </ns2:OrderChargeComponent>
+                                                            <ns2:OrderChargeComponent>
+                                                                <ns2:ChargeCurrencyCode>{{CURR_CODE}}</ns2:ChargeCurrencyCode>
+                                                                <ns2:HeaderCurrencyCode>{{CURR_CODE}}</ns2:HeaderCurrencyCode>
+                                                                <ns2:HeaderCurrencyExtendedAmount>{{parcialxCant}}</ns2:HeaderCurrencyExtendedAmount>
+                                                                <ns2:PriceElementCode>QP_NET_PRICE</ns2:PriceElementCode>
+                                                                <ns2:SequenceNumber>2</ns2:SequenceNumber>
+                                                                <ns2:PriceElementUsageCode>NET_PRICE</ns2:PriceElementUsageCode>
+                                                                <ns2:ChargeCurrencyUnitPrice>{{valorParcial}}</ns2:ChargeCurrencyUnitPrice>
+                                                                <ns2:HeaderCurrencyUnitPrice>{{valorParcial}}</ns2:HeaderCurrencyUnitPrice>
+                                                                <ns2:RollupFlag>false</ns2:RollupFlag>
+                                                                <ns2:SourceParentChargeComponentId/>
+                                                                <ns2:SourceChargeIdentifier>SC{{lineID_l}}</ns2:SourceChargeIdentifier>
+                                                                <ns2:SourceChargeComponentIdentifier>SCC2</ns2:SourceChargeComponentIdentifier>
+                                                                <ns2:ChargeCurrencyExtendedAmount>{{parcialxCant}}</ns2:ChargeCurrencyExtendedAmount>
+                                                            </ns2:OrderChargeComponent>
+                                                        </ns2:OrderCharge>
+                                                    </ns2:Line> 
+                                                {{else}}
+                                                    <ns2:Line>
+                                                        <ns2:SourceTransactionLineIdentifier>{{lineID_l}}</ns2:SourceTransactionLineIdentifier>
+                                                        <ns2:SourceTransactionScheduleIdentifier>{{lineID_l}}</ns2:SourceTransactionScheduleIdentifier>
+                                                        <ns2:SourceTransactionLineNumber>{{lineID_l}}</ns2:SourceTransactionLineNumber>
+                                                        <ns2:SourceTransactionScheduleNumber>{{lineID_l}}</ns2:SourceTransactionScheduleNumber>
+                                                        <ns2:BuyingPartyType>ORGANIZATION</ns2:BuyingPartyType>
+                                                        <ns2:ShipToPartyType>ORGANIZATION</ns2:ShipToPartyType>
+                                                        <ns2:BillToPartyType>ORGANIZATION</ns2:BillToPartyType>
+                                                        <ns2:RequestedFulfillmentOrganizationIdentifier>300000002002173</ns2:RequestedFulfillmentOrganizationIdentifier>
+                                                        <ns2:ProductNumber>{{_part_number}}</ns2:ProductNumber>
+                                                        <ns2:ShippingInstructions>{{reintegro}}</ns2:ShippingInstructions>
+                                                        {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                        <ns2:OrderedQuantity unitCode="HR">{{cantidadItem}}</ns2:OrderedQuantity>
+                                                        {{else}}
+                                                        <ns2:OrderedQuantity unitCode="UN">{{cantidadItem}}</ns2:OrderedQuantity>
+                                                        {{/equal}}
+                                                        {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                        <ns2:OrderedUOMCode>HR</ns2:OrderedUOMCode>
+                                                        {{else}}
+                                                        <ns2:OrderedUOMCode>UN</ns2:OrderedUOMCode>
+                                                        {{/equal}}
+                                                        {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                        <ns2:OrderedUOM>HR</ns2:OrderedUOM>
+                                                        {{else}}
+                                                        <ns2:OrderedUOM>UN</ns2:OrderedUOM>
+                                                        {{/equal}}
+                                                        <ns2:RequestingBusinessUnitName>{{PAR_NAME}}</ns2:RequestingBusinessUnitName>
+                                                        <ns2:RequestedShipDate>{{DATE}}</ns2:RequestedShipDate>
+                                                        <ns2:TransactionCategoryCode>ORDER</ns2:TransactionCategoryCode>
+                                                        <ns2:UnitListPrice currencyCode="{{CURR_CODE}}">{{valorReintegro}}</ns2:UnitListPrice>
+                                                        <ns2:UnitSellingPrice currencyCode="{{CURR_CODE}}">{{valorReintegro}}</ns2:UnitSellingPrice>
+                                                        <ns2:ExtendedAmount currencyCode="{{CURR_CODE}}">{{valorReintegro}}</ns2:ExtendedAmount>
+                                                        <ns2:ShipToPartyName>{{PAR_NAME}}</ns2:ShipToPartyName>
+                                                        <ns2:ShipToPartySiteIdentifier>{{SHIP_TO}}</ns2:ShipToPartySiteIdentifier>
+                                                        <ns2:BillToCustomerName>{{PAR_NAME}}</ns2:BillToCustomerName>
+                                                        <ns2:BillToAccountSiteUseIdentifier>{{BILL_TO}}</ns2:BillToAccountSiteUseIdentifier>
+                                                        <ns2:PartialShipAllowedFlag>false</ns2:PartialShipAllowedFlag>
+                                                        <ns2:OrigSystemDocumentReference>ORIGSYS</ns2:OrigSystemDocumentReference>
+                                                        <ns2:OrigSystemDocumentLineReference>ORIGSYSLINE</ns2:OrigSystemDocumentLineReference>
+                                                        <ns2:PaymentTerms>{{PAY_TER}}</ns2:PaymentTerms>
+                                                        <ns2:SalesPersonIdentifier>{{OWN_RES_P}}</ns2:SalesPersonIdentifier>
+                                                        <ns2:OrderCharge>
+                                                            <ns2:ChargeDefinitionCode>QP_SALE_PRICE</ns2:ChargeDefinitionCode>
+                                                            <ns2:ChargeSubtypeCode>ORA_PRICE</ns2:ChargeSubtypeCode>
+                                                            <ns2:PriceTypeCode>ONE_TIME</ns2:PriceTypeCode>
+                                                            {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                            <ns2:PricedQuantity unitCode="HR">{{cantidadItem}}</ns2:PricedQuantity>
+                                                            {{else}}
+                                                            <ns2:PricedQuantity unitCode="UN">{{cantidadItem}}</ns2:PricedQuantity>
+                                                            {{/equal}}
+                                                            {{#equal requestedUnitOfMeasure_l "Hour"}}
+                                                            <ns2:PricedQuantityUOMCode>HR</ns2:PricedQuantityUOMCode>
+                                                            {{else}}
+                                                            <ns2:PricedQuantityUOMCode>UN</ns2:PricedQuantityUOMCode>
+                                                            {{/equal}}
+                                                            <ns2:SourceChargeIdentifier>SC{{lineID_l}}</ns2:SourceChargeIdentifier>
+                                                            <ns2:PrimaryFlag>true</ns2:PrimaryFlag>
+                                                            <ns2:ApplyTo>PRICE</ns2:ApplyTo>
+                                                            <ns2:RollupFlag>false</ns2:RollupFlag>
+                                                            <ns2:ChargeTypeCode>ORA_SALE</ns2:ChargeTypeCode>
+                                                            <ns2:ChargeCurrencyCode>{{CURR_CODE}}</ns2:ChargeCurrencyCode>
+                                                            <ns2:SequenceNumber>1</ns2:SequenceNumber>
+                                                            <ns2:PricePeriodicityCode/>
+                                                            <ns2:GsaUnitPrice/>
+                                                            <ns2:OrderChargeComponent>
+                                                                <ns2:ChargeCurrencyCode>{{CURR_CODE}}</ns2:ChargeCurrencyCode>
+                                                                <ns2:HeaderCurrencyCode>{{CURR_CODE}}</ns2:HeaderCurrencyCode>
+                                                                <ns2:HeaderCurrencyExtendedAmount currencyCode="{{CURR_CODE}}">{{valorReintegro}}</ns2:HeaderCurrencyExtendedAmount>
+                                                                <ns2:PriceElementCode>QP_LIST_PRICE</ns2:PriceElementCode>
+                                                                <ns2:SequenceNumber>1</ns2:SequenceNumber>
+                                                                <ns2:PriceElementUsageCode>LIST_PRICE</ns2:PriceElementUsageCode>
+                                                                <ns2:ChargeCurrencyUnitPrice currencyCode="{{CURR_CODE}}">{{valorReintegro}}</ns2:ChargeCurrencyUnitPrice>
+                                                                <ns2:HeaderCurrencyUnitPrice currencyCode="{{CURR_CODE}}">{{valorReintegro}}</ns2:HeaderCurrencyUnitPrice>
+                                                                <ns2:RollupFlag>false</ns2:RollupFlag>
+                                                                <ns2:SourceChargeIdentifier>SC{{lineID_l}}</ns2:SourceChargeIdentifier>
+                                                                <ns2:SourceChargeComponentIdentifier>SCC1</ns2:SourceChargeComponentIdentifier>
+                                                                <ns2:ChargeCurrencyExtendedAmount>{{valorReintegro}}</ns2:ChargeCurrencyExtendedAmount>
+                                                            </ns2:OrderChargeComponent>
+                                                            <ns2:OrderChargeComponent>
+                                                                <ns2:ChargeCurrencyCode>{{CURR_CODE}}</ns2:ChargeCurrencyCode>
+                                                                <ns2:HeaderCurrencyCode>{{CURR_CODE}}</ns2:HeaderCurrencyCode>
+                                                                <ns2:HeaderCurrencyExtendedAmount>{{valorReintegro}}</ns2:HeaderCurrencyExtendedAmount>
+                                                                <ns2:PriceElementCode>QP_NET_PRICE</ns2:PriceElementCode>
+                                                                <ns2:SequenceNumber>2</ns2:SequenceNumber>
+                                                                <ns2:PriceElementUsageCode>NET_PRICE</ns2:PriceElementUsageCode>
+                                                                <ns2:ChargeCurrencyUnitPrice>{{valorReintegro}}</ns2:ChargeCurrencyUnitPrice>
+                                                                <ns2:HeaderCurrencyUnitPrice>{{valorReintegro}}</ns2:HeaderCurrencyUnitPrice>
+                                                                <ns2:RollupFlag>false</ns2:RollupFlag>
+                                                                <ns2:SourceParentChargeComponentId/>
+                                                                <ns2:SourceChargeIdentifier>SC{{lineID_l}}</ns2:SourceChargeIdentifier>
+                                                                <ns2:SourceChargeComponentIdentifier>SCC2</ns2:SourceChargeComponentIdentifier>
+                                                                <ns2:ChargeCurrencyExtendedAmount>{{valorReintegro}}</ns2:ChargeCurrencyExtendedAmount>
+                                                            </ns2:OrderChargeComponent>
+                                                        </ns2:OrderCharge>
+                                                    </ns2:Line>
+                                                {{/equal}}
+                                                {{/equal}}
+                                        {{else}}{{/equal}}
+                                    {{/equal}}
+                                {{else}}{{/equal}}
+                            {{/equal}}
+                        {{/equal}}
+                    {{/each}}
+                    <ns2:OrderPreferences>
+                        <ns2:CreateCustomerInformationFlag>false</ns2:CreateCustomerInformationFlag>
+                        <!-- If no value is passed in the SubmitFlag then the order is submitted for processing. If you want to create the order in DRAFT mode then pass value as false. -->
+                        <ns2:SubmitFlag>false</ns2:SubmitFlag>
+                    </ns2:OrderPreferences>
+                </ns2:Order>
+            </ns1:request>
+        </ns1:createOrdersAsync>
+    </soap:Body>
+</soap:Envelope>

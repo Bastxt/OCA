@@ -115,6 +115,7 @@ indexSizeIva = sizeofarray(indexIva);
 tSsize = jsonarraysize(totalesPorServicio);
 size = range(tSsize);
 
+
 indexC = 0;
 indexK = 0;
 rowDel = false;
@@ -123,29 +124,22 @@ contIndex = integer[];
 
 if (tSsize > 0) {
     for val in size{
-        if (indexSize > 0) {
-            row = jsonarrayget(totalesPorServicio, val, "json");
-            for k in index{
-                print(k);
-                if (k <> "") {
-                    if (jsonget(row, "servicio") == k and success <> true) {
-                        jsonput(row, "total", get(resTotalesSer, k));
-                        jsonput(row, "iva", get(resTotalesSerIva, k));
-                        jsonput(row, "totaliva", get(resTotalesSerIva, k) + get(resTotalesSer, k));
-                        //se encontro registro
-                        success = true;
-                        //se almacena index de elemento retornado de la funcion cargarTotalesPorServicio
-                        //cuando este coincide con la linea de la matriz
-                        contIndex[indexK] = indexK;
-                    }
+        row = jsonarrayget(totalesPorServicio, val, "json");
+        for k in index{
+            if (k <> "") {
+                if (jsonget(row, "servicio") == k and success <> true) {
+                    jsonput(row, "total", get(resTotalesSer, k));
+                    jsonput(row, "iva", get(resTotalesSerIva, k));
+                    jsonput(row, "totaliva", get(resTotalesSerIva, k) + get(resTotalesSer, k));
+                    //se encontro registro
+                    success = true;
+                    //se almacena index de elemento retornado de la funcion cargarTotalesPorServicio
+                    //cuando este coincide con la linea de la matriz
+                    contIndex[indexK] = indexK;
                 }
-                indexK = indexK + 1;
             }
+            indexK = indexK + 1;
         }
-        else {
-            jsonarrayremove(totalesPorServicio, val);
-        }
-        
         if (success == false) {
             jsonarrayremove(totalesPorServicio, val);
         }
@@ -153,6 +147,7 @@ if (tSsize > 0) {
         indexK = 0;
         success = false;
     }
+    //ret = ret + "|1~totalesPorServicio~" + jsonarrayrefid(totalesPorServicio) + "|";
     indexC = 0;
 
     if (indexSize == 0) {
@@ -160,8 +155,10 @@ if (tSsize > 0) {
             jsonarrayremove(totalesPorServicio, val);
         }
     }
+    //ret = ret + "|1~totalesPorServicio~" + jsonarrayrefid(totalesPorServicio) + "|";
 }
 else {
+
     if (tSsize == 0) {
         index = keys(resTotalesSer);
         for k in index{
@@ -177,6 +174,7 @@ else {
         //ret = ret + "|1~totalesPorServicio~" + jsonarrayrefid(totalesPorServicio) + "|";
     }
     else {
+
         //busqueda inversa para creacion
         succ = false;
         index = keys(resTotalesSer);
@@ -206,8 +204,10 @@ else {
             rCount = rCount + 1;
             succ = false;
         }
+
     }
 }
+
 
 ret = ret + "|1~totalesPorServicio~" + jsonarrayrefid(totalesPorServicio) + "|";
 
